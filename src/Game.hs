@@ -10,5 +10,6 @@ initGame n = State { players =  [HPlayer { name = "Player" ++ show xs, hand =  [
                      d_stack = [ ] }
 
 -- TODO: Implement a method to setup the game
+
 setupGame :: State -> IO State
 setupGame gs = return (gs)

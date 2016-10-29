@@ -76,7 +76,7 @@ gameSpecs = describe "Game" $ do
       -- gs' <- setupGame gs
 
 -- Test data fixtures
---
+
 blueThree = Card { color = Blue, value = Three }
 redOne = Card { color = Red, value = One }
 johnnyCash = HPlayer { name = "Johnny", hand = [ blueThree, redOne ] }
