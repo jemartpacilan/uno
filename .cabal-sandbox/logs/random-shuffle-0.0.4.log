@@ -1,8 +1,0 @@
-Registering random-shuffle-0.0.4...
-\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\random-shuffle-0.0.4-4HPj3K38ghl6zBNCA2I5Iy
- dist\dist-sandbox-bb0d78be\build\System\Random\Shuffle.o )
-
-src\System\Random\Shuffle.hs:59:1: warning: [-Wtabs]
-    Tab character found here, and in 10 further locations.
-    Please use spaces instead.
-cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-7800\random-shuffle-0.0.4'
