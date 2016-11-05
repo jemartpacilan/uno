@@ -1,7 +1,7 @@
 module Game where
 
 import Common
-
+import Shuffler
 initGame :: Int -> State
 
 -- TODO: Implement a method to initialize a new game given n players
@@ -12,4 +12,5 @@ initGame n = State { players =  [HPlayer { name = "Player" ++ show xs, hand =  [
 -- TODO: Implement a method to setup the game
 
 setupGame :: State -> IO State
-setupGame gs = return (gs)
+
+setupGame gs = shuffleDeck gs
