@@ -1,0 +1,29 @@
+Registering MonadRandom-0.4.2.3...
+i\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\MonadRandom-0.4.2.3-BeY4MXl2TWH5X5ex76pU0B
+s.hs, dist\dist-sandbox-bb0d78be\build\Control\Monad\Random\Class.o )
+[2 of 2] Compiling Control.Monad.Random ( Control\Monad\Random.hs, dist\dist-sandbox-bb0d78be\build\Control\Monad\Random.o )
+
+Control\Monad\Random.hs:54:1: warning: [-Wdeprecations]
+    Module `Control.Monad.Error' is deprecated:
+      Use Control.Monad.Except instead
+
+Control\Monad\Random.hs:206:11: warning: [-Wdeprecations]
+    In the use of type constructor or class `Error'
+    (imported from Control.Monad.Error, but defined in Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control\Monad\Random.hs:206:51: warning: [-Wdeprecations]
+    In the use of type constructor or class `ErrorT'
+    (imported from Control.Monad.Error, but defined in Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control\Monad\Random.hs:251:11: warning: [-Wdeprecations]
+    In the use of type constructor or class `Error'
+    (imported from Control.Monad.Error, but defined in Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control\Monad\Random.hs:251:53: warning: [-Wdeprecations]
+    In the use of type constructor or class `ErrorT'
+    (imported from Control.Monad.Error, but defined in Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-7800\MonadRandom-0.4.2.3'
