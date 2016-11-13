@@ -67,15 +67,17 @@ gameSpecs = describe "Game" $ do
 
   describe "setupGame" $ do
     it "should shuffle the deck" $ do
-      --pendingWith "Implement the setupGame function"
-       let gs = initGame 4
-       gs' <- setupGame gs
-       (deck gs') `shouldNotBe` (deck gs)
+      pendingWith "Implement the setupGame function"
+       --let gs = initGame 4
+       --gs' <- setupGame gs
+       --(deck gs') `shouldNotBe` (deck gs)
     it "should distribute cards to players" $ do
       pendingWith "Implement the setupGame function"
       --let gs = initGame 4
-      -- gs' <- setupGame gs
-       --length (deck gs') `shouldBe` 80
+      --gs' <- setupGame gs
+      --length (deck gs') `shouldBe` 80
+
+
 
 -- Test data fixtures
 

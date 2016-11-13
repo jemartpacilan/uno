@@ -37,6 +37,3 @@ fullDeck = zeroes ++ (nplicate 2 ncards) ++ (nplicate 4 blacks) where
   zeroes = [ Card c Zero | c <- [Red .. Blue] ]
   ncards = [ Card c v | c <- [Red .. Blue], v <- [One .. ChDir] ]
   blacks = [ Card Black v | v <- [Plus4, ChCol] ]
-
-nplicate :: Int -> [a] -> [a]
-nplicate n xs = concat $ (take n) $ repeat xs
