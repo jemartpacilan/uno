@@ -1,0 +1,26 @@
+Registering yjtools-0.9.18...
+\jpaci\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\yjtools-0.9.18-kzvT6IjllU29gmoGLSMMQ
+bb0d78be\build\Data\Tuple\Tools.o )
+
+Data\Tuple\Tools.hs:2:1: warning: [-Wtabs]
+    Tab character found here, and in two further locations.
+    Please use spaces instead.
+[2 of 7] Compiling Data.IORef.Tools ( Data\IORef\Tools.hs, dist\dist-sandbox-bb0d78be\build\Data\IORef\Tools.o )
+
+Data\IORef\Tools.hs:2:1: warning: [-Wtabs]
+    Tab character found here.
+    Please use spaces instead.
+[3 of 7] Compiling Data.Bool.Tools  ( Data\Bool\Tools.hs, dist\dist-sandbox-bb0d78be\build\Data\Bool\Tools.o )
+
+Data\Bool\Tools.hs:10:1: warning: [-Wtabs]
+    Tab character found here, and in one further location.
+    Please use spaces instead.
+[4 of 7] Compiling Data.Function.Tools ( Data\Function\Tools.hs, dist\dist-sandbox-bb0d78be\build\Data\Function\Tools.o )
+[5 of 7] Compiling Data.List.Tools  ( Data\List\Tools.hs, dist\dist-sandbox-bb0d78be\build\Data\List\Tools.o )
+[6 of 7] Compiling Control.Applicative.Tools ( Control\Applicative\Tools.hs, dist\dist-sandbox-bb0d78be\build\Control\Applicative\Tools.o )
+[7 of 7] Compiling Control.Monad.Tools ( Control\Monad\Tools.hs, dist\dist-sandbox-bb0d78be\build\Control\Monad\Tools.o )
+
+Control\Monad\Tools.hs:36:1: warning: [-Wtabs]
+    Tab character found here, and in three further locations.
+    Please use spaces instead.
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-6420\yjtools-0.9.18'

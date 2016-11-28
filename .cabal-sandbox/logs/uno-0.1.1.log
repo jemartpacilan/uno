@@ -1,0 +1,16 @@
+Building uno-0.1.1...
+Preprocessing library uno-0.1.1...
+[4 of 6] Compiling Game             ( src\Game.hs, dist\dist-sandbox-bb0d78be\build\Game.o )
+
+src\Game.hs:22:76: error:
+    * Couldn't match type `[Card]' with `Card'
+      Expected type: Deck
+        Actual type: [Hand]
+    * In the `deck' field of a record
+      In the first argument of `shuffleDeck', namely
+        `(State
+            {players = initPlayersCard gs1, deck = initCardToDeal gs1})'
+      In a stmt of a 'do' block:
+        shuffleDeck
+          (State {players = initPlayersCard gs1, deck = initCardToDeal gs1})
+cabal: Leaving directory '.'

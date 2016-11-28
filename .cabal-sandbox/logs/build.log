@@ -40,3 +40,316 @@ dependencies: base-4.9.0.0 ghc-prim-0.5.0.0 transformers-0.5.2.0
 install-outcome: InstallOk
 docs-outcome: NotTried
 tests-outcome: NotTried
+
+package: Glob-0.7.12
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: Win32-2.3.1.1 base-4.9.0.0 containers-0.5.7.1
+              directory-1.2.6.2 dlist-0.8.0.2 filepath-1.4.1.0
+              transformers-0.5.2.0 transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: aeson-1.0.2.1
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: -fast -developer -bytestring-builder
+dependencies: attoparsec-0.13.1.0 base-4.9.0.0 base-compat-0.9.1
+              bytestring-0.10.8.1 containers-0.5.7.1 deepseq-1.4.2.0
+              dlist-0.8.0.2 ghc-prim-0.5.0.0 hashable-1.2.4.0 scientific-0.3.4.9
+              tagged-0.8.5 template-haskell-2.11.0.0 text-1.2.2.1 time-1.6.0.1
+              time-locale-compat-0.1.1.3 unordered-containers-0.2.7.0
+              vector-0.11.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: attoparsec-0.13.1.0
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: -developer
+dependencies: array-0.5.1.1 base-4.9.0.0 bytestring-0.10.8.1
+              containers-0.5.7.1 deepseq-1.4.2.0 scientific-0.3.4.9 text-1.2.2.1
+              transformers-0.5.2.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: base-compat-0.9.1
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: conduit-1.2.8
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 exceptions-0.8.3 lifted-base-0.2.3.8
+              mmorph-1.0.6 monad-control-1.0.1.0 mtl-2.2.1 resourcet-1.1.8.1
+              transformers-0.5.2.0 transformers-base-0.4.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: dlist-0.8.0.2
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 deepseq-1.4.2.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: enclosed-exceptions-1.0.2
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 deepseq-1.4.2.0 lifted-base-0.2.3.8
+              monad-control-1.0.1.0 transformers-0.5.2.0 transformers-base-0.4.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: exceptions-0.8.3
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 mtl-2.2.1 stm-2.4.4.1
+              template-haskell-2.11.0.0 transformers-0.5.2.0
+              transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: hpack-0.15.0
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: Glob-0.7.12 aeson-1.0.2.1 base-4.9.0.0
+              base-compat-0.9.1 containers-0.5.7.1 deepseq-1.4.2.0
+              directory-1.2.6.2 filepath-1.4.1.0 text-1.2.2.1
+              unordered-containers-0.2.7.0 yaml-0.8.20 Glob-0.7.12 aeson-1.0.2.1
+              base-4.9.0.0 base-compat-0.9.1 containers-0.5.7.1 deepseq-1.4.2.0
+              directory-1.2.6.2 filepath-1.4.1.0 text-1.2.2.1
+              unordered-containers-0.2.7.0 yaml-0.8.20
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: lifted-base-0.2.3.8
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 monad-control-1.0.1.0
+              transformers-base-0.4.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: mmorph-1.0.6
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 mtl-2.2.1 transformers-0.5.2.0
+              transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: monad-control-1.0.1.0
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 stm-2.4.4.1 transformers-0.5.2.0
+              transformers-base-0.4.4 transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: resourcet-1.1.8.1
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 containers-0.5.7.1 exceptions-0.8.3
+              lifted-base-0.2.3.8 mmorph-1.0.6 monad-control-1.0.1.0 mtl-2.2.1
+              transformers-0.5.2.0 transformers-base-0.4.4
+              transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: scientific-0.3.4.9
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: -integer-simple -bytestring-builder
+dependencies: base-4.9.0.0 binary-0.8.3.0 bytestring-0.10.8.1
+              containers-0.5.7.1 deepseq-1.4.2.0 ghc-prim-0.5.0.0
+              hashable-1.2.4.0 integer-gmp-1.0.0.1 text-1.2.2.1 vector-0.11.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: semigroups-0.18.2
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: unordered-containers transformers text tagged hashable
+       deepseq containers bytestring-builder bytestring binary
+dependencies: base-4.9.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: tagged-0.8.5
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: transformers deepseq
+dependencies: base-4.9.0.0 deepseq-1.4.2.0
+              template-haskell-2.11.0.0 transformers-0.5.2.0
+              transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: time-locale-compat-0.1.1.3
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: -old-locale
+dependencies: base-4.9.0.0 time-1.6.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: transformers-base-0.4.4
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: orphaninstances
+dependencies: base-4.9.0.0 stm-2.4.4.1 transformers-0.5.2.0
+              transformers-compat-0.5.1.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: yaml-0.8.20
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: -system-libyaml -no-unicode -no-exe no-examples
+dependencies: aeson-1.0.2.1 attoparsec-0.13.1.0 base-4.9.0.0
+              bytestring-0.10.8.1 conduit-1.2.8 containers-0.5.7.1
+              directory-1.2.6.2 enclosed-exceptions-1.0.2 filepath-1.4.1.0
+              resourcet-1.1.8.1 scientific-0.3.4.9 semigroups-0.18.2
+              template-haskell-2.11.0.0 text-1.2.2.1 transformers-0.5.2.0
+              unordered-containers-0.2.7.0 vector-0.11.0.0 aeson-1.0.2.1
+              base-4.9.0.0 bytestring-0.10.8.1 aeson-1.0.2.1 base-4.9.0.0
+              bytestring-0.10.8.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: hake-1.3.8.1
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 filepath-1.4.1.0 mtl-2.2.1 time-1.6.0.1
+              directory-1.2.6.2 process-1.4.2.0 regexpr-0.5.4 yjtools-0.9.18
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: mtlparse-0.1.4.0
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0 mtl-2.2.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: regexpr-0.5.4
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: HUnit-1.3.1.1 base-4.9.0.0 mtl-2.2.1 mtlparse-0.1.4.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: yjtools-0.9.18
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: base-4.9.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: uno-0.1.1
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: ansi-terminal-0.6.2.3 base-4.9.0.0 random-1.1
+              random-shuffle-0.0.4 ansi-terminal-0.6.2.3 base-4.9.0.0
+              hpack-0.15.0 random-1.1 random-shuffle-0.0.4
+install-outcome: BuildFailed
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: ansi-terminal-0.6.2.3
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+flags: -example
+dependencies: Win32-2.3.1.1 base-4.9.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: uno-0.1.1
+os: windows
+arch: x86_64
+compiler: ghc-8.0.1
+client: cabal-install-1.24.0.0
+dependencies: ansi-terminal-0.6.2.3 base-4.9.0.0 random-1.1
+              random-shuffle-0.0.4 ansi-terminal-0.6.2.3 base-4.9.0.0
+              hpack-0.15.0 random-1.1 random-shuffle-0.0.4
+install-outcome: BuildFailed
+docs-outcome: NotTried
+tests-outcome: NotTried

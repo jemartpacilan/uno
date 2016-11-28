@@ -1,0 +1,97 @@
+
+==================== FINAL INTERFACE ====================
+2016-11-28 14:58:43.5341094 UTC
+
+interface uno-0.1.1-9oZSbbIzoKW1G8tXby6amp:Shuffler 8001
+  interface hash: b5856418a13c77f84a7fa4f6c075c79a
+  ABI hash: 8dfcd81dcabae1fdae745c6b0d8bab4c
+  export-list hash: f6285404716573b527204386263a7d42
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 365edb496d38399416a64131c77130e2
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Shuffler.shuffleDeck
+module dependencies: Common
+package dependencies: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
+                      Win32-2.3.1.1@Win32-2.3.1.1
+                      ansi-terminal-0.6.2.3@ansi-terminal-0.6.2.3-DlzOk98pOsTIrg6vAjszFA
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.0.0*
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM
+                      random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe*
+                      random-shuffle-0.0.4@random-shuffle-0.0.4-LfeDYNPfwrQ2o9p6tw2M9l
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
+         base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Complex base-4.9.0.0:Data.Either
+                         base-4.9.0.0:Data.Functor.Const base-4.9.0.0:Data.Functor.Identity
+                         base-4.9.0.0:Data.List.NonEmpty base-4.9.0.0:Data.Monoid
+                         base-4.9.0.0:Data.Semigroup base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:Data.Version base-4.9.0.0:Data.Void
+                         base-4.9.0.0:GHC.Exts base-4.9.0.0:GHC.Generics
+                         base-4.9.0.0:GHC.IO.Exception base-4.9.0.0:GHC.TypeLits
+import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
+import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+import  -/  random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe:System.Random 8483439f8ec14d68196250b2c4a4fa4e
+import  -/  random-shuffle-0.0.4@random-shuffle-0.0.4-LfeDYNPfwrQ2o9p6tw2M9l:System.Random.Shuffle f865f84aae69c13ae02b97cdba46d753
+import  -/  Common 89a33676a865c1e633985e80b9303588
+  exports: aa44b1ca1bba37c87c3a7b6a74ad6dc4
+  State d288502f809c988302e39a7d1adf5abe
+  deck f8361331dc860f512622b8696b78f084
+563e77fa24c17d6c0b318a82fefe1c89
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Shuffler.$trModule2
+                   Shuffler.$trModule1) -}
+fac5868a84ba77ade683e341a0c43f6c
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Shuffler"#) -}
+344fc89ee7e1aaa4b09c08fee8b2463f
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "uno-0.1.1-9oZSbbIzoKW1G8tXby6amp"#) -}
+d5f634721780639154381b34287ef58b
+  shuffleDeck :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, Strictness: <S(LSL),1*U(U,1*U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Shuffler.shuffleDeck1
+                  `cast`
+                (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+5defbb50aba9c6b9003b48a137360d50
+  shuffleDeck1 ::
+    Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 2, Strictness: <S(LSL),1*U(U,1*U,U)><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (state :: Common.State)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case state of wild { Common.State ds1 ds2 ds3 ->
+                 case (System.Random.Shuffle.shuffleM
+                         @ GHC.Types.IO
+                         @ Common.Card
+                         Control.Monad.Random.$fMonadRandomIO
+                         ds2)
+                        `cast`
+                      (GHC.Types.N:IO[0] <[Common.Card]>_R)
+                        s of ds4 { (#,#) ipv ipv1 ->
+                 (# ipv, Common.State ds1 ipv1 ds3 #) } }) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

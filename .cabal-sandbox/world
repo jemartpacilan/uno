@@ -1,2 +1,4 @@
+hake -any
+hpack -any
 random-shuffle -any
 random -any

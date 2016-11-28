@@ -1,0 +1,178 @@
+
+==================== FINAL INTERFACE ====================
+2016-11-28 14:58:43.8081987 UTC
+
+interface uno-0.1.1-9oZSbbIzoKW1G8tXby6amp:Game 8001
+  interface hash: 7d85fe578dd424b486861c0e1a6452ed
+  ABI hash: 70e0145a74cb42c715b7f4eb15a5260d
+  export-list hash: f69d5b841e43f994c818dc83cb89287c
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 365edb496d38399416a64131c77130e2
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Game.deal
+  Game.initGame
+  Game.initialCardCount
+  Game.setupGame
+module dependencies: Common Shuffler
+package dependencies: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
+                      Win32-2.3.1.1@Win32-2.3.1.1
+                      ansi-terminal-0.6.2.3@ansi-terminal-0.6.2.3-DlzOk98pOsTIrg6vAjszFA
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.0.0*
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM
+                      random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe
+                      random-shuffle-0.0.4@random-shuffle-0.0.4-LfeDYNPfwrQ2o9p6tw2M9l
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
+         base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Complex base-4.9.0.0:Data.Either
+                         base-4.9.0.0:Data.Functor.Const base-4.9.0.0:Data.Functor.Identity
+                         base-4.9.0.0:Data.List.NonEmpty base-4.9.0.0:Data.Monoid
+                         base-4.9.0.0:Data.Semigroup base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:Data.Version base-4.9.0.0:Data.Void
+                         base-4.9.0.0:GHC.Exts base-4.9.0.0:GHC.Generics
+                         base-4.9.0.0:GHC.IO.Exception base-4.9.0.0:GHC.TypeLits
+import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
+import  -/  base-4.9.0.0:GHC.List 47d436dfb7454bb1883fb4d943e3f389
+import  -/  base-4.9.0.0:GHC.Show 0b5845243cb2ec62b57dd6963d276ec6
+import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+import  -/  Common 89a33676a865c1e633985e80b9303588
+  exports: aa44b1ca1bba37c87c3a7b6a74ad6dc4
+  Deck cd45c4715fc3cd4b0692bc1e025222de
+  HPlayer c2d6d4dfedda211a8ff11e17641808ae
+  Player d07243ec835d05cdd89317ad4dbeaa22
+  State 44afc0a47b4d10816550ab0deb4188a1
+  State d288502f809c988302e39a7d1adf5abe
+  d_stack 510c77d8913f5bd8289e87b68827444f
+  deck f8361331dc860f512622b8696b78f084
+  fullDeck 9900e44dd28bf45765526df601281ee8
+  hand 5bd2db0fd0e73792c5348d9109131ef3
+  name 77a970fe2a14578a0b75a9839ae2bf68
+  players 4d4bce967ebd07a139056c3e22621d58
+import  -/  Shuffler 8dfcd81dcabae1fdae745c6b0d8bab4c
+  exports: f6285404716573b527204386263a7d42
+  shuffleDeck d5f634721780639154381b34287ef58b
+60c960654e42fd0d26dc711abbe67448
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Game.$trModule2 Game.$trModule1) -}
+753b35286e5fa289ea7ad1e7d10cdc3a
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Game"#) -}
+941a7abcf27528466f6296f7c0541402
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "uno-0.1.1-9oZSbbIzoKW1G8tXby6amp"#) -}
+2db8d9b38c68344cf0310c4e1ce20e67
+  $winitGame ::
+    GHC.Types.Int -> (# [Common.Player], Common.Deck, Common.D_Stack #)
+  {- Arity: 1, Strictness: <L,1*U(U)>, Inline: [0],
+     Unfolding: (\ (w :: GHC.Types.Int) ->
+                 (# case w of wild1 { GHC.Types.I# y ->
+                    case GHC.Prim.tagToEnum#
+                           @ GHC.Types.Bool
+                           (GHC.Prim.># 1# y) of wild {
+                      GHC.Types.False
+                      -> letrec {
+                           go :: GHC.Prim.Int# -> [Common.Player]
+                             {- Arity: 1, Strictness: <L,U> -}
+                           = \ (x :: GHC.Prim.Int#) ->
+                             GHC.Types.:
+                               @ Common.Player
+                               (Common.HPlayer
+                                  (GHC.CString.unpackAppendCString#
+                                     "Player"#
+                                     (case GHC.Show.$wshowSignedInt
+                                             0#
+                                             x
+                                             (GHC.Types.[]
+                                                @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                      GHC.Types.: @ GHC.Types.Char ww5 ww6 }))
+                                  (GHC.Types.[] @ Common.Card))
+                               (case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==# x y) of wild2 {
+                                  GHC.Types.False -> go (GHC.Prim.+# x 1#)
+                                  GHC.Types.True -> GHC.Types.[] @ Common.Player })
+                         } in
+                         go 1#
+                      GHC.Types.True -> GHC.Types.[] @ Common.Player } },
+                    Common.fullDeck, GHC.Types.[] @ Common.Card #)) -}
+86c31b0400b863fff1d0fb03d1b3e58e
+  $wsetupGame ::
+    [Common.Player]
+    -> Common.Deck
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, Strictness: <L,1*U><S,U><S,U>, Inline: [0],
+     Unfolding: (\ (ww :: [Common.Player])
+                   (ww1 :: Common.Deck)
+                   (w :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case (System.Random.Shuffle.shuffleM
+                         @ GHC.Types.IO
+                         @ Common.Card
+                         Control.Monad.Random.$fMonadRandomIO
+                         (Game.$wunsafeDrop @ Common.Card 28# ww1))
+                        `cast`
+                      (GHC.Types.N:IO[0] <[Common.Card]>_R)
+                        w of ds4 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    Common.State (Game.deal ww1 ww) ipv1 Game.setupGame2 #) }) -}
+ab15efc11bd16716831b7cb74cfe7ae4
+  $wunsafeDrop :: GHC.Prim.Int# -> [a1] -> [a1]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
+     Inline: [0] -}
+61c61dfe1d25c378bca6b43df379a018
+  deal :: Common.Deck -> [Common.Player] -> [Common.Player]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U> -}
+9142a03b64e0a6095b2257fca92e582a
+  initGame :: GHC.Types.Int -> Common.State
+  {- Arity: 1, Strictness: <L,1*U(U)>m, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: GHC.Types.Int) ->
+                 case Game.$winitGame w of ww { (#,,#) ww1 ww2 ww3 ->
+                 Common.State ww1 ww2 ww3 }) -}
+b6630ac52ef1770a692b3a568933d954
+  initialCardCount :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7#) -}
+cd235847b9603ef0577bf21c4cc9edac
+  setupGame :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, Strictness: <S(LSL),1*U(1*U,U,A)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.setupGame1
+                  `cast`
+                (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+146a4f861aecb6cebe17067c99397d6f
+  setupGame1 ::
+    Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 2, Strictness: <S(LSL),1*U(1*U,U,A)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Common.State)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { Common.State ww1 ww2 ww3 ->
+                 Game.$wsetupGame ww1 ww2 w1 }) -}
+e0c30b7e9cd50ef0bc2a009287d7ec00
+  setupGame2 :: Common.D_Stack
+  {- Strictness: x -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

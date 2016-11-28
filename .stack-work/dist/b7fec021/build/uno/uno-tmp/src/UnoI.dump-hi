@@ -1,0 +1,93 @@
+
+==================== FINAL INTERFACE ====================
+2016-11-28 14:42:37.100736 UTC
+
+interface main@main:UnoI 8001
+  interface hash: e146da59da7e1f23276a8918b28927f6
+  ABI hash: 93372208a347a6c88e6282d3e39138f4
+  export-list hash: 998d17b0ddc3ba9789cde25fa3e045dc
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 5dce9974ea0e787ec0b9bd9d1203e496
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  UnoI.unoInteractive
+module dependencies: Common Shuffler
+package dependencies: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
+                      Win32-2.3.1.1@Win32-2.3.1.1
+                      ansi-terminal-0.6.2.3@ansi-terminal-0.6.2.3-DlzOk98pOsTIrg6vAjszFA
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.0.0*
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM
+                      random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe
+                      random-shuffle-0.0.4@random-shuffle-0.0.4-LfeDYNPfwrQ2o9p6tw2M9l
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
+         base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Complex base-4.9.0.0:Data.Either
+                         base-4.9.0.0:Data.Functor.Const base-4.9.0.0:Data.Functor.Identity
+                         base-4.9.0.0:Data.List.NonEmpty base-4.9.0.0:Data.Monoid
+                         base-4.9.0.0:Data.Semigroup base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:Data.Version base-4.9.0.0:Data.Void
+                         base-4.9.0.0:GHC.Exts base-4.9.0.0:GHC.Generics
+                         base-4.9.0.0:GHC.IO.Exception base-4.9.0.0:GHC.TypeLits
+import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
+import  -/  base-4.9.0.0:GHC.Real 011de9ca3282ad24a84e4e15f974f98e
+import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
+import  -/  Common 314aa025a877a9b98b072cae5de130a3
+  exports: 328ebd8136b873bd4d3db6e12f4d2c40
+import  -/  Shuffler 997d6778562718d7a9d5c6c796e4d5ab
+  exports: ffa394dcdcadd28fb876b9aa60547013
+99dbd6aa8439f97c19065cc65c7e3479
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module UnoI.$trModule2 UnoI.$trModule1) -}
+78331d0f9ded70be5cfed45a83d702a8
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "UnoI"#) -}
+5e20f609cb32fd0bb627243dfb39553d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+4e9e0bf5cd541bd937f5aae75d52d494
+  unoInteractive :: GHC.Real.Integral a => a -> GHC.Base.String
+  {- Arity: 2,
+     Strictness: <S(SLLLLLLLL),1*U(1*U,A,A,A,A,A,A,A,A)><L,U>,
+     Unfolding: (\ @ a ($dIntegral :: GHC.Real.Integral a) (eta :: a) ->
+                 let {
+                   $dReal :: GHC.Real.Real a = GHC.Real.$p1Integral @ a $dIntegral
+                 } in
+                 case GHC.Classes.==
+                        @ a
+                        (GHC.Classes.$p1Ord @ a (GHC.Real.$p2Real @ a $dReal))
+                        eta
+                        (GHC.Num.fromInteger
+                           @ a
+                           (GHC.Real.$p1Real @ a $dReal)
+                           UnoI.unoInteractive3) of wild {
+                   GHC.Types.False -> UnoI.unoInteractive2
+                   GHC.Types.True -> UnoI.unoInteractive1 }) -}
+47400c024d15cd71a7718e11343b0236
+  unoInteractive1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Hello"#) -}
+b1f3f082ca235b1ae32c14b8fcce2ba9
+  unoInteractive2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Hello World"#) -}
+e65084f21e4124b9d7147b1770bcec93
+  unoInteractive3 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (1) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

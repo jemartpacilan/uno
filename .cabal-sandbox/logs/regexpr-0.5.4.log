@@ -1,0 +1,37 @@
+Registering regexpr-0.5.4...
+s\jpaci\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\regexpr-0.5.4-zufO9VqQJYG9z11vfOL13
+8be\build\Hidden\Tools.o )
+
+Hidden\Tools.hs:101:1: warning: [-Wtabs]
+    Tab character found here, and in one further location.
+    Please use spaces instead.
+[2 of 6] Compiling Hidden.RegexPRTypes ( Hidden\RegexPRTypes.hs, dist\dist-sandbox-bb0d78be\build\Hidden\RegexPRTypes.o )
+
+Hidden\RegexPRTypes.hs:86:1: warning: [-Wtabs]
+    Tab character found here, and in 13 further locations.
+    Please use spaces instead.
+[3 of 6] Compiling Hidden.SrcRegActList ( Hidden\SrcRegActList.hs, dist\dist-sandbox-bb0d78be\build\Hidden\SrcRegActList.o )
+
+Hidden\SrcRegActList.hs:70:1: warning: [-Wtabs]
+    Tab character found here, and in 7 further locations.
+    Please use spaces instead.
+[4 of 6] Compiling Hidden.ParseRegexStr ( Hidden\ParseRegexStr.hs, dist\dist-sandbox-bb0d78be\build\Hidden\ParseRegexStr.o )
+
+Hidden\ParseRegexStr.hs:28:1: warning: [-Wtabs]
+    Tab character found here, and in 61 further locations.
+    Please use spaces instead.
+
+Hidden\ParseRegexStr.hs:31:1: warning: [-Wunused-imports]
+    The import of `MonadParse'
+    from module `Text.ParserCombinators.MTLParse' is redundant
+[5 of 6] Compiling Hidden.RegexPRCore ( Hidden\RegexPRCore.hs, dist\dist-sandbox-bb0d78be\build\Hidden\RegexPRCore.o )
+
+Hidden\RegexPRCore.hs:92:1: warning: [-Wtabs]
+    Tab character found here.
+    Please use spaces instead.
+[6 of 6] Compiling Text.RegexPR     ( Text\RegexPR.hs, dist\dist-sandbox-bb0d78be\build\Text\RegexPR.o )
+
+Text\RegexPR.hs:44:1: warning: [-Wtabs]
+    Tab character found here, and in five further locations.
+    Please use spaces instead.
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-6420\regexpr-0.5.4'

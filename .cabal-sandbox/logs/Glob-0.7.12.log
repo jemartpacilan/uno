@@ -1,0 +1,10 @@
+Registering Glob-0.7.12...
+ers\jpaci\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\Glob-0.7.12-3rdIGBc9zLPCtCR9JNWmFe
+st\dist-sandbox-bb0d78be\build\System\FilePath\Glob\Utils.o )
+[2 of 7] Compiling System.FilePath.Glob.Base ( System\FilePath\Glob\Base.hs, dist\dist-sandbox-bb0d78be\build\System\FilePath\Glob\Base.o )
+[3 of 7] Compiling System.FilePath.Glob.Match ( System\FilePath\Glob\Match.hs, dist\dist-sandbox-bb0d78be\build\System\FilePath\Glob\Match.o )
+[4 of 7] Compiling System.FilePath.Glob.Directory ( System\FilePath\Glob\Directory.hs, dist\dist-sandbox-bb0d78be\build\System\FilePath\Glob\Directory.o )
+[5 of 7] Compiling System.FilePath.Glob.Simplify ( System\FilePath\Glob\Simplify.hs, dist\dist-sandbox-bb0d78be\build\System\FilePath\Glob\Simplify.o )
+[6 of 7] Compiling System.FilePath.Glob.Primitive ( System\FilePath\Glob\Primitive.hs, dist\dist-sandbox-bb0d78be\build\System\FilePath\Glob\Primitive.o )
+[7 of 7] Compiling System.FilePath.Glob ( System\FilePath\Glob.hs, dist\dist-sandbox-bb0d78be\build\System\FilePath\Glob.o )
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-2728\Glob-0.7.12'

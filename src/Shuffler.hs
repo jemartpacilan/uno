@@ -7,4 +7,6 @@ import Common
 
 shuffleDeck :: State -> IO State
 
-shuffleDeck state = shuffleM (deck state) >>= (\currentDeck -> return(state{deck = currentDeck}))
+shuffleDeck state = shuffleM (deck state)
+                    >>= (\currentDeck ->
+                    return(state{deck = currentDeck}))

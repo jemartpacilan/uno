@@ -1,0 +1,38 @@
+Registering yaml-0.8.20...
+ers\jpaci\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\yaml-0.8.20-EZKtjK1gQmDJiHrS2FNh7P
+Installing executable(s) in
+C:\Users\jpaci\OneDrive\Documents\GitHub\uno\.cabal-sandbox\bin
+st\dist-sandbox-bb0d78be\build\Data\Yaml\Internal.o )
+[ 3 of 10] Compiling Data.Yaml        ( Data\Yaml.hs, dist\dist-sandbox-bb0d78be\build\Data\Yaml.o )
+
+Data\Yaml.hs:74:1: warning: [-Wdeprecations]
+    Module `Data.Aeson.Encode' is deprecated:
+      Use Data.Aeson or Data.Aeson.Text instead
+
+Data\Yaml.hs:140:88: warning: [-Wdeprecations]
+    In the use of `encodeToTextBuilder'
+    (imported from Data.Aeson.Encode):
+    Deprecated: "Use Data.Aeson or Data.Aeson.Text instead"
+[ 4 of 10] Compiling Data.Yaml.Aeson  ( Data\Yaml\Aeson.hs, dist\dist-sandbox-bb0d78be\build\Data\Yaml\Aeson.o )
+[ 5 of 10] Compiling Data.Yaml.TH     ( Data\Yaml\TH.hs, dist\dist-sandbox-bb0d78be\build\Data\Yaml\TH.o )
+[ 6 of 10] Compiling Data.Yaml.Builder ( Data\Yaml\Builder.hs, dist\dist-sandbox-bb0d78be\build\Data\Yaml\Builder.o )
+
+Data\Yaml\Builder.hs:25:1: warning: [-Wdeprecations]
+    Module `Data.Aeson.Encode' is deprecated:
+      Use Data.Aeson or Data.Aeson.Text instead
+
+Data\Yaml\Builder.hs:89:85: warning: [-Wdeprecations]
+    In the use of `encodeToTextBuilder'
+    (imported from Data.Aeson.Encode):
+    Deprecated: "Use Data.Aeson or Data.Aeson.Text instead"
+[ 7 of 10] Compiling Data.Yaml.Pretty ( Data\Yaml\Pretty.hs, dist\dist-sandbox-bb0d78be\build\Data\Yaml\Pretty.o )
+[ 8 of 10] Compiling Data.Yaml.Include ( Data\Yaml\Include.hs, dist\dist-sandbox-bb0d78be\build\Data\Yaml\Include.o )
+[ 9 of 10] Compiling Data.Yaml.Config ( Data\Yaml\Config.hs, dist\dist-sandbox-bb0d78be\build\Data\Yaml\Config.o )
+[10 of 10] Compiling Data.Yaml.Parser ( Data\Yaml\Parser.hs, dist\dist-sandbox-bb0d78be\build\Data\Yaml\Parser.o )
+Preprocessing executable 'yaml2json' for yaml-0.8.20...
+[1 of 1] Compiling Main             ( exe\yaml2json.hs, dist\dist-sandbox-bb0d78be\build\yaml2json\yaml2json-tmp\Main.o )
+Linking dist/dist-sandbox-bb0d78be\build\yaml2json\yaml2json.exe ...
+Preprocessing executable 'json2yaml' for yaml-0.8.20...
+[1 of 1] Compiling Main             ( exe\json2yaml.hs, dist\dist-sandbox-bb0d78be\build\json2yaml\json2yaml-tmp\Main.o )
+Linking dist/dist-sandbox-bb0d78be\build\json2yaml\json2yaml.exe ...
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-2728\yaml-0.8.20'

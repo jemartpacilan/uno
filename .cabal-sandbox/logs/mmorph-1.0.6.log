@@ -1,0 +1,49 @@
+Registering mmorph-1.0.6...
+rs\jpaci\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\mmorph-1.0.6-I6fWQohILlqH1gvA6UibXU
+andbox-bb0d78be\build\Control\Monad\Morph.o )
+
+src\Control\Monad\Morph.hs:76:1: warning: [-Wdeprecations]
+    Module `Control.Monad.Trans.Error' is deprecated:
+      Use Control.Monad.Trans.Except instead
+
+src\Control\Monad\Morph.hs:112:20: warning: [-Wdeprecations]
+    In the use of type constructor or class `ErrorT'
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+src\Control\Monad\Morph.hs:113:19: warning: [-Wdeprecations]
+    In the use of data constructor `ErrorT'
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+src\Control\Monad\Morph.hs:113:34: warning: [-Wdeprecations]
+    In the use of `runErrorT'
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+src\Control\Monad\Morph.hs:233:11: warning: [-Wdeprecations]
+    In the use of type constructor or class `Error'
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+src\Control\Monad\Morph.hs:233:33: warning: [-Wdeprecations]
+    In the use of type constructor or class `ErrorT'
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+src\Control\Monad\Morph.hs:234:17: warning: [-Wdeprecations]
+    In the use of data constructor `ErrorT'
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+src\Control\Monad\Morph.hs:235:14: warning: [-Wdeprecations]
+    In the use of `runErrorT'
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+src\Control\Monad\Morph.hs:235:30: warning: [-Wdeprecations]
+    In the use of `runErrorT'
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+[2 of 2] Compiling Control.Monad.Trans.Compose ( src\Control\Monad\Trans\Compose.hs, dist\dist-sandbox-bb0d78be\build\Control\Monad\Trans\Compose.o )
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-2731\mmorph-1.0.6'

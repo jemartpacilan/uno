@@ -1,0 +1,12 @@
+Registering lifted-base-0.2.3.8...
+i\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\lifted-base-0.2.3.8-LSXKdE75JIl3uzD4Y2GaXO
+\dist-sandbox-bb0d78be\build\System\Timeout\Lifted.o )
+[2 of 9] Compiling Foreign.Marshal.Utils.Lifted ( Foreign\Marshal\Utils\Lifted.hs, dist\dist-sandbox-bb0d78be\build\Foreign\Marshal\Utils\Lifted.o )
+[3 of 9] Compiling Data.IORef.Lifted ( Data\IORef\Lifted.hs, dist\dist-sandbox-bb0d78be\build\Data\IORef\Lifted.o )
+[4 of 9] Compiling Control.Concurrent.QSemN.Lifted ( Control\Concurrent\QSemN\Lifted.hs, dist\dist-sandbox-bb0d78be\build\Control\Concurrent\QSemN\Lifted.o )
+[5 of 9] Compiling Control.Concurrent.QSem.Lifted ( Control\Concurrent\QSem\Lifted.hs, dist\dist-sandbox-bb0d78be\build\Control\Concurrent\QSem\Lifted.o )
+[6 of 9] Compiling Control.Concurrent.Chan.Lifted ( Control\Concurrent\Chan\Lifted.hs, dist\dist-sandbox-bb0d78be\build\Control\Concurrent\Chan\Lifted.o )
+[7 of 9] Compiling Control.Concurrent.MVar.Lifted ( Control\Concurrent\MVar\Lifted.hs, dist\dist-sandbox-bb0d78be\build\Control\Concurrent\MVar\Lifted.o )
+[8 of 9] Compiling Control.Exception.Lifted ( Control\Exception\Lifted.hs, dist\dist-sandbox-bb0d78be\build\Control\Exception\Lifted.o )
+[9 of 9] Compiling Control.Concurrent.Lifted ( Control\Concurrent\Lifted.hs, dist\dist-sandbox-bb0d78be\build\Control\Concurrent\Lifted.o )
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-2729\lifted-base-0.2.3.8'

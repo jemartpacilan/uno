@@ -1,0 +1,21 @@
+Configuring hpack-0.14.1...
+Building hpack-0.14.1...
+Preprocessing library hpack-0.14.1...
+[ 1 of 10] Compiling Hpack.Haskell    ( src\Hpack\Haskell.hs, .stack-work\dist\b7fec021\build\Hpack\Haskell.o )
+[ 2 of 10] Compiling Hpack.Render     ( src\Hpack\Render.hs, .stack-work\dist\b7fec021\build\Hpack\Render.o )
+[ 3 of 10] Compiling Hpack.FormattingHints ( src\Hpack\FormattingHints.hs, .stack-work\dist\b7fec021\build\Hpack\FormattingHints.o )
+[ 4 of 10] Compiling Hpack.Yaml       ( src\Hpack\Yaml.hs, .stack-work\dist\b7fec021\build\Hpack\Yaml.o )
+[ 5 of 10] Compiling Hpack.Util       ( src\Hpack\Util.hs, .stack-work\dist\b7fec021\build\Hpack\Util.o )
+[ 6 of 10] Compiling Hpack.GenericsUtil ( src\Hpack\GenericsUtil.hs, .stack-work\dist\b7fec021\build\Hpack\GenericsUtil.o )
+[ 7 of 10] Compiling Hpack.Config     ( src\Hpack\Config.hs, .stack-work\dist\b7fec021\build\Hpack\Config.o )
+[ 8 of 10] Compiling Hpack.Run        ( src\Hpack\Run.hs, .stack-work\dist\b7fec021\build\Hpack\Run.o )
+[ 9 of 10] Compiling Paths_hpack      ( .stack-work\dist\b7fec021\build\autogen\Paths_hpack.hs, .stack-work\dist\b7fec021\build\Paths_hpack.o )
+[10 of 10] Compiling Hpack            ( src\Hpack.hs, .stack-work\dist\b7fec021\build\Hpack.o )
+Preprocessing executable 'hpack' for hpack-0.14.1...
+[1 of 1] Compiling Main             ( driver\Main.hs, .stack-work\dist\b7fec021\build\hpack\hpack-tmp\Main.o )
+Linking .stack-work\dist\b7fec021\build\hpack\hpack.exe ...
+Installing library in
+C:\Users\jpaci\AppData\Roaming\stack\snapshots\cae2dc39\lib\x86_64-windows-ghc-8.0.1\hpack-0.14.1-HTLyrmWHb7BJEDu1M9CBbp
+Installing executable(s) in
+C:\Users\jpaci\AppData\Roaming\stack\snapshots\cae2dc39\bin
+Registering hpack-0.14.1...

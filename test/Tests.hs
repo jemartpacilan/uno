@@ -44,9 +44,9 @@ shufflerSpecs :: Spec
 shufflerSpecs = describe "Shuffler" $ do
   it "Perform shuffling of cards" $ do
     --pendingWith "Implement shuffleDeck function"
-     let gs = State { players = [ ], deck = fullDeck, d_stack = [ ] }
-     gs' <- shuffleDeck gs
-     (deck gs') `shouldNotBe` (deck gs)
+    let gs = State { players = [ ], deck = fullDeck, d_stack = [ ] }
+    gs' <- shuffleDeck gs
+    (deck gs') `shouldNotBe` (deck gs)
 
 gameSpecs :: Spec
 gameSpecs = describe "Game" $ do
@@ -55,7 +55,6 @@ gameSpecs = describe "Game" $ do
       --pendingWith "Implement the initGame function"
       let gs = initGame 4
       length (players gs) `shouldBe` 4
-
     it "should initialize the deck with 108 cards" $ do
       --pendingWith "Implement the initGame function"
       let gs = initGame 4
@@ -64,23 +63,25 @@ gameSpecs = describe "Game" $ do
       --pendingWith "Implement the initGame function"
       let gs = initGame 4
       length (d_stack gs) `shouldBe` 0
-
   describe "setupGame" $ do
     it "should shuffle the deck" $ do
-      pendingWith "Implement the setupGame function"
-       --let gs = initGame 4
-       --gs' <- setupGame gs
-       --(deck gs') `shouldNotBe` (deck gs)
+      --pendingWith "Implement the setupGame function"
+      let gs = initGame 4
+      gs' <- shuffleDeck gs
+      (deck gs') `shouldNotBe` (deck gs)
     it "should distribute cards to players" $ do
-      pendingWith "Implement the setupGame function"
-      --let gs = initGame 4
-      --gs' <- setupGame gs
-      --length (deck gs') `shouldBe` 80
-
-
+      --pendingWith "Implement the setupGame function"
+      let gs = initGame 4
+      gs' <- setupGame gs
+      and (map (\p -> (length $ hand p) == initialCardCount) $ players gs') `shouldBe` True
+    it "should remove cards from deck" $ do
+      --pendingWith "Implement the setupGame function"
+      let gs = initGame 4
+      gs' <- setupGame gs
+      length (deck gs') `shouldBe` 80
 
 -- Test data fixtures
-
+--
 blueThree = Card { color = Blue, value = Three }
 redOne = Card { color = Red, value = One }
 johnnyCash = HPlayer { name = "Johnny", hand = [ blueThree, redOne ] }

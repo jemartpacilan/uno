@@ -1,0 +1,13 @@
+Registering mtlparse-0.1.4.0...
+paci\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\mtlparse-0.1.4.0-1yBlw5Px8UnI6MulHnbBiD
+rCombinators\MTLParse\MTLParseCore.hs, dist\dist-sandbox-bb0d78be\build\Text\ParserCombinators\MTLParse\MTLParseCore.o )
+
+Text\ParserCombinators\MTLParse\MTLParseCore.hs:138:1: warning: [-Wtabs]
+    Tab character found here, and in 14 further locations.
+    Please use spaces instead.
+[2 of 2] Compiling Text.ParserCombinators.MTLParse ( Text\ParserCombinators\MTLParse.hs, dist\dist-sandbox-bb0d78be\build\Text\ParserCombinators\MTLParse.o )
+
+Text\ParserCombinators\MTLParse.hs:77:1: warning: [-Wtabs]
+    Tab character found here, and in 7 further locations.
+    Please use spaces instead.
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-6421\mtlparse-0.1.4.0'

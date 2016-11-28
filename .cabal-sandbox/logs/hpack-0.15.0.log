@@ -1,0 +1,17 @@
+Registering hpack-0.15.0...
+rs\jpaci\OneDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\hpack-0.15.0-IDe9h3wBeMXKX0Dci4dbtV
+Installing executable(s) in
+C:\Users\jpaci\OneDrive\Documents\GitHub\uno\.cabal-sandbox\bin
+ dist\dist-sandbox-bb0d78be\build\Hpack\Render.o )
+[ 3 of 10] Compiling Hpack.FormattingHints ( src\Hpack\FormattingHints.hs, dist\dist-sandbox-bb0d78be\build\Hpack\FormattingHints.o )
+[ 4 of 10] Compiling Hpack.Yaml       ( src\Hpack\Yaml.hs, dist\dist-sandbox-bb0d78be\build\Hpack\Yaml.o )
+[ 5 of 10] Compiling Hpack.Util       ( src\Hpack\Util.hs, dist\dist-sandbox-bb0d78be\build\Hpack\Util.o )
+[ 6 of 10] Compiling Hpack.GenericsUtil ( src\Hpack\GenericsUtil.hs, dist\dist-sandbox-bb0d78be\build\Hpack\GenericsUtil.o )
+[ 7 of 10] Compiling Hpack.Config     ( src\Hpack\Config.hs, dist\dist-sandbox-bb0d78be\build\Hpack\Config.o )
+[ 8 of 10] Compiling Hpack.Run        ( src\Hpack\Run.hs, dist\dist-sandbox-bb0d78be\build\Hpack\Run.o )
+[ 9 of 10] Compiling Paths_hpack      ( dist\dist-sandbox-bb0d78be\build\autogen\Paths_hpack.hs, dist\dist-sandbox-bb0d78be\build\Paths_hpack.o )
+[10 of 10] Compiling Hpack            ( src\Hpack.hs, dist\dist-sandbox-bb0d78be\build\Hpack.o )
+Preprocessing executable 'hpack' for hpack-0.15.0...
+[1 of 1] Compiling Main             ( driver\Main.hs, dist\dist-sandbox-bb0d78be\build\hpack\hpack-tmp\Main.o )
+Linking dist/dist-sandbox-bb0d78be\build\hpack\hpack.exe ...
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-2728\hpack-0.15.0'

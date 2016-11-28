@@ -1,0 +1,9 @@
+Registering transformers-base-0.4.4...
+eDrive\Documents\GitHub\uno\.cabal-sandbox\x86_64-windows-ghc-8.0.1\transformers-base-0.4.4-FMTbgPqmqMsCiOz3biyAGx
+st\dist-sandbox-bb0d78be\build\Control\Monad\Base.o )
+
+src\Control\Monad\Base.hs:22:1: warning: [-Wunused-imports]
+    The import of `Data.Monoid' is redundant
+      except perhaps to import instances from `Data.Monoid'
+    To import instances alone, use: import Data.Monoid()
+cabal: Leaving directory 'C:\Users\jpaci\AppData\Local\Temp\cabal-tmp-2736\transformers-base-0.4.4'
