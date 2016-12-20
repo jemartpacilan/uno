@@ -1,25 +1,52 @@
 
 ==================== FINAL INTERFACE ====================
-2016-11-18 14:58:27.3959248 UTC
+2016-12-20 11:29:10.4188853 UTC
 
 interface uno-0.1.1-9oZSbbIzoKW1G8tXby6amp:Common 8001
-  interface hash: 23826198a28bb5221e364591b72a4b85
-  ABI hash: 89a33676a865c1e633985e80b9303588
-  export-list hash: aa44b1ca1bba37c87c3a7b6a74ad6dc4
+  interface hash: 1111e57fa9ff11e83ddf6ad0f114db04
+  ABI hash: b12506011c6a950a79af89a87031a868
+  export-list hash: 1ce0f192f1e4af6fef4b0f2681389940
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 365edb496d38399416a64131c77130e2
   sig of: Nothing
   used TH splices: False
   where
 exports:
+  Common.attackCards
+  Common.blackenCards
+  Common.changeColCards
+  Common.clearHands
+  Common.colorBlack
+  Common.colorInHand
+  Common.colorizeWildcard
+  Common.countCards
+  Common.countCardsByColor
   Common.fullDeck
+  Common.getCardWithColor
+  Common.getCardWithValue
+  Common.getCards
+  Common.getWildcard
+  Common.isAttackCard
+  Common.isChangeColCards
+  Common.isNumberCard
+  Common.isWildcard
+  Common.noCard
+  Common.noPlayer
   Common.nplicate
+  Common.numberCards
+  Common.takeCards
+  Common.valueInHand
+  Common.whiteDummy
+  Common.wildCards
+  Common.wildcardInHand
+  Common.Action{Common.AttackDraw2 Common.AttackReverse Common.AttackSkip Common.AttackWildDraw4 Common.EndTurn Common.TakeFromDeck Common.UseCard}
+  Common.Attack{Common.Draw2 Common.Draw4 Common.NoAttack Common.Skip}
   Common.Card{Common.Card color value}
   Common.D_Stack
   Common.Deck
   Common.Hand
-  Common.Player{Common.AiPlayer Common.HPlayer hand name}
-  Common.State{Common.State d_stack deck players}
+  Common.Player{Common.AiPlayer Common.HPlayer Common.NoPlayer hand name}
+  Common.State{Common.State cur_player d_stack deck e_players players}
   Common.Value{Common.ChCol Common.ChDir Common.Dummy Common.Eight Common.Five Common.Four Common.Nine Common.One Common.Plus2 Common.Plus4 Common.Seven Common.Six Common.Stop Common.Three Common.Two Common.Zero}
 module dependencies:
 package dependencies: Win32-2.3.1.1@Win32-2.3.1.1
@@ -34,6 +61,8 @@ family instance modules: base-4.9.0.0:Control.Applicative
 import  -/  ansi-terminal-0.6.2.3@ansi-terminal-0.6.2.3-DlzOk98pOsTIrg6vAjszFA:System.Console.ANSI ca076ca422c52166e42be1349b9453ba
 import  -/  ansi-terminal-0.6.2.3@ansi-terminal-0.6.2.3-DlzOk98pOsTIrg6vAjszFA:System.Console.ANSI.Common 120534aeddf149317cb5216a438351ac
 import  -/  base-4.9.0.0:Data.Foldable 3cbed01c922be29649c33015287c82ca
+import  -/  base-4.9.0.0:Data.List d711f98b49ef5d33e5b3d404631ed073
+import  -/  base-4.9.0.0:Data.Maybe 086a84053ef7f7810663b5f03b7ec3f7
 import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
 import  -/  base-4.9.0.0:GHC.Enum dab7089478c738f0ffbf72212d9113c9
 import  -/  base-4.9.0.0:GHC.Err 20faef8829fd13c027d0ee2213637534
@@ -47,7 +76,7 @@ import  -/  base-4.9.0.0:Text.ParserCombinators.ReadPrec 452408038bf4813973bc0de
 import  -/  base-4.9.0.0:Text.Read.Lex 70e7158fbfbfbfe23ec26422fecddba8
 import  -/  ghc-prim-0.5.0.0:GHC.Classes 16d48e012d23eaef9bca91ccdd572c02
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard :: GHC.Enum.Enum Common.Card
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -61,17 +90,17 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                   Common.$fEnumCard_$cenumFromThen
                   Common.$fEnumCard_$cenumFromTo
                   Common.$fEnumCard_$cenumFromThenTo -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumCard1 :: GHC.Prim.Int# -> Common.Value
   {- Arity: 1, Strictness: <L,U>x -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard_$cenumFrom :: Common.Card -> [Common.Card]
   {- Arity: 1, Strictness: <S(SS),1*U(1*U,1*U)>, Inline: INLINE[0],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: Common.Card) ->
                  case w of ww { Common.Card ww1 ww2 ->
                  Common.$w$cenumFrom ww1 ww2 }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard_$cenumFromThen ::
     Common.Card -> Common.Card -> [Common.Card]
   {- Arity: 2, Strictness: <S(SS),1*U(1*U,1*U)><S(SS),1*U(1*U,1*U)>,
@@ -81,7 +110,7 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                  case w of ww { Common.Card ww1 ww2 ->
                  case w1 of ww3 { Common.Card ww4 ww5 ->
                  Common.$w$cenumFromThen ww1 ww2 ww4 ww5 } }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard_$cenumFromThenTo ::
     Common.Card -> Common.Card -> Common.Card -> [Common.Card]
   {- Arity: 3,
@@ -93,7 +122,7 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                  case w1 of ww3 { Common.Card ww4 ww5 ->
                  case w2 of ww6 { Common.Card ww7 ww8 ->
                  Common.$w$cenumFromThenTo ww1 ww2 ww4 ww5 ww7 ww8 } } }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard_$cenumFromTo ::
     Common.Card -> Common.Card -> [Common.Card]
   {- Arity: 2, Strictness: <S(SS),1*U(1*U,1*U)><S(SS),1*U(1*U,1*U)>,
@@ -103,7 +132,7 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                  case w of ww { Common.Card ww1 ww2 ->
                  case w1 of ww3 { Common.Card ww4 ww5 ->
                  Common.$w$cenumFromTo ww1 ww2 ww4 ww5 } }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard_$cfromEnum :: Common.Card -> GHC.Types.Int
   {- Arity: 1, HasNoCafRefs, Strictness: <S(SS),1*U(1*U,1*U)>m,
      Inline: INLINE[0],
@@ -112,31 +141,31 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                  case w of ww { Common.Card ww1 ww2 ->
                  case Common.$w$cfromEnum ww1 ww2 of ww3 { DEFAULT ->
                  GHC.Types.I# ww3 } }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard_$cpred :: Common.Card -> Common.Card
   {- Arity: 1, Strictness: <L,1*U(1*U,1*U)>m, Inline: INLINE[0],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: Common.Card) ->
                  case Common.$w$cpred w of ww { (#,#) ww1 ww2 ->
                  Common.Card ww1 ww2 }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard_$csucc :: Common.Card -> Common.Card
   {- Arity: 1, Strictness: <L,1*U(1*U,1*U)>m, Inline: INLINE[0],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: Common.Card) ->
                  case Common.$w$csucc w of ww { (#,#) ww1 ww2 ->
                  Common.Card ww1 ww2 }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard_$ctoEnum :: GHC.Types.Int -> Common.Card
   {- Arity: 1, Strictness: <L,1*U(U)>m, Inline: INLINE[0],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: GHC.Types.Int) ->
                  case Common.$w$ctoEnum w of ww { (#,#) ww1 ww2 ->
                  Common.Card ww1 ww2 }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEnumCard_go :: GHC.Prim.Int# -> [Common.Card]
   {- Arity: 1, Strictness: <L,U> -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue :: GHC.Enum.Enum Common.Value
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -150,13 +179,13 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                   Common.$fEnumValue_$cenumFromThen
                   Common.$fEnumValue_$cenumFromTo
                   Common.$fEnumValue_$cenumFromThenTo -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue1 :: Common.Value
   {- Strictness: x -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue2 :: Common.Value
   {- Strictness: x -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_$cenumFrom :: Common.Value -> [Common.Value]
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
      Unfolding: (\ (a :: Common.Value) ->
@@ -168,7 +197,7 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                         (GHC.Prim.># x0 15#) of wild {
                    GHC.Types.False -> Common.$fEnumValue_go x0
                    GHC.Types.True -> GHC.Types.[] @ Common.Value }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_$cenumFromThen ::
     Common.Value -> Common.Value -> [Common.Value]
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
@@ -207,45 +236,45 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                         @ GHC.Types.Bool
                         (GHC.Prim.># a# b#) of wild {
                    GHC.Types.False -> $j 15# GHC.Types.True -> $j 0# }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_$cenumFromThenTo ::
     Common.Value -> Common.Value -> Common.Value -> [Common.Value]
   {- Arity: 3, Strictness: <S,1*U><S,1*U><S,1*U>,
-     Unfolding: (\ (x5 :: Common.Value)
-                   (x6 :: Common.Value)
+     Unfolding: (\ (x6 :: Common.Value)
+                   (x7 :: Common.Value)
                    (y :: Common.Value) ->
-                 let {
-                   x7 :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value x5
-                 } in
                  let {
                    x8 :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value x6
                  } in
+                 let {
+                   x9 :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value x7
+                 } in
                  case GHC.Prim.tagToEnum#
                         @ GHC.Types.Bool
-                        (GHC.Prim.>=# x8 x7) of wild {
+                        (GHC.Prim.>=# x9 x8) of wild {
                    GHC.Types.False
                    -> GHC.Enum.efdtIntDnFB
                         @ [Common.Value]
                         Common.$fEnumValue_c
                         (GHC.Types.[] @ Common.Value)
-                        x7
                         x8
+                        x9
                         (GHC.Prim.dataToTag# @ Common.Value y)
                    GHC.Types.True
                    -> GHC.Enum.efdtIntUpFB
                         @ [Common.Value]
                         Common.$fEnumValue_c
                         (GHC.Types.[] @ Common.Value)
-                        x7
                         x8
+                        x9
                         (GHC.Prim.dataToTag# @ Common.Value y) }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_$cenumFromTo ::
     Common.Value -> Common.Value -> [Common.Value]
   {- Arity: 2, Strictness: <S,1*U><S,1*U>,
-     Unfolding: (\ (x5 :: Common.Value) (y :: Common.Value) ->
+     Unfolding: (\ (x6 :: Common.Value) (y :: Common.Value) ->
                  let {
-                   x0 :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value x5
+                   x0 :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value x6
                  } in
                  let {
                    y1 :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value y
@@ -255,87 +284,187 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                         (GHC.Prim.># x0 y1) of wild {
                    GHC.Types.False
                    -> letrec {
-                        go2 :: GHC.Prim.Int# -> [Common.Value]
+                        go3 :: GHC.Prim.Int# -> [Common.Value]
                           {- Arity: 1, Strictness: <L,U> -}
-                        = \ (x6 :: GHC.Prim.Int#) ->
+                        = \ (x7 :: GHC.Prim.Int#) ->
                           GHC.Types.:
                             @ Common.Value
                             (case GHC.Prim.tagToEnum#
                                     @ GHC.Types.Bool
-                                    (GHC.Prim.>=# x6 0#) of wild1 {
-                               GHC.Types.False -> Common.$fEnumCard1 x6
+                                    (GHC.Prim.>=# x7 0#) of wild1 {
+                               GHC.Types.False -> Common.$fEnumCard1 x7
                                GHC.Types.True
                                -> case GHC.Prim.tagToEnum#
                                          @ GHC.Types.Bool
-                                         (GHC.Prim.<=# x6 15#) of wild2 {
-                                    GHC.Types.False -> Common.$fEnumCard1 x6
-                                    GHC.Types.True -> GHC.Prim.tagToEnum# @ Common.Value x6 } })
+                                         (GHC.Prim.<=# x7 15#) of wild2 {
+                                    GHC.Types.False -> Common.$fEnumCard1 x7
+                                    GHC.Types.True -> GHC.Prim.tagToEnum# @ Common.Value x7 } })
                             (case GHC.Prim.tagToEnum#
                                     @ GHC.Types.Bool
-                                    (GHC.Prim.==# x6 y1) of wild1 {
-                               GHC.Types.False -> go2 (GHC.Prim.+# x6 1#)
+                                    (GHC.Prim.==# x7 y1) of wild1 {
+                               GHC.Types.False -> go3 (GHC.Prim.+# x7 1#)
                                GHC.Types.True -> GHC.Types.[] @ Common.Value })
                       } in
-                      go2 x0
+                      go3 x0
                    GHC.Types.True -> GHC.Types.[] @ Common.Value }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_$cfromEnum :: Common.Value -> GHC.Types.Int
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>m,
      Unfolding: InlineRule (1, True, False)
                 (\ (a :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 GHC.Types.I# (GHC.Prim.dataToTag# @ Common.Value x5) }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                 case a of x6 { DEFAULT ->
+                 GHC.Types.I# (GHC.Prim.dataToTag# @ Common.Value x6) }) -}
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_$cpred :: Common.Value -> Common.Value
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
                 (\ (a :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 case GHC.Prim.dataToTag# @ Common.Value x5 of wild {
+                 case a of x6 { DEFAULT ->
+                 case GHC.Prim.dataToTag# @ Common.Value x6 of wild {
                    DEFAULT
                    -> GHC.Prim.tagToEnum# @ Common.Value (GHC.Prim.+# wild -1#)
                    0# -> Common.$fEnumValue1 } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_$csucc :: Common.Value -> Common.Value
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
                 (\ (a :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 case GHC.Prim.dataToTag# @ Common.Value x5 of wild {
+                 case a of x6 { DEFAULT ->
+                 case GHC.Prim.dataToTag# @ Common.Value x6 of wild {
                    DEFAULT -> GHC.Prim.tagToEnum# @ Common.Value (GHC.Prim.+# wild 1#)
                    15# -> Common.$fEnumValue2 } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_$ctoEnum :: GHC.Types.Int -> Common.Value
   {- Arity: 1, Strictness: <S(S),1*U(U)>, Inline: INLINE[0],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: GHC.Types.Int) ->
                  case w of ww { GHC.Types.I# ww1 -> Common.$w$ctoEnum1 ww1 }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_c :: GHC.Types.Int -> [Common.Value] -> [Common.Value]
   {- Arity: 2, Strictness: <L,1*U(U)><L,U>,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: GHC.Types.Int) (ys :: [Common.Value]) ->
-                 GHC.Types.: @ Common.Value (Common.$fEnumValue_$ctoEnum x5) ys) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                (\ (x6 :: GHC.Types.Int) (ys :: [Common.Value]) ->
+                 GHC.Types.: @ Common.Value (Common.$fEnumValue_$ctoEnum x6) ys) -}
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_c1 :: GHC.Types.Int -> [Common.Value] -> [Common.Value]
   {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(U)><L,U>,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: GHC.Types.Int) (ys :: [Common.Value]) ->
+                (\ (x6 :: GHC.Types.Int) (ys :: [Common.Value]) ->
                  GHC.Types.:
                    @ Common.Value
-                   (case x5 of wild { GHC.Types.I# a ->
+                   (case x6 of wild { GHC.Types.I# a ->
                     GHC.Prim.tagToEnum# @ Common.Value a })
                    ys) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEnumValue_go :: GHC.Prim.Int# -> [Common.Value]
   {- Arity: 1, HasNoCafRefs, Strictness: <L,U> -}
-0a1de99a53905a24b894ec2a97e8ec22
+76a923cef3461a90e7a7daf7e02a004b
+  $fEqAction :: GHC.Classes.Eq Common.Action
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Common.Action Common.$fEqAction_$c== Common.$fEqAction_$c/= -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fEqAction_$c/= :: Common.Action -> Common.Action -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (a :: Common.Action) (b :: Common.Action) ->
+                 case a of wild {
+                   Common.UseCard
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.UseCard -> GHC.Types.False }
+                   Common.TakeFromDeck
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.TakeFromDeck -> GHC.Types.False }
+                   Common.EndTurn
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.EndTurn -> GHC.Types.False }
+                   Common.AttackReverse
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.AttackReverse -> GHC.Types.False }
+                   Common.AttackSkip
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.AttackSkip -> GHC.Types.False }
+                   Common.AttackDraw2
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.AttackDraw2 -> GHC.Types.False }
+                   Common.AttackWildDraw4
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True
+                        Common.AttackWildDraw4 -> GHC.Types.False } }) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fEqAction_$c== :: Common.Action -> Common.Action -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (ds :: Common.Action) (ds1 :: Common.Action) ->
+                 case ds of wild {
+                   Common.UseCard
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.UseCard -> GHC.Types.True }
+                   Common.TakeFromDeck
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.TakeFromDeck -> GHC.Types.True }
+                   Common.EndTurn
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.EndTurn -> GHC.Types.True }
+                   Common.AttackReverse
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.AttackReverse -> GHC.Types.True }
+                   Common.AttackSkip
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.AttackSkip -> GHC.Types.True }
+                   Common.AttackDraw2
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.AttackDraw2 -> GHC.Types.True }
+                   Common.AttackWildDraw4
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Common.AttackWildDraw4 -> GHC.Types.True } }) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fEqAttack :: GHC.Classes.Eq Common.Attack
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Common.Attack Common.$fEqAttack_$c== Common.$fEqAttack_$c/= -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fEqAttack_$c/= :: Common.Attack -> Common.Attack -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (a :: Common.Attack) (b :: Common.Attack) ->
+                 case a of wild {
+                   Common.NoAttack
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.NoAttack -> GHC.Types.False }
+                   Common.Skip
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.Skip -> GHC.Types.False }
+                   Common.Draw2
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.Draw2 -> GHC.Types.False }
+                   Common.Draw4
+                   -> case b of wild1 {
+                        DEFAULT -> GHC.Types.True Common.Draw4 -> GHC.Types.False } }) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fEqAttack_$c== :: Common.Attack -> Common.Attack -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (ds :: Common.Attack) (ds1 :: Common.Attack) ->
+                 case ds of wild {
+                   Common.NoAttack
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.NoAttack -> GHC.Types.True }
+                   Common.Skip
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.Skip -> GHC.Types.True }
+                   Common.Draw2
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.Draw2 -> GHC.Types.True }
+                   Common.Draw4
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False Common.Draw4 -> GHC.Types.True } }) -}
+d3655a4ec5691a261211acc68543f755
   $fEqCard :: GHC.Classes.Eq Common.Card
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
      Unfolding: DFun:.
                   @ Common.Card Common.$fEqCard_$c== Common.$fEqCard_$c/= -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEqCard_$c/= :: Common.Card -> Common.Card -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs,
      Strictness: <S(SL),1*U(1*U,1*U)><S(SL),1*U(1*U,1*U)>,
@@ -344,7 +473,7 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                  case Common.$fEqCard_$c== a b of wild {
                    GHC.Types.False -> GHC.Types.True
                    GHC.Types.True -> GHC.Types.False }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fEqCard_$c== :: Common.Card -> Common.Card -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs,
      Strictness: <S(SL),1*U(1*U,1*U)><S(SL),1*U(1*U,1*U)>,
@@ -354,13 +483,13 @@ import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
                  case w of ww { Common.Card ww1 ww2 ->
                  case w1 of ww3 { Common.Card ww4 ww5 ->
                  Common.$w$c== ww1 ww2 ww4 ww5 } }) -}
-d07243ec835d05cdd89317ad4dbeaa22
+d4359d9a5d6ba4060bfb794b279f6a73
   $fEqPlayer :: GHC.Classes.Eq Common.Player
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
      Unfolding: DFun:.
                   @ Common.Player Common.$fEqPlayer_$c== Common.$fEqPlayer_$c/= -}
-d07243ec835d05cdd89317ad4dbeaa22
+d4359d9a5d6ba4060bfb794b279f6a73
   $fEqPlayer_$c/= :: Common.Player -> Common.Player -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
@@ -368,64 +497,64 @@ d07243ec835d05cdd89317ad4dbeaa22
                  case Common.$fEqPlayer_$c== a b of wild {
                    GHC.Types.False -> GHC.Types.True
                    GHC.Types.True -> GHC.Types.False }) -}
-d07243ec835d05cdd89317ad4dbeaa22
+d4359d9a5d6ba4060bfb794b279f6a73
   $fEqPlayer_$c== :: Common.Player -> Common.Player -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: (\ (ds :: Common.Player) (ds1 :: Common.Player) ->
                  case ds of wild {
                    Common.HPlayer a1 a2
                    -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False
                         Common.HPlayer b1 b2
                         -> case GHC.Base.eqString a1 b1 of wild2 {
                              GHC.Types.False -> GHC.Types.False
                              GHC.Types.True
-                             -> GHC.Classes.$fEq[]_$c== @ Common.Card Common.$fEqCard a2 b2 }
-                        Common.AiPlayer ipv ipv1 -> GHC.Types.False }
+                             -> GHC.Classes.$fEq[]_$c== @ Common.Card Common.$fEqCard a2 b2 } }
                    Common.AiPlayer a1 a2
                    -> case ds1 of wild1 {
-                        Common.HPlayer ipv ipv1 -> GHC.Types.False
+                        DEFAULT -> GHC.Types.False
                         Common.AiPlayer b1 b2
                         -> case GHC.Base.eqString a1 b1 of wild2 {
                              GHC.Types.False -> GHC.Types.False
                              GHC.Types.True
-                             -> GHC.Classes.$fEq[]_$c==
-                                  @ Common.Card
-                                  Common.$fEqCard
-                                  a2
-                                  b2 } } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                             -> GHC.Classes.$fEq[]_$c== @ Common.Card Common.$fEqCard a2 b2 } }
+                   Common.NoPlayer a1
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Common.NoPlayer b1 -> GHC.Base.eqString a1 b1 } }) -}
+ade0e6ab70df486635f70942f3ff2870
   $fEqValue :: GHC.Classes.Eq Common.Value
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
      Unfolding: DFun:.
                   @ Common.Value Common.$fEqValue_$c== Common.$fEqValue_$c/= -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEqValue_$c/= :: Common.Value -> Common.Value -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (a :: Common.Value) (b :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 case b of x6 { DEFAULT ->
+                 case a of x6 { DEFAULT ->
+                 case b of x7 { DEFAULT ->
                  case GHC.Prim.tagToEnum#
                         @ GHC.Types.Bool
                         (GHC.Prim.==#
-                           (GHC.Prim.dataToTag# @ Common.Value x5)
-                           (GHC.Prim.dataToTag# @ Common.Value x6)) of wild {
+                           (GHC.Prim.dataToTag# @ Common.Value x6)
+                           (GHC.Prim.dataToTag# @ Common.Value x7)) of wild {
                    GHC.Types.False -> GHC.Types.True
                    GHC.Types.True -> GHC.Types.False } } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fEqValue_$c== :: Common.Value -> Common.Value -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (a :: Common.Value) (b :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 case b of x6 { DEFAULT ->
+                 case a of x6 { DEFAULT ->
+                 case b of x7 { DEFAULT ->
                  GHC.Prim.tagToEnum#
                    @ GHC.Types.Bool
                    (GHC.Prim.==#
-                      (GHC.Prim.dataToTag# @ Common.Value x5)
-                      (GHC.Prim.dataToTag# @ Common.Value x6)) } }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+                      (GHC.Prim.dataToTag# @ Common.Value x6)
+                      (GHC.Prim.dataToTag# @ Common.Value x7)) } }) -}
+d3655a4ec5691a261211acc68543f755
   $fOrdCard :: GHC.Classes.Ord Common.Card
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -439,39 +568,39 @@ d07243ec835d05cdd89317ad4dbeaa22
                   Common.$fOrdCard_$c>=
                   Common.$fOrdCard_$cmax
                   Common.$fOrdCard_$cmin -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fOrdCard_$c< :: Common.Card -> Common.Card -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs,
      Strictness: <S(SL),1*U(1*U,1*U)><S(SL),1*U(1*U,1*U)>,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: Common.Card) (y :: Common.Card) ->
-                 case Common.$fOrdCard_$ccompare x5 y of wild {
+                (\ (x6 :: Common.Card) (y :: Common.Card) ->
+                 case Common.$fOrdCard_$ccompare x6 y of wild {
                    DEFAULT -> GHC.Types.False GHC.Types.LT -> GHC.Types.True }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fOrdCard_$c<= :: Common.Card -> Common.Card -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs,
      Strictness: <S(SL),1*U(1*U,1*U)><S(SL),1*U(1*U,1*U)>,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: Common.Card) (y :: Common.Card) ->
-                 case Common.$fOrdCard_$ccompare x5 y of wild {
+                (\ (x6 :: Common.Card) (y :: Common.Card) ->
+                 case Common.$fOrdCard_$ccompare x6 y of wild {
                    DEFAULT -> GHC.Types.True GHC.Types.GT -> GHC.Types.False }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fOrdCard_$c> :: Common.Card -> Common.Card -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs,
      Strictness: <S(SL),1*U(1*U,1*U)><S(SL),1*U(1*U,1*U)>,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: Common.Card) (y :: Common.Card) ->
-                 case Common.$fOrdCard_$ccompare x5 y of wild {
+                (\ (x6 :: Common.Card) (y :: Common.Card) ->
+                 case Common.$fOrdCard_$ccompare x6 y of wild {
                    DEFAULT -> GHC.Types.False GHC.Types.GT -> GHC.Types.True }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fOrdCard_$c>= :: Common.Card -> Common.Card -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs,
      Strictness: <S(SL),1*U(1*U,1*U)><S(SL),1*U(1*U,1*U)>,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: Common.Card) (y :: Common.Card) ->
-                 case Common.$fOrdCard_$ccompare x5 y of wild {
+                (\ (x6 :: Common.Card) (y :: Common.Card) ->
+                 case Common.$fOrdCard_$ccompare x6 y of wild {
                    DEFAULT -> GHC.Types.True GHC.Types.LT -> GHC.Types.False }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fOrdCard_$ccompare ::
     Common.Card -> Common.Card -> GHC.Types.Ordering
   {- Arity: 2, HasNoCafRefs,
@@ -482,23 +611,23 @@ d07243ec835d05cdd89317ad4dbeaa22
                  case w of ww { Common.Card ww1 ww2 ->
                  case w1 of ww3 { Common.Card ww4 ww5 ->
                  Common.$w$ccompare ww1 ww2 ww4 ww5 } }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fOrdCard_$cmax :: Common.Card -> Common.Card -> Common.Card
   {- Arity: 2, HasNoCafRefs,
      Strictness: <S(SL),U(U,U)><S(SL),U(U,U)>m,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: Common.Card) (y :: Common.Card) ->
-                 case Common.$fOrdCard_$ccompare x5 y of wild {
-                   DEFAULT -> y GHC.Types.GT -> x5 }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+                (\ (x6 :: Common.Card) (y :: Common.Card) ->
+                 case Common.$fOrdCard_$ccompare x6 y of wild {
+                   DEFAULT -> y GHC.Types.GT -> x6 }) -}
+d3655a4ec5691a261211acc68543f755
   $fOrdCard_$cmin :: Common.Card -> Common.Card -> Common.Card
   {- Arity: 2, HasNoCafRefs,
      Strictness: <S(SL),U(U,U)><S(SL),U(U,U)>m,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: Common.Card) (y :: Common.Card) ->
-                 case Common.$fOrdCard_$ccompare x5 y of wild {
-                   DEFAULT -> x5 GHC.Types.GT -> y }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                (\ (x6 :: Common.Card) (y :: Common.Card) ->
+                 case Common.$fOrdCard_$ccompare x6 y of wild {
+                   DEFAULT -> x6 GHC.Types.GT -> y }) -}
+ade0e6ab70df486635f70942f3ff2870
   $fOrdValue :: GHC.Classes.Ord Common.Value
   DFunId
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -512,67 +641,67 @@ d07243ec835d05cdd89317ad4dbeaa22
                   Common.$fOrdValue_$c>=
                   Common.$fOrdValue_$cmax
                   Common.$fOrdValue_$cmin -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fOrdValue_$c< :: Common.Value -> Common.Value -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (a :: Common.Value) (b :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 case b of x6 { DEFAULT ->
+                 case a of x6 { DEFAULT ->
+                 case b of x7 { DEFAULT ->
                  GHC.Prim.tagToEnum#
                    @ GHC.Types.Bool
                    (GHC.Prim.<#
-                      (GHC.Prim.dataToTag# @ Common.Value x5)
-                      (GHC.Prim.dataToTag# @ Common.Value x6)) } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                      (GHC.Prim.dataToTag# @ Common.Value x6)
+                      (GHC.Prim.dataToTag# @ Common.Value x7)) } }) -}
+ade0e6ab70df486635f70942f3ff2870
   $fOrdValue_$c<= :: Common.Value -> Common.Value -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (a :: Common.Value) (b :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 case b of x6 { DEFAULT ->
+                 case a of x6 { DEFAULT ->
+                 case b of x7 { DEFAULT ->
                  GHC.Prim.tagToEnum#
                    @ GHC.Types.Bool
                    (GHC.Prim.<=#
-                      (GHC.Prim.dataToTag# @ Common.Value x5)
-                      (GHC.Prim.dataToTag# @ Common.Value x6)) } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                      (GHC.Prim.dataToTag# @ Common.Value x6)
+                      (GHC.Prim.dataToTag# @ Common.Value x7)) } }) -}
+ade0e6ab70df486635f70942f3ff2870
   $fOrdValue_$c> :: Common.Value -> Common.Value -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (a :: Common.Value) (b :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 case b of x6 { DEFAULT ->
+                 case a of x6 { DEFAULT ->
+                 case b of x7 { DEFAULT ->
                  GHC.Prim.tagToEnum#
                    @ GHC.Types.Bool
                    (GHC.Prim.>#
-                      (GHC.Prim.dataToTag# @ Common.Value x5)
-                      (GHC.Prim.dataToTag# @ Common.Value x6)) } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                      (GHC.Prim.dataToTag# @ Common.Value x6)
+                      (GHC.Prim.dataToTag# @ Common.Value x7)) } }) -}
+ade0e6ab70df486635f70942f3ff2870
   $fOrdValue_$c>= :: Common.Value -> Common.Value -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (a :: Common.Value) (b :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 case b of x6 { DEFAULT ->
+                 case a of x6 { DEFAULT ->
+                 case b of x7 { DEFAULT ->
                  GHC.Prim.tagToEnum#
                    @ GHC.Types.Bool
                    (GHC.Prim.>=#
-                      (GHC.Prim.dataToTag# @ Common.Value x5)
-                      (GHC.Prim.dataToTag# @ Common.Value x6)) } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                      (GHC.Prim.dataToTag# @ Common.Value x6)
+                      (GHC.Prim.dataToTag# @ Common.Value x7)) } }) -}
+ade0e6ab70df486635f70942f3ff2870
   $fOrdValue_$ccompare ::
     Common.Value -> Common.Value -> GHC.Types.Ordering
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (a :: Common.Value) (b :: Common.Value) ->
-                 case a of x5 { DEFAULT ->
-                 case b of x6 { DEFAULT ->
+                 case a of x6 { DEFAULT ->
+                 case b of x7 { DEFAULT ->
                  let {
-                   b# :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value x6
+                   b# :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value x7
                  } in
                  let {
-                   a# :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value x5
+                   a# :: GHC.Prim.Int# = GHC.Prim.dataToTag# @ Common.Value x6
                  } in
                  case GHC.Prim.tagToEnum#
                         @ GHC.Types.Bool
@@ -583,33 +712,716 @@ d07243ec835d05cdd89317ad4dbeaa22
                              (GHC.Prim.==# a# b#) of wild1 {
                         GHC.Types.False -> GHC.Types.GT GHC.Types.True -> GHC.Types.EQ }
                    GHC.Types.True -> GHC.Types.LT } } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fOrdValue_$cmax :: Common.Value -> Common.Value -> Common.Value
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: Common.Value) (y :: Common.Value) ->
-                 case x5 of x6 { DEFAULT ->
-                 case y of x7 { DEFAULT ->
+                (\ (x6 :: Common.Value) (y :: Common.Value) ->
+                 case x6 of x7 { DEFAULT ->
+                 case y of x8 { DEFAULT ->
                  case GHC.Prim.tagToEnum#
                         @ GHC.Types.Bool
                         (GHC.Prim.<=#
-                           (GHC.Prim.dataToTag# @ Common.Value x6)
-                           (GHC.Prim.dataToTag# @ Common.Value x7)) of wild {
-                   GHC.Types.False -> x6 GHC.Types.True -> x7 } } }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                           (GHC.Prim.dataToTag# @ Common.Value x7)
+                           (GHC.Prim.dataToTag# @ Common.Value x8)) of wild {
+                   GHC.Types.False -> x7 GHC.Types.True -> x8 } } }) -}
+ade0e6ab70df486635f70942f3ff2870
   $fOrdValue_$cmin :: Common.Value -> Common.Value -> Common.Value
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
      Unfolding: InlineRule (2, True, False)
-                (\ (x5 :: Common.Value) (y :: Common.Value) ->
-                 case x5 of x6 { DEFAULT ->
-                 case y of x7 { DEFAULT ->
+                (\ (x6 :: Common.Value) (y :: Common.Value) ->
+                 case x6 of x7 { DEFAULT ->
+                 case y of x8 { DEFAULT ->
                  case GHC.Prim.tagToEnum#
                         @ GHC.Types.Bool
                         (GHC.Prim.<=#
-                           (GHC.Prim.dataToTag# @ Common.Value x6)
-                           (GHC.Prim.dataToTag# @ Common.Value x7)) of wild {
-                   GHC.Types.False -> x7 GHC.Types.True -> x6 } } }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+                           (GHC.Prim.dataToTag# @ Common.Value x7)
+                           (GHC.Prim.dataToTag# @ Common.Value x8)) of wild {
+                   GHC.Types.False -> x8 GHC.Types.True -> x7 } } }) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction :: GHC.Read.Read Common.Action
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Common.Action
+                  Common.$fReadAction_$creadsPrec
+                  Common.$fReadAction_$creadList
+                  Common.$fReadAction_$creadPrec
+                  Common.$fReadAction_$creadListPrec -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction1 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Common.Action] -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (eta :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta1 :: [Common.Action] -> Text.ParserCombinators.ReadP.P b) ->
+                 GHC.Read.$wlist
+                   @ Common.Action
+                   Common.$fReadAction2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                             <Common.Action>_R))
+                   @ b
+                   eta1) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction10 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+                   Common.$fReadAction11
+                   (GHC.Types.[]
+                      @ (GHC.Base.String,
+                         Text.ParserCombinators.ReadPrec.ReadPrec Common.Action))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction11 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAction13,
+                  Common.$fReadAction12
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Action>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Action>_R))))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction12 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Action -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Action -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.AttackWildDraw4) -}
+d3be646ee2f0597991fd9739fc167ab1
+  $fReadAction13 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "AttackWildDraw4"#) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction14 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAction16,
+                  Common.$fReadAction15
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Action>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Action>_R))))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction15 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Action -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Action -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.AttackDraw2) -}
+42db9086b60fe86a70ea160cca70d1ba
+  $fReadAction16 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "AttackDraw2"#) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction17 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAction19,
+                  Common.$fReadAction18
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Action>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Action>_R))))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction18 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Action -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Action -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.AttackSkip) -}
+d198b8147d4d14d82475042684569a28
+  $fReadAction19 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "AttackSkip"#) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction2 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> Text.ParserCombinators.ReadP.ReadP Common.Action
+  {- Arity: 1,
+     Unfolding: (GHC.Read.$fReadDouble10
+                   @ Common.Action
+                   Common.$fReadAction3
+                     `cast`
+                   (Trans
+                        (<Text.ParserCombinators.ReadPrec.Prec>_R
+                         ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                       <Common.Action>_R))
+                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                  <Common.Action>_R)))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction20 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAction22,
+                  Common.$fReadAction21
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Action>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Action>_R))))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction21 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Action -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Action -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.AttackReverse) -}
+f27f66f8e11768fb93542c01e2a1d11f
+  $fReadAction22 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "AttackReverse"#) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction23 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAction25,
+                  Common.$fReadAction24
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Action>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Action>_R))))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction24 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Action -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Action -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.EndTurn) -}
+e959198d34ae2f86d642aff233e54104
+  $fReadAction25 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "EndTurn"#) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction26 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAction28,
+                  Common.$fReadAction27
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Action>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Action>_R))))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction27 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Action -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Action -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.TakeFromDeck) -}
+b0ad437e42374ffefc926c25f392e134
+  $fReadAction28 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "TakeFromDeck"#) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction29 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAction31,
+                  Common.$fReadAction30
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Action>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Action>_R))))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction3 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Action -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta1 :: Common.Action -> Text.ParserCombinators.ReadP.P b) ->
+                 GHC.Read.choose2
+                   @ Common.Action
+                   Common.$fReadAction4
+                   eta
+                   @ b
+                   eta1) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction30 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Action -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Action -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.UseCard) -}
+8f3fefcd2ccd0b66b5ededa06a68df66
+  $fReadAction31 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "UseCard"#) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction32 :: Text.ParserCombinators.ReadP.P [Common.Action]
+  {- Unfolding: (GHC.Read.$wlist
+                   @ Common.Action
+                   Common.$fReadAction2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                             <Common.Action>_R))
+                   @ [Common.Action]
+                   (Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                      @ [Common.Action])) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction4 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+                   Common.$fReadAction29
+                   Common.$fReadAction5) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction5 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+                   Common.$fReadAction26
+                   Common.$fReadAction6) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction6 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+                   Common.$fReadAction23
+                   Common.$fReadAction7) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction7 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+                   Common.$fReadAction20
+                   Common.$fReadAction8) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction8 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+                   Common.$fReadAction17
+                   Common.$fReadAction9) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction9 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Action)
+                   Common.$fReadAction14
+                   Common.$fReadAction10) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction_$creadList ::
+    Text.ParserCombinators.ReadP.ReadS [Common.Action]
+  {- Arity: 1,
+     Unfolding: (Text.ParserCombinators.ReadP.run
+                   @ [Common.Action]
+                   Common.$fReadAction32) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction_$creadListPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec [Common.Action]
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Common.$fReadAction1
+                  `cast`
+                (Trans
+                     (<Text.ParserCombinators.ReadPrec.Prec>_R
+                      ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                    <[Common.Action]>_R))
+                     (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                               <[Common.Action]>_R))) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction_$creadPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec Common.Action
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Common.$fReadAction2
+                  `cast`
+                (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                          <Common.Action>_R)) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fReadAction_$creadsPrec ::
+    GHC.Types.Int -> Text.ParserCombinators.ReadP.ReadS Common.Action
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (eta :: GHC.Types.Int) ->
+                 Text.ParserCombinators.ReadP.run
+                   @ Common.Action
+                   ((GHC.Read.$fReadDouble10
+                       @ Common.Action
+                       Common.$fReadAction3
+                         `cast`
+                       (Trans
+                            (<Text.ParserCombinators.ReadPrec.Prec>_R
+                             ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                           <Common.Action>_R))
+                            (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                      <Common.Action>_R)))
+                       eta)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.N:ReadP[0] <Common.Action>_R)
+                      @ Common.Action
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                         @ Common.Action))) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack :: GHC.Read.Read Common.Attack
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Common.Attack
+                  Common.$fReadAttack_$creadsPrec
+                  Common.$fReadAttack_$creadList
+                  Common.$fReadAttack_$creadPrec
+                  Common.$fReadAttack_$creadListPrec -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack1 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Common.Attack] -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (eta :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta1 :: [Common.Attack] -> Text.ParserCombinators.ReadP.P b) ->
+                 GHC.Read.$wlist
+                   @ Common.Attack
+                   Common.$fReadAttack2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                             <Common.Attack>_R))
+                   @ b
+                   eta1) -}
+1310a3a60911f4730119b61367db7d5f
+  $fReadAttack10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Draw4"#) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack11 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAttack13,
+                  Common.$fReadAttack12
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Attack>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Attack>_R))))) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack12 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Attack -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Attack -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.Draw2) -}
+875854ae9add06cae98e8bfe4277eb3a
+  $fReadAttack13 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Draw2"#) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack14 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAttack16,
+                  Common.$fReadAttack15
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Attack>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Attack>_R))))) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack15 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Attack -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Attack -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.Skip) -}
+49dd949d77a08779d826d24e4842043c
+  $fReadAttack16 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Skip"#) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack17 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAttack19,
+                  Common.$fReadAttack18
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Attack>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Attack>_R))))) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack18 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Attack -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Attack -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.NoAttack) -}
+ee2d9830c533afb951e62600de5ef1ec
+  $fReadAttack19 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "NoAttack"#) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack2 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> Text.ParserCombinators.ReadP.ReadP Common.Attack
+  {- Arity: 1,
+     Unfolding: (GHC.Read.$fReadDouble10
+                   @ Common.Attack
+                   Common.$fReadAttack3
+                     `cast`
+                   (Trans
+                        (<Text.ParserCombinators.ReadPrec.Prec>_R
+                         ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                       <Common.Attack>_R))
+                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                  <Common.Attack>_R)))) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack20 :: Text.ParserCombinators.ReadP.P [Common.Attack]
+  {- Unfolding: (GHC.Read.$wlist
+                   @ Common.Attack
+                   Common.$fReadAttack2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                             <Common.Attack>_R))
+                   @ [Common.Attack]
+                   (Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                      @ [Common.Attack])) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack3 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Attack -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta1 :: Common.Attack -> Text.ParserCombinators.ReadP.P b) ->
+                 GHC.Read.choose2
+                   @ Common.Attack
+                   Common.$fReadAttack4
+                   eta
+                   @ b
+                   eta1) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack4 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)
+                   Common.$fReadAttack17
+                   Common.$fReadAttack5) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack5 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)
+                   Common.$fReadAttack14
+                   Common.$fReadAttack6) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack6 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)
+                   Common.$fReadAttack11
+                   Common.$fReadAttack7) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack7 ::
+    [(GHC.Base.String,
+      Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ (GHC.Base.String,
+                      Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)
+                   Common.$fReadAttack8
+                   (GHC.Types.[]
+                      @ (GHC.Base.String,
+                         Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack))) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack8 ::
+    ([GHC.Types.Char],
+     Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack)
+  {- Strictness: m,
+     Unfolding: ((Common.$fReadAttack10,
+                  Common.$fReadAttack9
+                    `cast`
+                  (Trans
+                       (<Text.ParserCombinators.ReadPrec.Prec>_R
+                        ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                      <Common.Attack>_R))
+                       (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                 <Common.Attack>_R))))) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack9 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Common.Attack -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: Text.ParserCombinators.ReadPrec.Prec)
+                   @ b
+                   (eta :: Common.Attack -> Text.ParserCombinators.ReadP.P b) ->
+                 eta Common.Draw4) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack_$creadList ::
+    Text.ParserCombinators.ReadP.ReadS [Common.Attack]
+  {- Arity: 1,
+     Unfolding: (Text.ParserCombinators.ReadP.run
+                   @ [Common.Attack]
+                   Common.$fReadAttack20) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack_$creadListPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec [Common.Attack]
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Common.$fReadAttack1
+                  `cast`
+                (Trans
+                     (<Text.ParserCombinators.ReadPrec.Prec>_R
+                      ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                    <[Common.Attack]>_R))
+                     (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                               <[Common.Attack]>_R))) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack_$creadPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec Common.Attack
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Common.$fReadAttack2
+                  `cast`
+                (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                          <Common.Attack>_R)) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fReadAttack_$creadsPrec ::
+    GHC.Types.Int -> Text.ParserCombinators.ReadP.ReadS Common.Attack
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (eta :: GHC.Types.Int) ->
+                 Text.ParserCombinators.ReadP.run
+                   @ Common.Attack
+                   ((GHC.Read.$fReadDouble10
+                       @ Common.Attack
+                       Common.$fReadAttack3
+                         `cast`
+                       (Trans
+                            (<Text.ParserCombinators.ReadPrec.Prec>_R
+                             ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0]
+                                           <Common.Attack>_R))
+                            (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
+                                      <Common.Attack>_R)))
+                       eta)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.N:ReadP[0] <Common.Attack>_R)
+                      @ Common.Attack
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                         @ Common.Attack))) -}
+d3655a4ec5691a261211acc68543f755
   $fReadCard :: GHC.Read.Read Common.Card
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -619,7 +1431,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                   Common.$fReadCard_$creadList
                   Common.$fReadCard_$creadPrec
                   Common.$fReadCard_$creadListPrec -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fReadCard1 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -638,7 +1450,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                              <Common.Card>_R))
                    @ b
                    eta1) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fReadCard2 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> Text.ParserCombinators.ReadP.ReadP Common.Card
@@ -652,7 +1464,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                          ->_R Sym (Text.ParserCombinators.ReadP.N:ReadP[0] <Common.Card>_R))
                         (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                   <Common.Card>_R)))) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fReadCard3 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -665,7 +1477,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                    (w1 :: Common.Card -> Text.ParserCombinators.ReadP.P b) ->
                  case w of ww { GHC.Types.I# ww1 ->
                  Common.$w$creadPrec ww1 @ b w1 }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fReadCard4 :: Text.ParserCombinators.ReadP.P [Common.Card]
   {- Unfolding: (GHC.Read.$wlist
                    @ Common.Card
@@ -676,14 +1488,14 @@ d07243ec835d05cdd89317ad4dbeaa22
                    @ [Common.Card]
                    (Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
                       @ [Common.Card])) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fReadCard_$creadList ::
     Text.ParserCombinators.ReadP.ReadS [Common.Card]
   {- Arity: 1,
      Unfolding: (Text.ParserCombinators.ReadP.run
                    @ [Common.Card]
                    Common.$fReadCard4) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fReadCard_$creadListPrec ::
     Text.ParserCombinators.ReadPrec.ReadPrec [Common.Card]
   {- Arity: 2, Strictness: <L,A><L,C(U)>,
@@ -696,7 +1508,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                                     <[Common.Card]>_R))
                      (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                <[Common.Card]>_R))) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fReadCard_$creadPrec ::
     Text.ParserCombinators.ReadPrec.ReadPrec Common.Card
   {- Arity: 1,
@@ -705,7 +1517,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                   `cast`
                 (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                           <Common.Card>_R)) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fReadCard_$creadsPrec ::
     GHC.Types.Int -> Text.ParserCombinators.ReadP.ReadS Common.Card
   {- Arity: 1, Strictness: <L,U>,
@@ -728,7 +1540,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       @ Common.Card
                       (Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
                          @ Common.Card))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue :: GHC.Read.Read Common.Value
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -738,7 +1550,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                   Common.$fReadValue_$creadList
                   Common.$fReadValue_$creadPrec
                   Common.$fReadValue_$creadListPrec -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue1 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -757,7 +1569,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                              <Common.Value>_R))
                    @ b
                    eta1) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue10 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -767,7 +1579,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue47
                    Common.$fReadValue11) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue11 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -777,7 +1589,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue44
                    Common.$fReadValue12) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue12 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -787,7 +1599,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue41
                    Common.$fReadValue13) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue13 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -797,7 +1609,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue38
                    Common.$fReadValue14) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue14 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -807,7 +1619,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue35
                    Common.$fReadValue15) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue15 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -817,7 +1629,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue32
                    Common.$fReadValue16) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue16 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -827,7 +1639,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue29
                    Common.$fReadValue17) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue17 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -837,7 +1649,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue26
                    Common.$fReadValue18) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue18 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -847,7 +1659,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue23
                    Common.$fReadValue19) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue19 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -859,7 +1671,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                    (GHC.Types.[]
                       @ (GHC.Base.String,
                          Text.ParserCombinators.ReadPrec.ReadPrec Common.Value))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue2 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> Text.ParserCombinators.ReadP.ReadP Common.Value
@@ -874,7 +1686,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                                        <Common.Value>_R))
                         (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                   <Common.Value>_R)))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue20 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -888,7 +1700,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue21 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -903,7 +1715,7 @@ d07243ec835d05cdd89317ad4dbeaa22
 5eeff11b2c273097ab7bb08fe0c6649a
   $fReadValue22 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Dummy"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue23 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -917,7 +1729,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue24 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -932,7 +1744,7 @@ d07243ec835d05cdd89317ad4dbeaa22
 db69e19a5e2166d2231d45918fb23b07
   $fReadValue25 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "ChCol"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue26 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -946,7 +1758,7 @@ db69e19a5e2166d2231d45918fb23b07
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue27 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -961,7 +1773,7 @@ db69e19a5e2166d2231d45918fb23b07
 c0f52052929d022487edd3f6eee9ba0c
   $fReadValue28 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Plus4"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue29 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -975,7 +1787,7 @@ c0f52052929d022487edd3f6eee9ba0c
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue3 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -992,7 +1804,7 @@ c0f52052929d022487edd3f6eee9ba0c
                    eta
                    @ b
                    eta1) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue30 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1007,7 +1819,7 @@ c0f52052929d022487edd3f6eee9ba0c
 d0d7189aa91b1052e93c85aefa619ebc
   $fReadValue31 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "ChDir"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue32 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1021,7 +1833,7 @@ d0d7189aa91b1052e93c85aefa619ebc
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue33 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1036,7 +1848,7 @@ d0d7189aa91b1052e93c85aefa619ebc
 705dfbe993adef5594f17c2e49249379
   $fReadValue34 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Stop"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue35 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1050,7 +1862,7 @@ d0d7189aa91b1052e93c85aefa619ebc
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue36 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1065,7 +1877,7 @@ d0d7189aa91b1052e93c85aefa619ebc
 e83de8f0a5338ca5cde8dc360f25490f
   $fReadValue37 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Plus2"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue38 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1079,7 +1891,7 @@ e83de8f0a5338ca5cde8dc360f25490f
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue39 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1091,7 +1903,7 @@ e83de8f0a5338ca5cde8dc360f25490f
                    @ b
                    (eta :: Common.Value -> Text.ParserCombinators.ReadP.P b) ->
                  eta Common.Nine) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue4 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -1104,7 +1916,7 @@ e83de8f0a5338ca5cde8dc360f25490f
 c41a8c6b2e6d205b08b3122e57e04fbd
   $fReadValue40 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Nine"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue41 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1118,7 +1930,7 @@ c41a8c6b2e6d205b08b3122e57e04fbd
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue42 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1133,7 +1945,7 @@ c41a8c6b2e6d205b08b3122e57e04fbd
 bf1689b55e8551c860a825f295c90c6f
   $fReadValue43 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Eight"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue44 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1147,7 +1959,7 @@ bf1689b55e8551c860a825f295c90c6f
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue45 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1162,7 +1974,7 @@ bf1689b55e8551c860a825f295c90c6f
 bf9f2f01fc60774f82b9812eb2829583
   $fReadValue46 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Seven"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue47 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1176,7 +1988,7 @@ bf9f2f01fc60774f82b9812eb2829583
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue48 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1191,7 +2003,7 @@ bf9f2f01fc60774f82b9812eb2829583
 9fad3cbef15ca8ca044d3257025deb44
   $fReadValue49 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Six"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue5 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -1201,7 +2013,7 @@ bf9f2f01fc60774f82b9812eb2829583
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue62
                    Common.$fReadValue6) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue50 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1215,7 +2027,7 @@ bf9f2f01fc60774f82b9812eb2829583
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue51 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1230,7 +2042,7 @@ bf9f2f01fc60774f82b9812eb2829583
 f62d1994209113e2c76682e8af6097f4
   $fReadValue52 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Five"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue53 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1244,7 +2056,7 @@ f62d1994209113e2c76682e8af6097f4
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue54 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1259,7 +2071,7 @@ f62d1994209113e2c76682e8af6097f4
 d9a827b9db258a4e2f3b5d9478454005
   $fReadValue55 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Four"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue56 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1273,7 +2085,7 @@ d9a827b9db258a4e2f3b5d9478454005
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue57 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1288,7 +2100,7 @@ d9a827b9db258a4e2f3b5d9478454005
 0f5d4be9295ef1212790a0f4f6b1a92e
   $fReadValue58 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Three"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue59 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1302,7 +2114,7 @@ d9a827b9db258a4e2f3b5d9478454005
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue6 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -1312,7 +2124,7 @@ d9a827b9db258a4e2f3b5d9478454005
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue59
                    Common.$fReadValue7) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue60 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1327,7 +2139,7 @@ d9a827b9db258a4e2f3b5d9478454005
 651e351f30ceb9d02d1097b09fe2a51f
   $fReadValue61 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Two"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue62 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1341,7 +2153,7 @@ d9a827b9db258a4e2f3b5d9478454005
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue63 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1356,7 +2168,7 @@ d9a827b9db258a4e2f3b5d9478454005
 57e1853a8e5d4fff3df2bc680a69e1d5
   $fReadValue64 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "One"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue65 ::
     ([GHC.Types.Char],
      Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
@@ -1370,7 +2182,7 @@ d9a827b9db258a4e2f3b5d9478454005
                                       <Common.Value>_R))
                        (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                  <Common.Value>_R))))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue66 ::
     Text.ParserCombinators.ReadPrec.Prec
     -> forall b.
@@ -1385,7 +2197,7 @@ d9a827b9db258a4e2f3b5d9478454005
 4de63fa4808637ecd6ae097cc2b09461
   $fReadValue67 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Zero"#) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue68 :: Text.ParserCombinators.ReadP.P [Common.Value]
   {- Unfolding: (GHC.Read.$wlist
                    @ Common.Value
@@ -1396,7 +2208,7 @@ d9a827b9db258a4e2f3b5d9478454005
                    @ [Common.Value]
                    (Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
                       @ [Common.Value])) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue7 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -1406,7 +2218,7 @@ d9a827b9db258a4e2f3b5d9478454005
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue56
                    Common.$fReadValue8) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue8 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -1416,7 +2228,7 @@ d9a827b9db258a4e2f3b5d9478454005
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue53
                    Common.$fReadValue9) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue9 ::
     [(GHC.Base.String,
       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)]
@@ -1426,14 +2238,14 @@ d9a827b9db258a4e2f3b5d9478454005
                       Text.ParserCombinators.ReadPrec.ReadPrec Common.Value)
                    Common.$fReadValue50
                    Common.$fReadValue10) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue_$creadList ::
     Text.ParserCombinators.ReadP.ReadS [Common.Value]
   {- Arity: 1,
      Unfolding: (Text.ParserCombinators.ReadP.run
                    @ [Common.Value]
                    Common.$fReadValue68) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue_$creadListPrec ::
     Text.ParserCombinators.ReadPrec.ReadPrec [Common.Value]
   {- Arity: 2, Strictness: <L,A><L,C(U)>,
@@ -1446,7 +2258,7 @@ d9a827b9db258a4e2f3b5d9478454005
                                     <[Common.Value]>_R))
                      (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                                <[Common.Value]>_R))) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue_$creadPrec ::
     Text.ParserCombinators.ReadPrec.ReadPrec Common.Value
   {- Arity: 1,
@@ -1455,7 +2267,7 @@ d9a827b9db258a4e2f3b5d9478454005
                   `cast`
                 (Sym (Text.ParserCombinators.ReadPrec.N:ReadPrec[0]
                           <Common.Value>_R)) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fReadValue_$creadsPrec ::
     GHC.Types.Int -> Text.ParserCombinators.ReadP.ReadS Common.Value
   {- Arity: 1, Strictness: <L,U>,
@@ -1479,7 +2291,73 @@ d9a827b9db258a4e2f3b5d9478454005
                       @ Common.Value
                       (Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
                          @ Common.Value))) -}
-0a1de99a53905a24b894ec2a97e8ec22
+76a923cef3461a90e7a7daf7e02a004b
+  $fShowAction :: GHC.Show.Show Common.Action
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Common.Action
+                  Common.$fShowAction_$cshowsPrec
+                  Common.$fShowAction_$cshow
+                  Common.$fShowAction_$cshowList -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fShowAction_$cshow :: Common.Action -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x6 :: Common.Action) ->
+                 Common.$fShowAction_$cshowsPrec
+                   GHC.Show.shows22
+                   x6
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fShowAction_$cshowList :: [Common.Action] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Common.Action
+                   Common.$w$cshowsPrec) -}
+76a923cef3461a90e7a7daf7e02a004b
+  $fShowAction_$cshowsPrec ::
+    GHC.Types.Int -> Common.Action -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, True)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: Common.Action)
+                   (w2 :: GHC.Base.String) ->
+                 Common.$w$cshowsPrec w1 w2) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fShowAttack :: GHC.Show.Show Common.Attack
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Common.Attack
+                  Common.$fShowAttack_$cshowsPrec
+                  Common.$fShowAttack_$cshow
+                  Common.$fShowAttack_$cshowList -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fShowAttack_$cshow :: Common.Attack -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x6 :: Common.Attack) ->
+                 Common.$fShowAttack_$cshowsPrec
+                   GHC.Show.shows22
+                   x6
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fShowAttack_$cshowList :: [Common.Attack] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Common.Attack
+                   Common.$w$cshowsPrec1) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $fShowAttack_$cshowsPrec ::
+    GHC.Types.Int -> Common.Attack -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, True)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: Common.Attack)
+                   (w2 :: GHC.Base.String) ->
+                 Common.$w$cshowsPrec1 w1 w2) -}
+d3655a4ec5691a261211acc68543f755
   $fShowCard :: GHC.Show.Show Common.Card
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -1488,12 +2366,12 @@ d9a827b9db258a4e2f3b5d9478454005
                   Common.$fShowCard_$cshowsPrec
                   Common.$fShowCard_$cshow
                   Common.$fShowCard_$cshowList -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fShowCard1 :: Common.Card -> GHC.Base.String -> [GHC.Types.Char]
   {- Arity: 2,
-     Unfolding: (\ (x5 :: Common.Card)
+     Unfolding: (\ (x6 :: Common.Card)
                    (s :: GHC.Base.String)[OneShot] ->
-                 case Common.$w$cshow x5 of ww { (#,#) ww1 ww2 ->
+                 case Common.$w$cshow x6 of ww { (#,#) ww1 ww2 ->
                  GHC.Base.++
                    @ GHC.Types.Char
                    (GHC.Types.: @ GHC.Types.Char ww1 ww2)
@@ -1505,25 +2383,25 @@ d9a827b9db258a4e2f3b5d9478454005
                    @ GHC.Types.Char
                    GHC.Show.shows6
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fShowCard_$cshow :: Common.Card -> GHC.Base.String
   {- Arity: 1, Strictness: <L,1*U(1*U,U)>m2, Inline: INLINE[0],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: Common.Card) ->
                  case Common.$w$cshow w of ww { (#,#) ww1 ww2 ->
                  GHC.Types.: @ GHC.Types.Char ww1 ww2 }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fShowCard_$cshowList :: [Common.Card] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: (\ (ls :: [Common.Card]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ Common.Card Common.$fShowCard1 ls s) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $fShowCard_$cshowsPrec ::
     GHC.Types.Int -> Common.Card -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <L,A><L,1*U(1*U,U)><L,1*U>,
      Unfolding: InlineRule (3, True, False)
                 (\ (ds :: GHC.Types.Int)
-                   (x5 :: Common.Card)
+                   (x6 :: Common.Card)
                    (s :: GHC.Base.String) ->
                  GHC.Base.augment
                    @ GHC.Types.Char
@@ -1535,9 +2413,9 @@ d9a827b9db258a4e2f3b5d9478454005
                       @ b
                       c1
                       n
-                      (Common.$fShowCard_$cshow x5))
+                      (Common.$fShowCard_$cshow x6))
                    s) -}
-d07243ec835d05cdd89317ad4dbeaa22
+d4359d9a5d6ba4060bfb794b279f6a73
   $fShowPlayer :: GHC.Show.Show Common.Player
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -1546,27 +2424,27 @@ d07243ec835d05cdd89317ad4dbeaa22
                   Common.$fShowPlayer_$cshowsPrec
                   Common.$fShowPlayer_$cshow
                   Common.$fShowPlayer_$cshowList -}
-d07243ec835d05cdd89317ad4dbeaa22
+d4359d9a5d6ba4060bfb794b279f6a73
   $fShowPlayer1 :: Common.Player -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (\ (w :: Common.Player) (w1 :: GHC.Base.String) ->
-                 Common.$w$cshowsPrec1 0# w w1) -}
-d07243ec835d05cdd89317ad4dbeaa22
+                 Common.$w$cshowsPrec3 0# w w1) -}
+d4359d9a5d6ba4060bfb794b279f6a73
   $fShowPlayer_$cshow :: Common.Player -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
-                (\ (x5 :: Common.Player) ->
+                (\ (x6 :: Common.Player) ->
                  Common.$fShowPlayer_$cshowsPrec
                    GHC.Show.shows22
-                   x5
+                   x6
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-d07243ec835d05cdd89317ad4dbeaa22
+d4359d9a5d6ba4060bfb794b279f6a73
   $fShowPlayer_$cshowList :: [Common.Player] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ Common.Player
                    Common.$fShowPlayer1) -}
-d07243ec835d05cdd89317ad4dbeaa22
+d4359d9a5d6ba4060bfb794b279f6a73
   $fShowPlayer_$cshowsPrec ::
     GHC.Types.Int -> Common.Player -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U><L,U>,
@@ -1576,8 +2454,8 @@ d07243ec835d05cdd89317ad4dbeaa22
                    (w1 :: Common.Player)
                    (w2 :: GHC.Base.String) ->
                  case w of ww { GHC.Types.I# ww1 ->
-                 Common.$w$cshowsPrec1 ww1 w1 w2 }) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                 Common.$w$cshowsPrec3 ww1 w1 w2 }) -}
+ade0e6ab70df486635f70942f3ff2870
   $fShowValue :: GHC.Show.Show Common.Value
   DFunId
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -1586,22 +2464,22 @@ d07243ec835d05cdd89317ad4dbeaa22
                   Common.$fShowValue_$cshowsPrec
                   Common.$fShowValue_$cshow
                   Common.$fShowValue_$cshowList -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fShowValue_$cshow :: Common.Value -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
-                (\ (x5 :: Common.Value) ->
+                (\ (x6 :: Common.Value) ->
                  Common.$fShowValue_$cshowsPrec
                    GHC.Show.shows22
-                   x5
+                   x6
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+ade0e6ab70df486635f70942f3ff2870
   $fShowValue_$cshowList :: [Common.Value] -> GHC.Show.ShowS
   {- Arity: 2,
      Unfolding: (GHC.Show.showList__
                    @ Common.Value
-                   Common.$w$cshowsPrec) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                   Common.$w$cshowsPrec2) -}
+ade0e6ab70df486635f70942f3ff2870
   $fShowValue_$cshowsPrec ::
     GHC.Types.Int -> Common.Value -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: INLINE[0],
@@ -1609,7 +2487,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                 (\ (w :: GHC.Types.Int)
                    (w1 :: Common.Value)
                    (w2 :: GHC.Base.String) ->
-                 Common.$w$cshowsPrec w1 w2) -}
+                 Common.$w$cshowsPrec2 w1 w2) -}
 8663890947d587a233d7f651f9cb3147
   $tc'AiPlayer :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1622,6 +2500,54 @@ e04b7c1153bef59f732dec54062991cc
   $tc'AiPlayer1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'AiPlayer"#) -}
+9d4b2f068b046afbfab23fa0dcd51f58
+  $tc'AttackDraw1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'AttackDraw2"#) -}
+0591de90c4c87c6fc04e8e65418076cc
+  $tc'AttackDraw2 :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12995092691214346000##
+                   9154261849912819822##
+                   Common.$trModule
+                   Common.$tc'AttackDraw1) -}
+a420ffcd5d9405902b1dddab4c46c56c
+  $tc'AttackReverse :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   13317824999654683418##
+                   583663209029329044##
+                   Common.$trModule
+                   Common.$tc'AttackReverse1) -}
+2ec08806ca70e348f7f74da9d48568fb
+  $tc'AttackReverse1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'AttackReverse"#) -}
+7f3de37bb96747d8cb8934541e7e4f4a
+  $tc'AttackSkip :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17082144926155161084##
+                   15649133197468094768##
+                   Common.$trModule
+                   Common.$tc'AttackSkip1) -}
+5c5ea0805587575cd3f6c618461de922
+  $tc'AttackSkip1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'AttackSkip"#) -}
+485b4cb88ee15848975484e32ebea606
+  $tc'AttackWildDraw1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'AttackWildDraw4"#) -}
+b7d86a47206e3d394b56a5df4409cd87
+  $tc'AttackWildDraw4 :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8132318331610284785##
+                   7569485524303196054##
+                   Common.$trModule
+                   Common.$tc'AttackWildDraw1) -}
 d6d3866938d40ea7d0824bd2b4f3e60e
   $tc'Card :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1658,6 +2584,30 @@ c60cd751f03057ae5d5adebbdafef7b9
   $tc'ChDir1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'ChDir"#) -}
+5ba242dd4ba125b92b02798906af5d64
+  $tc'Draw1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Draw2"#) -}
+767800bd958b15c08eb97fbace6c2861
+  $tc'Draw2 :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   10289957992753937849##
+                   4227361514199427060##
+                   Common.$trModule
+                   Common.$tc'Draw1) -}
+39e8fb5e95e6b08147442386ac02cd8f
+  $tc'Draw3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Draw4"#) -}
+7434f3dfc9997d0d2c1b9a5123d36a6b
+  $tc'Draw4 :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4453246784109776712##
+                   4101597060824136196##
+                   Common.$trModule
+                   Common.$tc'Draw3) -}
 3baba7ca3c1c406357a2a84e567db321
   $tc'Dummy :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1682,6 +2632,18 @@ bd7cf56fedbcc0c168e0cc6cc7fdc7b3
   $tc'Eight1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Eight"#) -}
+4fa7fe94e318a2d6cc1dd5f77c3343fa
+  $tc'EndTurn :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3352145902553462737##
+                   8082711472997664541##
+                   Common.$trModule
+                   Common.$tc'EndTurn1) -}
+205833a2f4138b76ba6554d90cef3bba
+  $tc'EndTurn1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'EndTurn"#) -}
 f5a5a8605d0c7dee08b718514c3ae8fa
   $tc'Five :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1730,6 +2692,30 @@ d94a324f174e81978794725aa2233af3
   $tc'Nine1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Nine"#) -}
+ebdda0a6fa88e464d5df4901e5f18902
+  $tc'NoAttack :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   16234038218243217214##
+                   11919746573902624863##
+                   Common.$trModule
+                   Common.$tc'NoAttack1) -}
+f26a3c107251f11bbc6ac51c7e2bd4aa
+  $tc'NoAttack1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'NoAttack"#) -}
+3ee9c881c1df46ac6f73fa326b1eb9c1
+  $tc'NoPlayer :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12406287644105982192##
+                   3527357281173798773##
+                   Common.$trModule
+                   Common.$tc'NoPlayer1) -}
+cebbbecb611e2ed84bfbb5fb9def0743
+  $tc'NoPlayer1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'NoPlayer"#) -}
 73f9bc87fb9f9efaf69d3c31968a8fc8
   $tc'One :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1790,6 +2776,18 @@ b93551efcf6de5b5efc008488779afb1
   $tc'Six1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Six"#) -}
+9ce7f67d5aeea780c136e9ee203b711b
+  $tc'Skip :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   9935278013554110387##
+                   3574317141221842781##
+                   Common.$trModule
+                   Common.$tc'Skip1) -}
+3051ba68b8c1e98f0583be4161e8ff9c
+  $tc'Skip1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Skip"#) -}
 f8a25f922b8225f4e70567626bcd9cd7
   $tc'State :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1814,6 +2812,18 @@ b9c648d5e71e6bdd19cf5384bbc191d6
   $tc'Stop1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Stop"#) -}
+1deab5ddca60ee8bc78c2c9ee3793e84
+  $tc'TakeFromDeck :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   153207790775648087##
+                   15238446710417122293##
+                   Common.$trModule
+                   Common.$tc'TakeFromDeck1) -}
+ee026ca40633186f85ff9a2f3a0c3d18
+  $tc'TakeFromDeck1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'TakeFromDeck"#) -}
 bbcaad57c699d84dfbd2322e9f66650c
   $tc'Three :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1838,6 +2848,18 @@ d80719ef4c3bf23a3a9bd9367ccdcb4e
   $tc'Two1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Two"#) -}
+0d487339b1c183792915877aac5c1460
+  $tc'UseCard :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   14397438041373232997##
+                   15998210367606301689##
+                   Common.$trModule
+                   Common.$tc'UseCard1) -}
+fcf712e44f4937c7affe10813b868567
+  $tc'UseCard1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'UseCard"#) -}
 7da309d4dd3508031967d60fb54f359a
   $tc'Zero :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1850,6 +2872,30 @@ d80719ef4c3bf23a3a9bd9367ccdcb4e
   $tc'Zero1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Zero"#) -}
+9175d53ffaa581d2807e3062851f9a2b
+  $tcAction :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   16872381629760434509##
+                   1153323709831896388##
+                   Common.$trModule
+                   Common.$tcAction1) -}
+08dba8420e800239e44ecbf4ee4b243c
+  $tcAction1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Action"#) -}
+970ddd875c186165c06c190b115c65c0
+  $tcAttack :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12640699868972342583##
+                   1227728825202905543##
+                   Common.$trModule
+                   Common.$tcAttack1) -}
+68e0e3b2739f5e6a8c9c7c5315e3cfd8
+  $tcAttack1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Attack"#) -}
 5330cc3e9a1e682835158794953b2ccb
   $tcCard :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -1913,7 +2959,7 @@ d7f0d9f9ce5b553ac4ecbbe2a09ee87d
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
                    "uno-0.1.1-9oZSbbIzoKW1G8tXby6amp"#) -}
-48d08b3e53f0ad1f27cb77a710d70a7a
+783fe18f05d3aad862b50fa5d4873ffa
   $w$c== ::
     System.Console.ANSI.Common.Color
     -> Common.Value
@@ -1999,7 +3045,7 @@ d7f0d9f9ce5b553ac4ecbbe2a09ee87d
                              (GHC.Prim.==#
                                 (GHC.Prim.dataToTag# @ Common.Value ww1)
                                 (GHC.Prim.dataToTag# @ Common.Value ww3)) } }) -}
-f0b09257950e2887fa84ed4761876bc1
+adb38480af31b81d09d0b12bd0536b09
   $w$ccompare ::
     System.Console.ANSI.Common.Color
     -> Common.Value
@@ -2192,7 +3238,7 @@ f0b09257950e2887fa84ed4761876bc1
                                        (GHC.Prim.==# a# b#) of wild3 {
                                   GHC.Types.False -> GHC.Types.GT GHC.Types.True -> GHC.Types.EQ }
                              GHC.Types.True -> GHC.Types.LT } } }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $w$cenumFrom ::
     System.Console.ANSI.Common.Color -> Common.Value -> [Common.Card]
   {- Arity: 2, Strictness: <S,1*U><S,1*U>, Inline: [0],
@@ -2237,7 +3283,7 @@ f0b09257950e2887fa84ed4761876bc1
                         (GHC.Prim.+#
                            (GHC.Prim.*# (GHC.Prim.dataToTag# @ Common.Value ww1) 5#)
                            7#) }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $w$cenumFromThen ::
     System.Console.ANSI.Common.Color
     -> Common.Value
@@ -2258,32 +3304,32 @@ f0b09257950e2887fa84ed4761876bc1
                          {- Arity: 1, Strictness: <S,U> -}
                        = \ (y1 :: GHC.Prim.Int#)[OneShot] ->
                          let {
-                           x5 :: GHC.Prim.Int#
+                           x6 :: GHC.Prim.Int#
                            = GHC.Prim.+#
                                (GHC.Prim.*# (GHC.Prim.dataToTag# @ Common.Value ww1) 5#)
                                y
                          } in
                          let {
-                           x6 :: GHC.Prim.Int#
+                           x7 :: GHC.Prim.Int#
                            = GHC.Prim.+#
                                (GHC.Prim.*# (GHC.Prim.dataToTag# @ Common.Value ww3) 5#)
                                y1
                          } in
                          case GHC.Prim.tagToEnum#
                                 @ GHC.Types.Bool
-                                (GHC.Prim.>=# x6 x5) of wild {
+                                (GHC.Prim.>=# x7 x6) of wild {
                            GHC.Types.False
                            -> GHC.Base.map
                                 @ GHC.Types.Int
                                 @ Common.Card
                                 Common.$fEnumCard_$ctoEnum
-                                (GHC.Enum.efdtIntDn x5 x6 -9223372036854775808#)
+                                (GHC.Enum.efdtIntDn x6 x7 -9223372036854775808#)
                            GHC.Types.True
                            -> GHC.Base.map
                                 @ GHC.Types.Int
                                 @ Common.Card
                                 Common.$fEnumCard_$ctoEnum
-                                (GHC.Enum.efdtIntUp x5 x6 9223372036854775807#) }
+                                (GHC.Enum.efdtIntUp x6 x7 9223372036854775807#) }
                      } in
                      case ww2 of wild {
                        System.Console.ANSI.Common.Black -> $j1 0#
@@ -2304,7 +3350,7 @@ f0b09257950e2887fa84ed4761876bc1
                    System.Console.ANSI.Common.Magenta -> $j 5#
                    System.Console.ANSI.Common.Cyan -> $j 6#
                    System.Console.ANSI.Common.White -> $j 7# }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $w$cenumFromThenTo ::
     System.Console.ANSI.Common.Color
     -> Common.Value
@@ -2316,7 +3362,7 @@ f0b09257950e2887fa84ed4761876bc1
   {- Arity: 6,
      Strictness: <S,1*U><S,1*U><S,1*U><S,1*U><S,1*U><S,1*U>,
      Inline: [0] -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $w$cenumFromTo ::
     System.Console.ANSI.Common.Color
     -> Common.Value
@@ -2353,21 +3399,21 @@ f0b09257950e2887fa84ed4761876bc1
                                 (GHC.Prim.># x0 y2) of wild {
                            GHC.Types.False
                            -> letrec {
-                                go2 :: GHC.Prim.Int# -> [Common.Card]
+                                go3 :: GHC.Prim.Int# -> [Common.Card]
                                   {- Arity: 1, Strictness: <L,U> -}
-                                = \ (x5 :: GHC.Prim.Int#) ->
+                                = \ (x6 :: GHC.Prim.Int#) ->
                                   GHC.Types.:
                                     @ Common.Card
                                     (case Common.$w$ctoEnum
-                                            (GHC.Types.I# x5) of ww4 { (#,#) ww5 ww6 ->
+                                            (GHC.Types.I# x6) of ww4 { (#,#) ww5 ww6 ->
                                      Common.Card ww5 ww6 })
                                     (case GHC.Prim.tagToEnum#
                                             @ GHC.Types.Bool
-                                            (GHC.Prim.==# x5 y2) of wild1 {
-                                       GHC.Types.False -> go2 (GHC.Prim.+# x5 1#)
+                                            (GHC.Prim.==# x6 y2) of wild1 {
+                                       GHC.Types.False -> go3 (GHC.Prim.+# x6 1#)
                                        GHC.Types.True -> GHC.Types.[] @ Common.Card })
                               } in
-                              go2 x0
+                              go3 x0
                            GHC.Types.True -> GHC.Types.[] @ Common.Card }
                      } in
                      case ww2 of wild {
@@ -2389,7 +3435,7 @@ f0b09257950e2887fa84ed4761876bc1
                    System.Console.ANSI.Common.Magenta -> $j 5#
                    System.Console.ANSI.Common.Cyan -> $j 6#
                    System.Console.ANSI.Common.White -> $j 7# }) -}
-fe9392ea2a1b5c52715de9c034b6a866
+9a5a6e08b889d790260e9910074b0d44
   $w$cfromEnum ::
     System.Console.ANSI.Common.Color -> Common.Value -> GHC.Prim.Int#
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>, Inline: [0],
@@ -2426,7 +3472,7 @@ fe9392ea2a1b5c52715de9c034b6a866
                    -> GHC.Prim.+#
                         (GHC.Prim.*# (GHC.Prim.dataToTag# @ Common.Value ww1) 5#)
                         7# }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $w$cpred ::
     Common.Card -> (# System.Console.ANSI.Common.Color, Common.Value #)
   {- Arity: 1, Strictness: <L,1*U(1*U,1*U)>, Inline: [0],
@@ -2488,14 +3534,14 @@ fe9392ea2a1b5c52715de9c034b6a866
                                  (GHC.Prim.*# (GHC.Prim.dataToTag# @ Common.Value ds1) 5#)
                                  7#)
                               1#) } })) -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $w$creadPrec ::
     GHC.Prim.Int#
     -> forall b.
        (Common.Card -> Text.ParserCombinators.ReadP.P b)
        -> Text.ParserCombinators.ReadP.P b
   {- Arity: 2, Strictness: <S,U><L,C(U)>, Inline: [0] -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $w$cshow :: Common.Card -> (# GHC.Types.Char, [GHC.Types.Char] #)
   {- Arity: 1, Strictness: <L,1*U(1*U,U)>, Inline: [0],
      Unfolding: (\ (w :: Common.Card) ->
@@ -2508,10 +3554,45 @@ fe9392ea2a1b5c52715de9c034b6a866
                          GHC.Show.shows7
                          (GHC.Show.$fShow(,)_$sgo
                             Common.$fShowCard2
-                            (\ (w1 :: GHC.Base.String) -> Common.$w$cshowsPrec ds1 w1)
+                            (\ (w1 :: GHC.Base.String) -> Common.$w$cshowsPrec2 ds1 w1)
                             (GHC.Types.[] @ GHC.Show.ShowS))) } #)) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
-  $w$cshowsPrec :: Common.Value -> GHC.Base.String -> GHC.Base.String
+76a923cef3461a90e7a7daf7e02a004b
+  $w$cshowsPrec ::
+    Common.Action -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (w :: Common.Action) (w1 :: GHC.Base.String) ->
+                 case w of wild {
+                   Common.UseCard
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAction31 w1
+                   Common.TakeFromDeck
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAction28 w1
+                   Common.EndTurn
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAction25 w1
+                   Common.AttackReverse
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAction22 w1
+                   Common.AttackSkip
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAction19 w1
+                   Common.AttackDraw2
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAction16 w1
+                   Common.AttackWildDraw4
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAction13 w1 }) -}
+c43f46aefeb40b09aa7dd66d99e75254
+  $w$cshowsPrec1 ::
+    Common.Attack -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (w :: Common.Attack) (w1 :: GHC.Base.String) ->
+                 case w of wild {
+                   Common.NoAttack
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAttack19 w1
+                   Common.Skip
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAttack16 w1
+                   Common.Draw2
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAttack13 w1
+                   Common.Draw4
+                   -> GHC.Base.++ @ GHC.Types.Char Common.$fReadAttack10 w1 }) -}
+ade0e6ab70df486635f70942f3ff2870
+  $w$cshowsPrec2 ::
+    Common.Value -> GHC.Base.String -> GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0],
      Unfolding: (\ (w :: Common.Value) (w1 :: GHC.Base.String) ->
                  case w of wild {
@@ -2539,12 +3620,12 @@ fe9392ea2a1b5c52715de9c034b6a866
                    -> GHC.Base.++ @ GHC.Types.Char Common.$fReadValue25 w1
                    Common.Dummy
                    -> GHC.Base.++ @ GHC.Types.Char Common.$fReadValue22 w1 }) -}
-d07243ec835d05cdd89317ad4dbeaa22
-  $w$cshowsPrec1 ::
+d4359d9a5d6ba4060bfb794b279f6a73
+  $w$cshowsPrec3 ::
     GHC.Prim.Int#
     -> Common.Player -> GHC.Base.String -> GHC.Base.String
   {- Arity: 3, Strictness: <S,U><S,1*U><L,U>, Inline: [0] -}
-0a1de99a53905a24b894ec2a97e8ec22
+d3655a4ec5691a261211acc68543f755
   $w$csucc ::
     Common.Card -> (# System.Console.ANSI.Common.Color, Common.Value #)
   {- Arity: 1, Strictness: <L,1*U(1*U,1*U)>, Inline: [0],
@@ -2606,7 +3687,7 @@ d07243ec835d05cdd89317ad4dbeaa22
                                  (GHC.Prim.*# (GHC.Prim.dataToTag# @ Common.Value ds1) 5#)
                                  7#)
                               1#) } })) -}
-f9cf00381974ddf0af495c86b3377dae
+37cc2770695561e8ced572906e7b91eb
   $w$ctoEnum ::
     GHC.Types.Int
     -> (# System.Console.ANSI.Common.Color, Common.Value #)
@@ -2648,19 +3729,19 @@ f9cf00381974ddf0af495c86b3377dae
                  (# case ds of wild { (,) v s ->
                     System.Console.ANSI.Common.$fEnumColor_$ctoEnum v },
                     case ds of wild { (,) v s ->
-                    case s of wild1 { GHC.Types.I# x5 ->
+                    case s of wild1 { GHC.Types.I# x6 ->
                     case GHC.Prim.tagToEnum#
                            @ GHC.Types.Bool
-                           (GHC.Prim.>=# x5 0#) of wild2 {
-                      GHC.Types.False -> Common.$fEnumCard1 x5
+                           (GHC.Prim.>=# x6 0#) of wild2 {
+                      GHC.Types.False -> Common.$fEnumCard1 x6
                       GHC.Types.True
                       -> case GHC.Prim.tagToEnum#
                                 @ GHC.Types.Bool
-                                (GHC.Prim.<=# x5 15#) of wild3 {
-                           GHC.Types.False -> Common.$fEnumCard1 x5
+                                (GHC.Prim.<=# x6 15#) of wild3 {
+                           GHC.Types.False -> Common.$fEnumCard1 x6
                            GHC.Types.True
-                           -> GHC.Prim.tagToEnum# @ Common.Value x5 } } } } #)) -}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+                           -> GHC.Prim.tagToEnum# @ Common.Value x6 } } } } #)) -}
+ade0e6ab70df486635f70942f3ff2870
   $w$ctoEnum1 :: GHC.Prim.Int# -> Common.Value
   {- Arity: 1, Strictness: <S,U>, Inline: [0],
      Unfolding: (\ (ww :: GHC.Prim.Int#) ->
@@ -2674,7 +3755,30 @@ f9cf00381974ddf0af495c86b3377dae
                              (GHC.Prim.<=# ww 15#) of wild1 {
                         GHC.Types.False -> Common.$fEnumCard1 ww
                         GHC.Types.True -> GHC.Prim.tagToEnum# @ Common.Value ww } }) -}
-f8c24273fe72341b179fa763695a5c02
+c3d62e7e93f9dfc8549b98f275b331c5
+  $wcountCards :: Common.Deck -> Common.Card -> GHC.Prim.Int#
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U(U,U)>,
+     Inline: [0],
+     Unfolding: (\ (w :: Common.Deck) (w1 :: Common.Card) ->
+                 letrec {
+                   $wgo2 :: [Common.Card] -> GHC.Prim.Int# -> GHC.Prim.Int#
+                     {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0] -}
+                   = \ (w2 :: [Common.Card]) (ww :: GHC.Prim.Int#) ->
+                     case w2 of wild {
+                       [] -> ww
+                       : y ys
+                       -> case y of ww1 { Common.Card ww2 ww3 ->
+                          case w1 of ww4 { Common.Card ww5 ww6 ->
+                          case Common.$w$c== ww2 ww3 ww5 ww6 of wild1 {
+                            GHC.Types.False -> $wgo2 ys ww
+                            GHC.Types.True -> $wgo2 ys (GHC.Prim.+# ww 1#) } } } }
+                 } in
+                 $wgo2 w 0#) -}
+f20949390baca98204845701bc2daab5
+  $wcountCardsByColor ::
+    System.Console.ANSI.Common.Color -> Common.Hand -> GHC.Prim.Int#
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>, Inline: [0] -}
+e7722a277d7000f2962e1666271c2e2d
   $wnplicate :: GHC.Prim.Int# -> [a] -> [a]
   {- Arity: 2, HasNoCafRefs, Strictness: <S,U><L,U>, Inline: [0],
      Unfolding: (\ @ a (ww :: GHC.Prim.Int#) (w :: [a]) ->
@@ -2684,37 +3788,61 @@ f8c24273fe72341b179fa763695a5c02
                    GHC.Types.False -> GHC.Types.[] @ a
                    GHC.Types.True
                    -> let {
-                        lvl30 :: [a] = GHC.Base.++ @ a w (GHC.Types.[] @ a)
+                        lvl32 :: [a] = GHC.Base.++ @ a w (GHC.Types.[] @ a)
                       } in
                       letrec {
-                        $wxs2 :: GHC.Prim.Int# -> [a]
+                        $wxs3 :: GHC.Prim.Int# -> [a]
                           {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
                         = \ (ww1 :: GHC.Prim.Int#) ->
                           case ww1 of ds1 {
-                            DEFAULT -> GHC.Base.++ @ a w ($wxs2 (GHC.Prim.-# ds1 1#))
-                            1# -> lvl30 }
+                            DEFAULT -> GHC.Base.++ @ a w ($wxs3 (GHC.Prim.-# ds1 1#))
+                            1# -> lvl32 }
                       } in
-                      $wxs2 ww }) -}
-0a1de99a53905a24b894ec2a97e8ec22
+                      $wxs3 ww }) -}
+9ce9a037df72221b8752c052fcb315e4
+  $wtakeCards ::
+    [Common.Card] -> Common.Hand -> (# Common.Hand, Common.Hand #)
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0] -}
+25f8aff1c78f102044e67c3030ff0d56
+  $wxs :: GHC.Prim.Int# -> [Common.Card]
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+cbe5d09ad80a2b011f8a0ecbeb9a33d4
+  $wxs1 :: GHC.Prim.Int# -> [Common.Card]
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+76a923cef3461a90e7a7daf7e02a004b
+  data Action
+    = UseCard
+    | TakeFromDeck
+    | EndTurn
+    | AttackReverse
+    | AttackSkip
+    | AttackDraw2
+    | AttackWildDraw4
+c43f46aefeb40b09aa7dd66d99e75254
+  data Attack = NoAttack | Skip | Draw2 | Draw4
+d3655a4ec5691a261211acc68543f755
   data Card
     = Card {color :: System.Console.ANSI.Common.Color,
             value :: Common.Value}
-f0c5b4ec92c6ec2122c1fad11f08eba2
+235e994b8fb34e9a523b642a7776a5fd
   type D_Stack = [Common.Card]
-cd45c4715fc3cd4b0692bc1e025222de
+464f829e85e2d8956a692498bb672e82
   type Deck = [Common.Card]
-945210a8bddf7366be89a6d3bc6ba28e
+36ab7f9974a0abf23a6627c072079a47
   type Hand = [Common.Card]
-d07243ec835d05cdd89317ad4dbeaa22
+d4359d9a5d6ba4060bfb794b279f6a73
   data Player
     = HPlayer {name :: GHC.Base.String, hand :: Common.Hand}
     | AiPlayer {name :: GHC.Base.String, hand :: Common.Hand}
-d288502f809c988302e39a7d1adf5abe
+    | NoPlayer {name :: GHC.Base.String}
+2557980be5241c48c15a145621c2a18e
   data State
     = State {players :: [Common.Player],
+             e_players :: [Common.Player],
              deck :: Common.Deck,
-             d_stack :: Common.D_Stack}
-815b4d3fd5f2f46f2c7a12b7efde13c9
+             d_stack :: Common.D_Stack,
+             cur_player :: Common.Player}
+ade0e6ab70df486635f70942f3ff2870
   data Value
     = Zero
     | One
@@ -2732,53 +3860,465 @@ d288502f809c988302e39a7d1adf5abe
     | Plus4
     | ChCol
     | Dummy
-5a7b32f210b3b2147209db4f840ad546
+b6ee85b79203875b29f750edc2cab68b
+  attackCards :: [Common.Card]
+  {- Unfolding: (Common.$wxs 2#) -}
+caedbc7357dd68dacef5213da1b3e308
+  blackenCards :: [Common.Card] -> [Common.Card]
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (hand2 :: [Common.Card]) ->
+                 GHC.Base.build
+                   @ Common.Card
+                   (\ @ b1
+                      (c1 :: Common.Card -> b1 -> b1)[OneShot]
+                      (n :: b1)[OneShot] ->
+                    GHC.Base.foldr
+                      @ Common.Card
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ Common.Card
+                         @ b1
+                         @ Common.Card
+                         c1
+                         Common.blackenCards1)
+                      n
+                      hand2)) -}
+44bcf006bab88ea8dfcc89483bfe128b
+  blackenCards1 :: Common.Card -> Common.Card
+  {- Arity: 1, Strictness: <L,U(U,U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (c1 :: Common.Card) ->
+                 case GHC.List.elem
+                        @ Common.Card
+                        Common.$fEqCard
+                        c1
+                        Common.changeColCards of wild {
+                   GHC.Types.False -> c1
+                   GHC.Types.True
+                   -> Common.Card
+                        System.Console.ANSI.Common.Black
+                        (case c1 of wild1 { Common.Card ds ds1 -> ds1 }) }) -}
+a89f1d8da142059a2fc5bad8a0021a96
+  changeColCards :: [Common.Card]
+  {- Unfolding: (Common.changeColCards_go Common.changeColCards1) -}
+383397b22c3e504fa87c6b6023c829ec
+  changeColCards1 :: [System.Console.ANSI.Common.Color]
+  {- Unfolding: (System.Console.ANSI.Common.$fEnumColor_go3 1#) -}
+62ec44bde5267dd1c217f5b695c54255
+  changeColCards_go ::
+    [System.Console.ANSI.Common.Color] -> [Common.Card]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+0fae7421de6aea151354d13b27e24f74
+  clearHands :: [Common.Player] -> [Common.Player]
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (players1 :: [Common.Player]) ->
+                 GHC.Base.build
+                   @ Common.Player
+                   (\ @ b1
+                      (c1 :: Common.Player -> b1 -> b1)[OneShot]
+                      (n :: b1)[OneShot] ->
+                    GHC.Base.foldr
+                      @ Common.Player
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ Common.Player
+                         @ b1
+                         @ Common.Player
+                         c1
+                         Common.clearHands1)
+                      n
+                      players1)) -}
+e867cb535320fc75160473d4418b3801
+  clearHands1 :: Common.Player -> Common.Player
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (p' :: Common.Player) ->
+                 case p' of wild {
+                   Common.HPlayer ds ds1
+                   -> Common.HPlayer ds (GHC.Types.[] @ Common.Card)
+                   Common.AiPlayer ds ds1
+                   -> Common.AiPlayer ds (GHC.Types.[] @ Common.Card)
+                   Common.NoPlayer ipv
+                   -> Control.Exception.Base.patError
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Common.Player
+                        "src\\Common.hs:124:34-50|record update"# }) -}
+aecc4aefc44587057e99e9b76aea34d1
   color :: Common.Card -> System.Console.ANSI.Common.Color
   RecSel Left Common.Card
   {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Common.Card) ->
                  case ds of wild { Common.Card ds1 ds2 -> ds1 }) -}
-510c77d8913f5bd8289e87b68827444f
+3403ae252e5b06441b9ccb31f103bc3c
+  colorBlack :: Common.Card -> Common.Card
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,1*U(A,1*U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (c1 :: Common.Card) ->
+                 Common.Card
+                   System.Console.ANSI.Common.Black
+                   (case c1 of wild { Common.Card ds ds1 -> ds1 })) -}
+d69b006e357a798eb7487cfe81d710e9
+  colorInHand ::
+    System.Console.ANSI.Common.Color -> Common.Hand -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Common.colorInHand1
+                  `cast`
+                (<System.Console.ANSI.Common.Color>_R
+                 ->_R <Common.Hand>_R
+                 ->_R Data.Monoid.N:Any[0]) -}
+31f3aefac324bec1972fc7e337b85e3e
+  colorInHand1 ::
+    System.Console.ANSI.Common.Color -> Common.Hand -> Data.Monoid.Any
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: (\ (col :: System.Console.ANSI.Common.Color)
+                   (hand2 :: Common.Hand) ->
+                 letrec {
+                   go3 :: [Common.Card] -> Data.Monoid.Any
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [Common.Card]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.False `cast` (Sym (Data.Monoid.N:Any[0]))
+                       : y ys
+                       -> case y of wild1 { Common.Card ds1 ds2 ->
+                          case ds1 of wild2 {
+                            System.Console.ANSI.Common.Black
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Black
+                                 -> GHC.Types.True `cast` (Sym (Data.Monoid.N:Any[0])) }
+                            System.Console.ANSI.Common.Red
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Red
+                                 -> GHC.Types.True `cast` (Sym (Data.Monoid.N:Any[0])) }
+                            System.Console.ANSI.Common.Green
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Green
+                                 -> GHC.Types.True `cast` (Sym (Data.Monoid.N:Any[0])) }
+                            System.Console.ANSI.Common.Yellow
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Yellow
+                                 -> GHC.Types.True `cast` (Sym (Data.Monoid.N:Any[0])) }
+                            System.Console.ANSI.Common.Blue
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Blue
+                                 -> GHC.Types.True `cast` (Sym (Data.Monoid.N:Any[0])) }
+                            System.Console.ANSI.Common.Magenta
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Magenta
+                                 -> GHC.Types.True `cast` (Sym (Data.Monoid.N:Any[0])) }
+                            System.Console.ANSI.Common.Cyan
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Cyan
+                                 -> GHC.Types.True `cast` (Sym (Data.Monoid.N:Any[0])) }
+                            System.Console.ANSI.Common.White
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.White
+                                 -> GHC.Types.True `cast` (Sym (Data.Monoid.N:Any[0])) } } } }
+                 } in
+                 go3 hand2) -}
+3465c0ed72fa7e7eabbd1c0f0075882f
+  colorizeWildcard ::
+    System.Console.ANSI.Common.Color -> Common.Card -> Common.Card
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,1*U(A,1*U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ (col :: System.Console.ANSI.Common.Color) (c1 :: Common.Card) ->
+                 Common.Card col (case c1 of wild { Common.Card ds ds1 -> ds1 })) -}
+d609cdd5a508f7fb2674ff2040fff789
+  countCards :: Common.Deck -> Common.Card -> GHC.Types.Int
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U(U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Common.Deck) (w1 :: Common.Card) ->
+                 case Common.$wcountCards w w1 of ww { DEFAULT ->
+                 GHC.Types.I# ww }) -}
+08ff3e6ebdf224196c84efcc095ca610
+  countCardsByColor ::
+    System.Console.ANSI.Common.Color -> Common.Hand -> GHC.Types.Int
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: System.Console.ANSI.Common.Color) (w1 :: Common.Hand) ->
+                 case Common.$wcountCardsByColor w w1 of ww { DEFAULT ->
+                 GHC.Types.I# ww }) -}
+1999cb17dece5d16d43f483b47a586ff
+  cur_player :: Common.State -> Common.Player
+  RecSel Left Common.State
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLLS),1*U(A,A,A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Common.State) ->
+                 case ds of wild { Common.State ds1 ds2 ds3 ds4 ds5 -> ds5 }) -}
+52e4815f951ab775ced38acfc3007872
   d_stack :: Common.State -> Common.D_Stack
   RecSel Left Common.State
-  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLS),1*U(A,A,1*U)>,
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLSL),1*U(A,A,A,1*U,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Common.State) ->
-                 case ds of wild { Common.State ds1 ds2 ds3 -> ds3 }) -}
-f8361331dc860f512622b8696b78f084
+                 case ds of wild { Common.State ds1 ds2 ds3 ds4 ds5 -> ds4 }) -}
+86901041458ce52a067f6fc410e8bb9e
   deck :: Common.State -> Common.Deck
   RecSel Left Common.State
-  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSL),1*U(A,1*U,A)>,
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSLL),1*U(A,A,1*U,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Common.State) ->
-                 case ds of wild { Common.State ds1 ds2 ds3 -> ds2 }) -}
-9900e44dd28bf45765526df601281ee8
+                 case ds of wild { Common.State ds1 ds2 ds3 ds4 ds5 -> ds3 }) -}
+de1169e4f6a9341c3c941706942b1b9b
+  e_players :: Common.State -> [Common.Player]
+  RecSel Left Common.State
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLLL),1*U(A,1*U,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Common.State) ->
+                 case ds of wild { Common.State ds1 ds2 ds3 ds4 ds5 -> ds2 }) -}
+517fe5913b7f3770199b103f6625add4
   fullDeck :: Common.Deck
-  {- Unfolding: (Common.fullDeck_go Common.fullDeck1) -}
-e1c792b9223c803574bd1fe17540d896
-  fullDeck1 :: [System.Console.ANSI.Common.Color]
-  {- Unfolding: (System.Console.ANSI.Common.$fEnumColor_go3 1#) -}
-98017f7a3faddb1ccf796dfa7449eb13
-  fullDeck_go :: [System.Console.ANSI.Common.Color] -> [Common.Card]
+  {- Unfolding: (GHC.Base.++
+                   @ Common.Card
+                   Common.numberCards
+                   Common.fullDeck1) -}
+04ccde2d7912f13782a1a4e1b8b5e420
+  fullDeck1 :: [Common.Card]
+  {- Unfolding: (GHC.Base.++
+                   @ Common.Card
+                   Common.attackCards
+                   Common.wildCards) -}
+77d983421891cd6180e854282fc85c46
+  getCardWithColor ::
+    System.Console.ANSI.Common.Color
+    -> Common.Hand -> GHC.Base.Maybe Common.Card
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Common.getCardWithColor1
+                  `cast`
+                (<System.Console.ANSI.Common.Color>_R
+                 ->_R <Common.Hand>_R
+                 ->_R Data.Monoid.N:First[0] <Common.Card>_N) -}
+c05bb3085f6b229a3be816301a2e6642
+  getCardWithColor1 ::
+    System.Console.ANSI.Common.Color
+    -> Common.Hand -> Data.Monoid.First Common.Card
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: (\ (col :: System.Console.ANSI.Common.Color)
+                   (hand2 :: Common.Hand) ->
+                 letrec {
+                   go3 :: [Common.Card] -> Data.Monoid.First Common.Card
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [Common.Card]) ->
+                     case ds of wild {
+                       []
+                       -> (GHC.Base.Nothing @ Common.Card)
+                            `cast`
+                          (Sym (Data.Monoid.N:First[0]) <Common.Card>_N)
+                       : y ys
+                       -> case y of wild1 { Common.Card ds1 ds2 ->
+                          case ds1 of wild2 {
+                            System.Console.ANSI.Common.Black
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Black
+                                 -> (GHC.Base.Just @ Common.Card wild1)
+                                      `cast`
+                                    (Sym (Data.Monoid.N:First[0]) <Common.Card>_N) }
+                            System.Console.ANSI.Common.Red
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Red
+                                 -> (GHC.Base.Just @ Common.Card wild1)
+                                      `cast`
+                                    (Sym (Data.Monoid.N:First[0]) <Common.Card>_N) }
+                            System.Console.ANSI.Common.Green
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Green
+                                 -> (GHC.Base.Just @ Common.Card wild1)
+                                      `cast`
+                                    (Sym (Data.Monoid.N:First[0]) <Common.Card>_N) }
+                            System.Console.ANSI.Common.Yellow
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Yellow
+                                 -> (GHC.Base.Just @ Common.Card wild1)
+                                      `cast`
+                                    (Sym (Data.Monoid.N:First[0]) <Common.Card>_N) }
+                            System.Console.ANSI.Common.Blue
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Blue
+                                 -> (GHC.Base.Just @ Common.Card wild1)
+                                      `cast`
+                                    (Sym (Data.Monoid.N:First[0]) <Common.Card>_N) }
+                            System.Console.ANSI.Common.Magenta
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Magenta
+                                 -> (GHC.Base.Just @ Common.Card wild1)
+                                      `cast`
+                                    (Sym (Data.Monoid.N:First[0]) <Common.Card>_N) }
+                            System.Console.ANSI.Common.Cyan
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.Cyan
+                                 -> (GHC.Base.Just @ Common.Card wild1)
+                                      `cast`
+                                    (Sym (Data.Monoid.N:First[0]) <Common.Card>_N) }
+                            System.Console.ANSI.Common.White
+                            -> case col of wild3 {
+                                 DEFAULT -> go3 ys
+                                 System.Console.ANSI.Common.White
+                                 -> (GHC.Base.Just @ Common.Card wild1)
+                                      `cast`
+                                    (Sym (Data.Monoid.N:First[0]) <Common.Card>_N) } } } }
+                 } in
+                 go3 hand2) -}
+4996ca4a9b88442aca4bebd0bfd6ba58
+  getCardWithValue ::
+    Common.Value -> Common.Hand -> GHC.Base.Maybe Common.Card
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Common.getCardWithValue1
+                  `cast`
+                (<Common.Value>_R
+                 ->_R <Common.Hand>_R
+                 ->_R Data.Monoid.N:First[0] <Common.Card>_N) -}
+134c54447d3ecda80656bc01eca0c6ac
+  getCardWithValue1 ::
+    Common.Value -> Common.Hand -> Data.Monoid.First Common.Card
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: (\ (val :: Common.Value) (hand2 :: Common.Hand) ->
+                 letrec {
+                   go3 :: [Common.Card] -> Data.Monoid.First Common.Card
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [Common.Card]) ->
+                     case ds of wild {
+                       []
+                       -> (GHC.Base.Nothing @ Common.Card)
+                            `cast`
+                          (Sym (Data.Monoid.N:First[0]) <Common.Card>_N)
+                       : y ys
+                       -> case y of wild1 { Common.Card ds1 ds2 ->
+                          case GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.==#
+                                    (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                    (GHC.Prim.dataToTag# @ Common.Value val)) of wild2 {
+                            GHC.Types.False -> go3 ys
+                            GHC.Types.True
+                            -> (GHC.Base.Just @ Common.Card wild1)
+                                 `cast`
+                               (Sym (Data.Monoid.N:First[0]) <Common.Card>_N) } } }
+                 } in
+                 go3 hand2) -}
+fda175441cd2ce207cac7420733a63e1
+  getCards :: Common.Deck -> Common.Card -> [Common.Card]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U(U,U)>,
+     Unfolding: (\ (d :: Common.Deck) (c1 :: Common.Card) ->
+                 letrec {
+                   go3 :: [Common.Card] -> [Common.Card]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [Common.Card]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ Common.Card
+                       : y ys
+                       -> case y of ww { Common.Card ww1 ww2 ->
+                          case c1 of ww3 { Common.Card ww4 ww5 ->
+                          case Common.$w$c== ww1 ww2 ww4 ww5 of wild1 {
+                            GHC.Types.False -> go3 ys
+                            GHC.Types.True -> GHC.Types.: @ Common.Card ww (go3 ys) } } } }
+                 } in
+                 go3 d) -}
+f7147929c52fbc2e31cc197dbb6cf3da
+  getWildcard :: Common.Hand -> GHC.Base.Maybe Common.Card
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Common.getWildcard1
+                  `cast`
+                (<Common.Hand>_R ->_R Data.Monoid.N:First[0] <Common.Card>_N) -}
+f6c00ab248857b512ee2467621c1226e
+  getWildcard1 :: Common.Hand -> Data.Monoid.First Common.Card
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (hand2 :: Common.Hand) ->
+                 Common.getWildcard_go hand2) -}
+eadf0a5c9dcf3f92c6651f1cd9a2aeaa
+  getWildcard_go :: [Common.Card] -> Data.Monoid.First Common.Card
   {- Arity: 1, Strictness: <S,1*U> -}
-5bd2db0fd0e73792c5348d9109131ef3
+406367828e9503cc75d4ea73285c6451
   hand :: Common.Player -> Common.Hand
   RecSel Left Common.Player
-  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+  {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Common.Player) ->
                  case ds of wild {
-                   Common.HPlayer ds1 ds2 -> ds2 Common.AiPlayer ds1 ds2 -> ds2 }) -}
-77a970fe2a14578a0b75a9839ae2bf68
+                   Common.HPlayer ds1 ds2 -> ds2
+                   Common.AiPlayer ds1 ds2 -> ds2
+                   Common.NoPlayer ipv -> Common.hand1 }) -}
+77026596d860e8263dce4c5fdff68b37
+  hand1 :: Common.Hand
+  {- Strictness: x -}
+109b71321dcc1480d080e2aa7e368532
+  isAttackCard :: Common.Card -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (c1 :: Common.Card) ->
+                 GHC.List.elem
+                   @ Common.Card
+                   Common.$fEqCard
+                   c1
+                   Common.attackCards) -}
+d06834b44e492cf5cf5ccb4731688d10
+  isChangeColCards :: Common.Card -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (c1 :: Common.Card) ->
+                 GHC.List.elem
+                   @ Common.Card
+                   Common.$fEqCard
+                   c1
+                   Common.changeColCards) -}
+109344a9d1a0bea0abcccdf568652ee0
+  isNumberCard :: Common.Card -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (c1 :: Common.Card) ->
+                 GHC.List.elem
+                   @ Common.Card
+                   Common.$fEqCard
+                   c1
+                   Common.numberCards) -}
+e89fbcd31d78a19631add8550e115a5e
+  isWildcard :: Common.Card -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (c1 :: Common.Card) ->
+                 GHC.List.elem @ Common.Card Common.$fEqCard c1 Common.wildCards) -}
+47e7484b9af632a1a3aca30447099ee6
   name :: Common.Player -> GHC.Base.String
   RecSel Left Common.Player
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Common.Player) ->
                  case ds of wild {
-                   Common.HPlayer ds1 ds2 -> ds1 Common.AiPlayer ds1 ds2 -> ds1 }) -}
-b1ea215ae21a418b634452b0cf62061c
+                   Common.HPlayer ds1 ds2 -> ds1
+                   Common.AiPlayer ds1 ds2 -> ds1
+                   Common.NoPlayer ds1 -> ds1 }) -}
+d454b79d092a482a5f3a474bfbdcb8ff
+  noCard :: Common.Card
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True) Common.whiteDummy -}
+1f6ad14673a8ad50f1f02628c21f7ed8
+  noPlayer :: Common.Player
+  {- Strictness: m3, Unfolding: (Common.NoPlayer Common.noPlayer1) -}
+8fcdc0dd35a52fc6537d33697d9b5755
+  noPlayer1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "No Player"#) -}
+53aac846e90313f702a4717158145647
   nplicate :: GHC.Types.Int -> [a] -> [a]
   {- Arity: 2, HasNoCafRefs, Strictness: <S(S),1*U(U)><L,U>,
      Inline: INLINE[0],
@@ -2786,29 +4326,105 @@ b1ea215ae21a418b634452b0cf62061c
                 (\ @ a (w :: GHC.Types.Int) (w1 :: [a]) ->
                  case w of ww { GHC.Types.I# ww1 ->
                  Common.$wnplicate @ a ww1 w1 }) -}
-4d4bce967ebd07a139056c3e22621d58
+7bbac977fbf2126b599d9ee52e265b36
+  numberCards :: [Common.Card]
+  {- Unfolding: (Common.numberCards_go Common.changeColCards1) -}
+42c409fa31ffe78842eb502e0a988a0b
+  numberCards_go ::
+    [System.Console.ANSI.Common.Color] -> [Common.Card]
+  {- Arity: 1, Strictness: <S,1*U> -}
+4b044af41c7915cda41aa6fcaaba6062
   players :: Common.State -> [Common.Player]
   RecSel Left Common.State
-  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLL),1*U(1*U,A,A)>,
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLLL),1*U(1*U,A,A,A,A)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Common.State) ->
-                 case ds of wild { Common.State ds1 ds2 ds3 -> ds1 }) -}
-66c4c0afdf7c37c364d1d8f2d1d5a8c8
+                 case ds of wild { Common.State ds1 ds2 ds3 ds4 ds5 -> ds1 }) -}
+f3641d2b18d19cfa860b0a77edf41901
+  takeCards ::
+    [Common.Card] -> Common.Hand -> (Common.Hand, Common.Hand)
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [Common.Card]) (w1 :: Common.Hand) ->
+                 case Common.$wtakeCards w w1 of ww { (#,#) ww1 ww2 ->
+                 (ww1, ww2) }) -}
+d10b884ee7f0ec75f0a11e8b7dc592fc
   value :: Common.Card -> Common.Value
   RecSel Left Common.Card
   {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Common.Card) ->
                  case ds of wild { Common.Card ds1 ds2 -> ds2 }) -}
+f09a520dddfd04b086cf40fa1714233e
+  valueInHand :: Common.Value -> Common.Hand -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Common.valueInHand1
+                  `cast`
+                (<Common.Value>_R
+                 ->_R <Common.Hand>_R
+                 ->_R Data.Monoid.N:Any[0]) -}
+5d966893c7fbbc83887c6c45bfa4df61
+  valueInHand1 :: Common.Value -> Common.Hand -> Data.Monoid.Any
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: (\ (val :: Common.Value) (hand2 :: Common.Hand) ->
+                 letrec {
+                   go3 :: [Common.Card] -> Data.Monoid.Any
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [Common.Card]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.False `cast` (Sym (Data.Monoid.N:Any[0]))
+                       : y ys
+                       -> case y of wild1 { Common.Card ds1 ds2 ->
+                          case GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.==#
+                                    (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                    (GHC.Prim.dataToTag# @ Common.Value val)) of wild2 {
+                            GHC.Types.False -> go3 ys
+                            GHC.Types.True
+                            -> GHC.Types.True `cast` (Sym (Data.Monoid.N:Any[0])) } } }
+                 } in
+                 go3 hand2) -}
+ae109451ebce8fb08af2db94cc7bc742
+  whiteDummy :: Common.Card
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (Common.Card
+                   System.Console.ANSI.Common.White
+                   Common.Dummy) -}
+15e8f0b44b642bb62b75ce0021f5ec37
+  wildCards :: [Common.Card]
+  {- Unfolding: (Common.$wxs1 4#) -}
+7fc7a8f4a23b07bef3d28e5f20b74ea3
+  wildcardInHand :: Common.Hand -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Common.wildcardInHand1
+                  `cast`
+                (<Common.Hand>_R ->_R Data.Monoid.N:Any[0]) -}
+a54683e8cb4fe5d2454578efaa6a2c90
+  wildcardInHand1 :: Common.Hand -> Data.Monoid.Any
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (hand2 :: Common.Hand) ->
+                 Common.wildcardInHand_go hand2) -}
+ec906b1ff7ac2ba387940359b998612e
+  wildcardInHand_go :: [Common.Card] -> Data.Monoid.Any
+  {- Arity: 1, Strictness: <S,1*U> -}
 instance [safe] GHC.Enum.Enum [Common.Card] = Common.$fEnumCard
 instance [safe] GHC.Enum.Enum [Common.Value] = Common.$fEnumValue
+instance [safe] GHC.Classes.Eq [Common.Action] = Common.$fEqAction
+instance [safe] GHC.Classes.Eq [Common.Attack] = Common.$fEqAttack
 instance [safe] GHC.Classes.Eq [Common.Card] = Common.$fEqCard
 instance [safe] GHC.Classes.Eq [Common.Player] = Common.$fEqPlayer
 instance [safe] GHC.Classes.Eq [Common.Value] = Common.$fEqValue
 instance [safe] GHC.Classes.Ord [Common.Card] = Common.$fOrdCard
 instance [safe] GHC.Classes.Ord [Common.Value] = Common.$fOrdValue
+instance [safe] GHC.Read.Read [Common.Action] = Common.$fReadAction
+instance [safe] GHC.Read.Read [Common.Attack] = Common.$fReadAttack
 instance [safe] GHC.Read.Read [Common.Card] = Common.$fReadCard
 instance [safe] GHC.Read.Read [Common.Value] = Common.$fReadValue
+instance [safe] GHC.Show.Show [Common.Action] = Common.$fShowAction
+instance [safe] GHC.Show.Show [Common.Attack] = Common.$fShowAttack
 instance [safe] GHC.Show.Show [Common.Card] = Common.$fShowCard
 instance [safe] GHC.Show.Show [Common.Player] = Common.$fShowPlayer
 instance [safe] GHC.Show.Show [Common.Value] = Common.$fShowValue

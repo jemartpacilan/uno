@@ -1,9 +1,9 @@
 
 ==================== FINAL INTERFACE ====================
-2016-11-28 14:42:37.100736 UTC
+2016-12-20 11:29:22.656147 UTC
 
 interface main@main:UnoI 8001
-  interface hash: e146da59da7e1f23276a8918b28927f6
+  interface hash: 50d0134e085cb2425b7900472f612c4c
   ABI hash: 93372208a347a6c88e6282d3e39138f4
   export-list hash: 998d17b0ddc3ba9789cde25fa3e045dc
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
@@ -40,9 +40,9 @@ family instance modules: base-4.9.0.0:Control.Applicative
 import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
 import  -/  base-4.9.0.0:GHC.Real 011de9ca3282ad24a84e4e15f974f98e
 import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
-import  -/  Common 314aa025a877a9b98b072cae5de130a3
-  exports: 328ebd8136b873bd4d3db6e12f4d2c40
-import  -/  Shuffler 997d6778562718d7a9d5c6c796e4d5ab
+import  -/  Common 2fce3a68b0e049ef63a25a749268d745
+  exports: 0dd6aa7fd7556d7d9ed309dd2c746bb4
+import  -/  Shuffler 041959732cfdbcbdc81c5df6821e07de
   exports: ffa394dcdcadd28fb876b9aa60547013
 99dbd6aa8439f97c19065cc65c7e3479
   $trModule :: GHC.Types.Module

@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2016-11-28 14:58:44.7087613 UTC
+2016-12-20 11:29:22.5162243 UTC
 
 interface main@main:Shuffler 8001
-  interface hash: 218c401be08f308bb6691c00924774a2
-  ABI hash: 997d6778562718d7a9d5c6c796e4d5ab
+  interface hash: 005e539bcfe7f398852a2ec7f00e71af
+  ABI hash: 041959732cfdbcbdc81c5df6821e07de
   export-list hash: ffa394dcdcadd28fb876b9aa60547013
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 5dce9974ea0e787ec0b9bd9d1203e496
@@ -40,10 +40,10 @@ family instance modules: base-4.9.0.0:Control.Applicative
 import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
 import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
-import  -/  Common 314aa025a877a9b98b072cae5de130a3
-  exports: 328ebd8136b873bd4d3db6e12f4d2c40
-  State e6ad2e03194c4954e69bd0a57884e5e9
-  deck 04762bbf350c8f2ba7e46bcc7feae23d
+import  -/  Common 2fce3a68b0e049ef63a25a749268d745
+  exports: 0dd6aa7fd7556d7d9ed309dd2c746bb4
+  State b0ae779c7eb01c33f9c6e0644d45030e
+  deck b5ca5dd3e517cde1cbb702b57ac2caf0
 import  -/  random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe:System.Random 8483439f8ec14d68196250b2c4a4fa4e
 import  -/  random-shuffle-0.0.4@random-shuffle-0.0.4-LfeDYNPfwrQ2o9p6tw2M9l:System.Random.Shuffle f865f84aae69c13ae02b97cdba46d753
 712980a9d143c44b2a06fd743941a914
@@ -60,32 +60,32 @@ ffd928005928eebd3268c1ebcdd650f8
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-1b8e4ec1d5b36e756d404d841680bcac
+70c2a6d675b152bc5f2eebde26d1f415
   shuffleDeck :: Common.State -> GHC.Types.IO Common.State
-  {- Arity: 2, Strictness: <S(LSL),1*U(U,1*U,U)><S,U>,
+  {- Arity: 2, Strictness: <S(LLSLL),1*U(U,U,1*U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 Shuffler.shuffleDeck1
                   `cast`
                 (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
-84c6fb68c898fb913365c7a89e8a5634
+7a1cdef3d10c802f93d24a5c4b572c77
   shuffleDeck1 ::
     Common.State
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
-  {- Arity: 2, Strictness: <S(LSL),1*U(U,1*U,U)><S,U>,
+  {- Arity: 2, Strictness: <S(LLSLL),1*U(U,U,1*U,U,U)><S,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (state :: Common.State)
                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case state of wild { Common.State ds1 ds2 ds3 ->
+                 case state of wild { Common.State ds1 ds2 ds3 ds4 ds5 ->
                  case (System.Random.Shuffle.shuffleM
                          @ GHC.Types.IO
                          @ Common.Card
                          Control.Monad.Random.$fMonadRandomIO
-                         ds2)
+                         ds3)
                         `cast`
                       (GHC.Types.N:IO[0] <[Common.Card]>_R)
-                        s of ds4 { (#,#) ipv ipv1 ->
-                 (# ipv, Common.State ds1 ipv1 ds3 #) } }) -}
+                        s of ds7 { (#,#) ipv ipv1 ->
+                 (# ipv, Common.State ds1 ds2 ipv1 ds4 ds5 #) } }) -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

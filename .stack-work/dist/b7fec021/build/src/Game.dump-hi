@@ -1,66 +1,124 @@
 
 ==================== FINAL INTERFACE ====================
-2016-11-28 14:58:43.8081987 UTC
+2016-12-20 11:29:14.8392815 UTC
 
 interface uno-0.1.1-9oZSbbIzoKW1G8tXby6amp:Game 8001
-  interface hash: 7d85fe578dd424b486861c0e1a6452ed
-  ABI hash: 70e0145a74cb42c715b7f4eb15a5260d
-  export-list hash: f69d5b841e43f994c818dc83cb89287c
+  interface hash: cd87e2ef98a41afa75ee0bd19279ec14
+  ABI hash: c731ca61a0b621afcfcc595a9efc0583
+  export-list hash: bf5d8be4d2a6a3b5c515699317bc5133
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 365edb496d38399416a64131c77130e2
   sig of: Nothing
   used TH splices: False
   where
 exports:
-  Game.deal
+  Game.attackAndPlay
+  Game.cardCanPlay
+  Game.cardInCurHand
+  Game.cardInHand
+  Game.curHand
+  Game.deckIsEmpty
+  Game.discardCards
+  Game.drawAndEnd
+  Game.drawNCards
+  Game.getNextPlayer
   Game.initGame
+  Game.initGameWithPlayers
   Game.initialCardCount
+  Game.pickNextAndPlay
+  Game.pickNextPlayer
+  Game.playCard
+  Game.playCurrentPlayer
+  Game.playLoop
+  Game.playLoopNext
+  Game.playOneCard
+  Game.playPlayer
+  Game.playTurn
+  Game.playerHasWon
+  Game.playerIsOut
+  Game.reloadDeck
+  Game.restartGame
+  Game.reverseAndPlay
+  Game.reversePlayers
   Game.setupGame
-module dependencies: Common Shuffler
-package dependencies: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
-                      Win32-2.3.1.1@Win32-2.3.1.1
+  Game.startGame
+  Game.takeAction
+  Game.takeFromDeck
+  Game.takeFromHand
+  Game.takeFromHandWithAction
+  Game.takeNextAction
+  Game.topDCard
+  Game.updateCurHand
+  Game.updateCurPlayer
+  Game.updateDeck
+  Game.updateDiscardS
+  Game.updateHand
+  Game.updatePlayer
+  Game.useSimpleStrategy
+module dependencies: Common
+package dependencies: Win32-2.3.1.1@Win32-2.3.1.1
                       ansi-terminal-0.6.2.3@ansi-terminal-0.6.2.3-DlzOk98pOsTIrg6vAjszFA
-                      array-0.5.1.1@array-0.5.1.1 base-4.9.0.0*
-                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
-                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM
-                      random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe
-                      random-shuffle-0.0.4@random-shuffle-0.0.4-LfeDYNPfwrQ2o9p6tw2M9l
-                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
-orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
-         base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
-         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
-         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
-         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
-         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+                      base-4.9.0.0* ghc-prim-0.5.0.0 integer-gmp-1.0.0.1
+orphans: base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
 family instance modules: base-4.9.0.0:Control.Applicative
-                         base-4.9.0.0:Data.Complex base-4.9.0.0:Data.Either
-                         base-4.9.0.0:Data.Functor.Const base-4.9.0.0:Data.Functor.Identity
-                         base-4.9.0.0:Data.List.NonEmpty base-4.9.0.0:Data.Monoid
-                         base-4.9.0.0:Data.Semigroup base-4.9.0.0:Data.Type.Equality
-                         base-4.9.0.0:Data.Version base-4.9.0.0:Data.Void
-                         base-4.9.0.0:GHC.Exts base-4.9.0.0:GHC.Generics
-                         base-4.9.0.0:GHC.IO.Exception base-4.9.0.0:GHC.TypeLits
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Const
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+import  -/  ansi-terminal-0.6.2.3@ansi-terminal-0.6.2.3-DlzOk98pOsTIrg6vAjszFA:System.Console.ANSI ca076ca422c52166e42be1349b9453ba
+import  -/  ansi-terminal-0.6.2.3@ansi-terminal-0.6.2.3-DlzOk98pOsTIrg6vAjszFA:System.Console.ANSI.Common 120534aeddf149317cb5216a438351ac
+import  -/  base-4.9.0.0:Data.Foldable 3cbed01c922be29649c33015287c82ca
+import  -/  base-4.9.0.0:Data.List d711f98b49ef5d33e5b3d404631ed073
+import  -/  base-4.9.0.0:Data.Maybe 086a84053ef7f7810663b5f03b7ec3f7
 import  -/  base-4.9.0.0:GHC.Base dd8044a8d640eee51828c17c476a6ba7
+import  -/  base-4.9.0.0:GHC.Err 20faef8829fd13c027d0ee2213637534
 import  -/  base-4.9.0.0:GHC.List 47d436dfb7454bb1883fb4d943e3f389
 import  -/  base-4.9.0.0:GHC.Show 0b5845243cb2ec62b57dd6963d276ec6
 import  -/  base-4.9.0.0:Prelude 2d9cd8b0ec3d728f62b734df888d2e34
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 16d48e012d23eaef9bca91ccdd572c02
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
-import  -/  Common 89a33676a865c1e633985e80b9303588
-  exports: aa44b1ca1bba37c87c3a7b6a74ad6dc4
-  Deck cd45c4715fc3cd4b0692bc1e025222de
-  HPlayer c2d6d4dfedda211a8ff11e17641808ae
-  Player d07243ec835d05cdd89317ad4dbeaa22
-  State 44afc0a47b4d10816550ab0deb4188a1
-  State d288502f809c988302e39a7d1adf5abe
-  d_stack 510c77d8913f5bd8289e87b68827444f
-  deck f8361331dc860f512622b8696b78f084
-  fullDeck 9900e44dd28bf45765526df601281ee8
-  hand 5bd2db0fd0e73792c5348d9109131ef3
-  name 77a970fe2a14578a0b75a9839ae2bf68
-  players 4d4bce967ebd07a139056c3e22621d58
-import  -/  Shuffler 8dfcd81dcabae1fdae745c6b0d8bab4c
-  exports: f6285404716573b527204386263a7d42
-  shuffleDeck d5f634721780639154381b34287ef58b
+import  -/  Common b12506011c6a950a79af89a87031a868
+  exports: 1ce0f192f1e4af6fef4b0f2681389940
+  Action 76a923cef3461a90e7a7daf7e02a004b
+  Attack c43f46aefeb40b09aa7dd66d99e75254
+  AttackDraw2 cf915a6c575f296d50d8a762a188bbf6
+  AttackReverse 1cc05bca4d3f2f2dff150d8436803fb2
+  AttackSkip 3a8b480adbb04c03d660d60d3e0c9780
+  AttackWildDraw4 7f371afe860959a0e0abab8e72cf5d93
+  Card d3655a4ec5691a261211acc68543f755
+  ChCol 5dcc5fafe7b5d5fd84c8b6a26ffe9a9c
+  ChDir 79caf763c07e0ad8e3fd8dcfa4ab71c1
+  Deck 464f829e85e2d8956a692498bb672e82
+  Draw2 d964fa850df0fa0eb45cf08adb87d35a
+  Draw4 e509d9505248fb3953fc47ad4e73848e
+  EndTurn a4cd237d6dca2291619e6b9a5c10d7b7
+  Hand 36ab7f9974a0abf23a6627c072079a47
+  NoAttack 667fa24bde48d3e709ccd37a90c094c3
+  Player d4359d9a5d6ba4060bfb794b279f6a73
+  Plus2 dad10bbc8fca2f7c81cb2ec0ee41c062
+  Plus4 fa253e2d6679d9c43e0ba4e435ca2842
+  Skip 646658e65d597f0c074b55dea82750af
+  State 92510974a9edbf1081f2f2e4b5eddcfb
+  State 2557980be5241c48c15a145621c2a18e
+  Stop 6c005190a13b0d9808e097fe51c279ed
+  TakeFromDeck 3171f456c7212be8e1d72d304fae575c
+  UseCard 9833f87f4b54b1ca490b5b28c125cbcb
+  clearHands 0fae7421de6aea151354d13b27e24f74
+  color aecc4aefc44587057e99e9b76aea34d1
+  colorBlack 3403ae252e5b06441b9ccb31f103bc3c
+  cur_player 1999cb17dece5d16d43f483b47a586ff
+  d_stack 52e4815f951ab775ced38acfc3007872
+  deck 86901041458ce52a067f6fc410e8bb9e
+  e_players de1169e4f6a9341c3c941706942b1b9b
+  fullDeck 517fe5913b7f3770199b103f6625add4
+  hand 406367828e9503cc75d4ea73285c6451
+  isChangeColCards d06834b44e492cf5cf5ccb4731688d10
+  isNumberCard 109344a9d1a0bea0abcccdf568652ee0
+  isWildcard e89fbcd31d78a19631add8550e115a5e
+  noCard d454b79d092a482a5f3a474bfbdcb8ff
+  noPlayer 1f6ad14673a8ad50f1f02628c21f7ed8
+  players 4b044af41c7915cda41aa6fcaaba6062
+  value d10b884ee7f0ec75f0a11e8b7dc592fc
 60c960654e42fd0d26dc711abbe67448
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -74,100 +132,1097 @@ import  -/  Shuffler 8dfcd81dcabae1fdae745c6b0d8bab4c
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
                    "uno-0.1.1-9oZSbbIzoKW1G8tXby6amp"#) -}
-2db8d9b38c68344cf0310c4e1ce20e67
-  $winitGame ::
-    GHC.Types.Int -> (# [Common.Player], Common.Deck, Common.D_Stack #)
-  {- Arity: 1, Strictness: <L,1*U(U)>, Inline: [0],
-     Unfolding: (\ (w :: GHC.Types.Int) ->
-                 (# case w of wild1 { GHC.Types.I# y ->
-                    case GHC.Prim.tagToEnum#
-                           @ GHC.Types.Bool
-                           (GHC.Prim.># 1# y) of wild {
-                      GHC.Types.False
-                      -> letrec {
-                           go :: GHC.Prim.Int# -> [Common.Player]
-                             {- Arity: 1, Strictness: <L,U> -}
-                           = \ (x :: GHC.Prim.Int#) ->
-                             GHC.Types.:
-                               @ Common.Player
-                               (Common.HPlayer
-                                  (GHC.CString.unpackAppendCString#
-                                     "Player"#
-                                     (case GHC.Show.$wshowSignedInt
-                                             0#
-                                             x
-                                             (GHC.Types.[]
-                                                @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
-                                      GHC.Types.: @ GHC.Types.Char ww5 ww6 }))
-                                  (GHC.Types.[] @ Common.Card))
-                               (case GHC.Prim.tagToEnum#
-                                       @ GHC.Types.Bool
-                                       (GHC.Prim.==# x y) of wild2 {
-                                  GHC.Types.False -> go (GHC.Prim.+# x 1#)
-                                  GHC.Types.True -> GHC.Types.[] @ Common.Player })
-                         } in
-                         go 1#
-                      GHC.Types.True -> GHC.Types.[] @ Common.Player } },
-                    Common.fullDeck, GHC.Types.[] @ Common.Card #)) -}
-86c31b0400b863fff1d0fb03d1b3e58e
-  $wsetupGame ::
-    [Common.Player]
-    -> Common.Deck
+c27518cb4117f885597c37eec8309731
+  $wlvl ::
+    Common.Player
+    -> System.Console.ANSI.Common.Color
+    -> Common.Value
+    -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 3, Strictness: <B,1*U><B,1*U><B,U>x, Inline: [0] -}
+3ae9fff15cee8e5ea447c2d00dbc2b60
+  $wlvl1 ::
+    Common.D_Stack
+    -> System.Console.ANSI.Common.Color
+    -> Common.Value
+    -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 3, Strictness: <B,1*U><B,1*U><B,U>x, Inline: [0] -}
+e52d368d56b30a7e24980b47a741535b
+  $wplayCard ::
+    System.Console.ANSI.Common.Color
+    -> Common.Value
+    -> Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Common.Action, Common.State) #)
+  {- Arity: 4, Strictness: <S,U><L,U><L,U><S,U>, Inline: [0],
+     Unfolding: (\ (ww :: System.Console.ANSI.Common.Color)
+                   (ww1 :: Common.Value)
+                   (w :: Common.State)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case ww of wild {
+                   DEFAULT
+                   -> case GHC.Prim.dataToTag# @ Common.Value ww1 of wild1 {
+                        DEFAULT
+                        -> case GHC.List.elem
+                                  @ Common.Card
+                                  Common.$fEqCard
+                                  (Common.Card wild ww1)
+                                  Common.numberCards of wild2 {
+                             GHC.Types.False
+                             -> case Game.playCard2
+                                ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                          (Common.Action, Common.State) #)
+                                of {}
+                             GHC.Types.True -> (# w1, (Common.EndTurn, w) #) }
+                        10# -> (# w1, (Common.AttackDraw2, w) #)
+                        11# -> (# w1, (Common.AttackSkip, w) #)
+                        12# -> (# w1, (Common.AttackReverse, w) #)
+                        13# -> (# w1, (Common.AttackWildDraw4, w) #)
+                        14# -> (# w1, (Common.EndTurn, w) #) }
+                   System.Console.ANSI.Common.White
+                   -> (# w1, (Common.EndTurn, w) #) }) -}
+6587636ad9a9e61aa75e85e792f6e2c5
+  $wplayLoop ::
+    Common.Deck
+    -> Common.Attack
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
-  {- Arity: 3, Strictness: <L,1*U><S,U><S,U>, Inline: [0],
-     Unfolding: (\ (ww :: [Common.Player])
-                   (ww1 :: Common.Deck)
-                   (w :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case (System.Random.Shuffle.shuffleM
-                         @ GHC.Types.IO
-                         @ Common.Card
-                         Control.Monad.Random.$fMonadRandomIO
-                         (Game.$wunsafeDrop @ Common.Card 28# ww1))
-                        `cast`
-                      (GHC.Types.N:IO[0] <[Common.Card]>_R)
-                        w of ds4 { (#,#) ipv ipv1 ->
-                 (# ipv,
-                    Common.State (Game.deal ww1 ww) ipv1 Game.setupGame2 #) }) -}
-ab15efc11bd16716831b7cb74cfe7ae4
-  $wunsafeDrop :: GHC.Prim.Int# -> [a1] -> [a1]
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
-     Inline: [0] -}
-61c61dfe1d25c378bca6b43df379a018
-  deal :: Common.Deck -> [Common.Player] -> [Common.Player]
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U> -}
-9142a03b64e0a6095b2257fca92e582a
-  initGame :: GHC.Types.Int -> Common.State
-  {- Arity: 1, Strictness: <L,1*U(U)>m, Inline: INLINE[0],
+  {- Arity: 3, Strictness: <B,U><B,1*U><B,1*U>b, Inline: [0] -}
+388813627e2c068c7b2a3191685edd04
+  $wplayLoopNext ::
+    Common.Deck
+    -> Common.Action
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, Strictness: <B,U><B,1*U><B,1*U>b, Inline: [0] -}
+7377b12e82ae514667d0fc8d3d427b0b
+  $wrestartGame ::
+    [Common.Player]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 2, Strictness: <B,1*U><B,1*U>b, Inline: [0] -}
+357efd78271dd65104fce56572419e06
+  $wtopDCard :: Common.D_Stack -> Common.Card
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: Common.D_Stack) ->
+                 Game.cardCanPlay_go ww (GHC.List.lastError @ Common.Card)) -}
+e0bfda912ab8ff37e27735f7b713c690
+  attackAndPlay ::
+    Common.State -> Common.Attack -> GHC.Types.IO Common.State
+  {- Arity: 3, Strictness: <B,1*U(A,A,U,A,A)><B,1*U><B,1*U>b,
+     Unfolding: InlineRule (0, True, True)
+                Game.attackAndPlay1
+                  `cast`
+                (<Common.State>_R
+                 ->_R <Common.Attack>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+9c621a4a51a1c3b139077407319f788b
+  attackAndPlay1 ::
+    Common.State
+    -> Common.Attack
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, Strictness: <B,1*U(A,A,U,A,A)><B,1*U><B,1*U>b,
+     Unfolding: InlineRule (3, True, False)
+                (\ (gs :: Common.State)
+                   (under_attack :: Common.Attack)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case gs of wild { Common.State ds ds1 ds2 ds3 ds4 ->
+                 Game.attackAndPlay2
+                   (Common.State ds ds1 ds2 ds3 (GHC.List.head @ Common.Player ds))
+                   under_attack
+                   s }) -}
+e7869d3408ad7430bd3a3d7764ca7b12
+  attackAndPlay2 ::
+    Common.State
+    -> Common.Attack
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, Strictness: <B,1*U(A,A,U,A,A)><B,1*U><B,1*U>b,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: Common.State)
+                   (w1 :: Common.Attack)
+                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                 Game.$wplayLoop ww3 w1 w2 }) -}
+9414772f91a47f034865b979e8ee9c3c
+  cardCanPlay :: Common.Card -> Common.State -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <L,U(U,U)><L,U(A,A,A,U,A)>,
+     Unfolding: (\ (card :: Common.Card) (gs :: Common.State) ->
+                 case GHC.List.elem
+                        @ Common.Card
+                        Common.$fEqCard
+                        card
+                        Common.wildCards of wild {
+                   GHC.Types.False
+                   -> case GHC.List.elem
+                             @ Common.Card
+                             Common.$fEqCard
+                             card
+                             Common.changeColCards of wild1 {
+                        GHC.Types.False
+                        -> case card of wild2 { Common.Card ds1 ds2 ->
+                           case ds1 of wild3 {
+                             System.Console.ANSI.Common.Black
+                             -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                case Game.cardCanPlay_go
+                                       ww4
+                                       (GHC.List.lastError
+                                          @ Common.Card) of wild4 { Common.Card ds4 ds5 ->
+                                case ds4 of wild5 {
+                                  DEFAULT
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                          (GHC.Prim.dataToTag# @ Common.Value ds5))
+                                  System.Console.ANSI.Common.Black -> GHC.Types.True } } }
+                             System.Console.ANSI.Common.Red
+                             -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                case Game.cardCanPlay_go
+                                       ww4
+                                       (GHC.List.lastError
+                                          @ Common.Card) of wild4 { Common.Card ds4 ds5 ->
+                                case ds4 of wild5 {
+                                  DEFAULT
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                          (GHC.Prim.dataToTag# @ Common.Value ds5))
+                                  System.Console.ANSI.Common.Red -> GHC.Types.True } } }
+                             System.Console.ANSI.Common.Green
+                             -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                case Game.cardCanPlay_go
+                                       ww4
+                                       (GHC.List.lastError
+                                          @ Common.Card) of wild4 { Common.Card ds4 ds5 ->
+                                case ds4 of wild5 {
+                                  DEFAULT
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                          (GHC.Prim.dataToTag# @ Common.Value ds5))
+                                  System.Console.ANSI.Common.Green -> GHC.Types.True } } }
+                             System.Console.ANSI.Common.Yellow
+                             -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                case Game.cardCanPlay_go
+                                       ww4
+                                       (GHC.List.lastError
+                                          @ Common.Card) of wild4 { Common.Card ds4 ds5 ->
+                                case ds4 of wild5 {
+                                  DEFAULT
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                          (GHC.Prim.dataToTag# @ Common.Value ds5))
+                                  System.Console.ANSI.Common.Yellow -> GHC.Types.True } } }
+                             System.Console.ANSI.Common.Blue
+                             -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                case Game.cardCanPlay_go
+                                       ww4
+                                       (GHC.List.lastError
+                                          @ Common.Card) of wild4 { Common.Card ds4 ds5 ->
+                                case ds4 of wild5 {
+                                  DEFAULT
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                          (GHC.Prim.dataToTag# @ Common.Value ds5))
+                                  System.Console.ANSI.Common.Blue -> GHC.Types.True } } }
+                             System.Console.ANSI.Common.Magenta
+                             -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                case Game.cardCanPlay_go
+                                       ww4
+                                       (GHC.List.lastError
+                                          @ Common.Card) of wild4 { Common.Card ds4 ds5 ->
+                                case ds4 of wild5 {
+                                  DEFAULT
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                          (GHC.Prim.dataToTag# @ Common.Value ds5))
+                                  System.Console.ANSI.Common.Magenta -> GHC.Types.True } } }
+                             System.Console.ANSI.Common.Cyan
+                             -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                case Game.cardCanPlay_go
+                                       ww4
+                                       (GHC.List.lastError
+                                          @ Common.Card) of wild4 { Common.Card ds4 ds5 ->
+                                case ds4 of wild5 {
+                                  DEFAULT
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                          (GHC.Prim.dataToTag# @ Common.Value ds5))
+                                  System.Console.ANSI.Common.Cyan -> GHC.Types.True } } }
+                             System.Console.ANSI.Common.White
+                             -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                case Game.cardCanPlay_go
+                                       ww4
+                                       (GHC.List.lastError
+                                          @ Common.Card) of wild4 { Common.Card ds4 ds5 ->
+                                case ds4 of wild5 {
+                                  DEFAULT
+                                  -> GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.dataToTag# @ Common.Value ds2)
+                                          (GHC.Prim.dataToTag# @ Common.Value ds5))
+                                  System.Console.ANSI.Common.White -> GHC.Types.True } } } } }
+                        GHC.Types.True -> GHC.Types.True }
+                   GHC.Types.True -> Game.cardCanPlay1 }) -}
+1f1ee737ac1e6c4af7fff257bc57b800
+  cardCanPlay1 :: GHC.Types.Bool
+  {- Strictness: x -}
+eadb10bccc98b8b4b7c6fdd374497c57
+  cardCanPlay_go :: [Common.Card] -> Common.Card -> Common.Card
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U(U,U)> -}
+25e14504db1923d16f98070567d51ec1
+  cardInCurHand :: Common.Card -> Common.State -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <L,U(U,U)><S(LLLLS),1*U(A,A,A,A,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (card :: Common.Card) (gs :: Common.State) ->
+                 Game.cardInHand card (Common.cur_player gs)) -}
+1386a996864f74ede9cab27bbd0377ef
+  cardInHand :: Common.Card -> Common.Player -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <L,U(U,U)><S,1*U> -}
+9f989a83c1845bd909aa8f15e15c3c04
+  curHand :: Common.State -> Common.Hand
+  {- Arity: 1, Strictness: <S(LLLLS),1*U(A,A,A,A,1*U)>,
      Unfolding: InlineRule (1, True, False)
-                (\ (w :: GHC.Types.Int) ->
-                 case Game.$winitGame w of ww { (#,,#) ww1 ww2 ww3 ->
-                 Common.State ww1 ww2 ww3 }) -}
+                (\ (gs :: Common.State) ->
+                 case gs of wild { Common.State ds1 ds2 ds3 ds4 ds5 ->
+                 case ds5 of wild1 {
+                   Common.HPlayer ds7 ds8 -> ds8
+                   Common.AiPlayer ds7 ds8 -> ds8
+                   Common.NoPlayer ipv -> Common.hand1 } }) -}
+c3c903e1568cf2b1a10a715385311ded
+  deckIsEmpty :: Common.State -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSLL),1*U(A,A,1*U,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (gs :: Common.State) ->
+                 case gs of wild { Common.State ds1 ds2 ds3 ds4 ds5 ->
+                 case ds3 of wild1 {
+                   [] -> GHC.Types.True : ds7 ds8 -> GHC.Types.False } }) -}
+45e68297f219cd91e25fa4ffa8365ba5
+  discardCards ::
+    [Common.Card] -> Common.State -> GHC.Types.IO Common.State
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U><L,1*U(U,U,U,1*U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.discardCards1
+                  `cast`
+                (<[Common.Card]>_R
+                 ->_R <Common.State>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+c602db51835c38f5224d635c7a164758
+  discardCards1 ::
+    [Common.Card]
+    -> Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U><L,1*U(U,U,U,1*U,U)><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (cards :: [Common.Card])
+                   (gs :: Common.State)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# eta,
+                    case gs of wild { Common.State ds ds1 ds2 ds3 ds4 ->
+                    Common.State
+                      ds
+                      ds1
+                      ds2
+                      (GHC.Base.augment
+                         @ Common.Card
+                         (\ @ b (c :: Common.Card -> b -> b)[OneShot] (n :: b)[OneShot] ->
+                          GHC.Base.foldr @ Common.Card @ b c n ds3)
+                         cards)
+                      ds4 } #)) -}
+7ef9cd0f637b08b096c2aa168ebd856f
+  drawAndEnd ::
+    Common.State
+    -> GHC.Types.Int -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><L,A><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.drawAndEnd1
+                  `cast`
+                (<Common.State>_R
+                 ->_R <GHC.Types.Int>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <(Common.Action, Common.State)>_R)) -}
+e4791c626fc40b1d781c37ff7121ce92
+  drawAndEnd1 ::
+    Common.State
+    -> GHC.Types.Int
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Common.Action, Common.State) #)
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><L,A><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (gs :: Common.State)
+                   (draw_count :: GHC.Types.Int)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# s, (Common.EndTurn, gs) #)) -}
+766dabfbfb019e09fcc42669b9a50b2b
+  drawNCards ::
+    GHC.Types.Int
+    -> Common.State -> Common.Player -> GHC.Types.IO Common.State
+  {- Arity: 4, HasNoCafRefs, Strictness: <L,A><L,U><L,A><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.drawNCards1
+                  `cast`
+                (<GHC.Types.Int>_R
+                 ->_R <Common.State>_R
+                 ->_R <Common.Player>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+e03df98919a9e7e0473726e95843158a
+  drawNCards1 ::
+    GHC.Types.Int
+    -> Common.State
+    -> Common.Player
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 4, HasNoCafRefs, Strictness: <L,A><L,U><L,A><S,U>,
+     Unfolding: InlineRule (4, True, True)
+                (\ (n :: GHC.Types.Int)
+                   (gs :: Common.State)
+                   (player :: Common.Player)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# s, gs #)) -}
+0be3c1d29f39bb23ec8b7c2066fa0533
+  getNextPlayer :: Common.State -> Common.Player
+  {- Arity: 1, Strictness: <S(SLLLL),1*U(1*U,A,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (gs :: Common.State) ->
+                 case gs of wild { Common.State ds1 ds2 ds3 ds4 ds5 ->
+                 GHC.List.head @ Common.Player ds1 }) -}
+c56aca85e702b83ed59e2785c5e9204e
+  initGame :: GHC.Types.Int -> Common.State
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (1, True, True)
+                (\ (n :: GHC.Types.Int) -> Game.initGame1) -}
+d8dc1fea72260c6c5443b7ec0d0594f2
+  initGame1 :: Common.State
+  {- Strictness: m,
+     Unfolding: (Common.State
+                   (GHC.Types.[] @ Common.Player)
+                   (GHC.Types.[] @ Common.Player)
+                   Common.fullDeck
+                   (GHC.Types.[] @ Common.Card)
+                   Common.noPlayer) -}
+95ded642a104a49436dbeb845717728e
+  initGameWithPlayers :: [Common.Player] -> Common.State
+  {- Arity: 1, Strictness: <L,1*U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (pa :: [Common.Player]) ->
+                 Common.State
+                   (Common.clearHands pa)
+                   (GHC.Types.[] @ Common.Player)
+                   Common.fullDeck
+                   (GHC.Types.[] @ Common.Card)
+                   Common.noPlayer) -}
 b6630ac52ef1770a692b3a568933d954
   initialCardCount :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7#) -}
-cd235847b9603ef0577bf21c4cc9edac
-  setupGame :: Common.State -> GHC.Types.IO Common.State
-  {- Arity: 2, Strictness: <S(LSL),1*U(1*U,U,A)><S,U>,
+1453bddaaa413e98f19084624b9b2722
+  pickNextAndPlay :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, Strictness: <B,1*U(A,A,U,A,A)><B,1*U>b,
      Unfolding: InlineRule (0, True, True)
-                Game.setupGame1
+                Game.pickNextAndPlay1
                   `cast`
                 (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
-146a4f861aecb6cebe17067c99397d6f
-  setupGame1 ::
+9ffd28dbef1fcb77e8cef3b90edad50b
+  pickNextAndPlay1 ::
     Common.State
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
-  {- Arity: 2, Strictness: <S(LSL),1*U(1*U,U,A)><S,U>,
+  {- Arity: 2, Strictness: <B,1*U(A,A,U,A,A)><B,1*U>b,
+     Unfolding: InlineRule (2, True, False)
+                (\ (gs :: Common.State)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case gs of wild { Common.State ds ds1 ds2 ds3 ds4 ->
+                 Game.attackAndPlay2
+                   (Common.State ds ds1 ds2 ds3 (GHC.List.head @ Common.Player ds))
+                   Common.NoAttack
+                   eta }) -}
+4005b597533d1132a4b3c415f5c93322
+  pickNextPlayer :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, Strictness: <L,1*U(U,U,U,U,A)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.pickNextPlayer1
+                  `cast`
+                (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+d229b812bcd144c238e7710a870a108e
+  pickNextPlayer1 ::
+    Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 2, Strictness: <L,1*U(U,U,U,U,A)><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (gs :: Common.State)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# eta,
+                    case gs of wild { Common.State ds ds1 ds2 ds3 ds4 ->
+                    Common.State
+                      ds
+                      ds1
+                      ds2
+                      ds3
+                      (GHC.List.head @ Common.Player ds) } #)) -}
+af32b508c6b4da99c89df9511873514e
+  playCard ::
+    Common.Card
+    -> Common.State -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 3, Strictness: <S(SL),1*U(U,U)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.playCard1
+                  `cast`
+                (<Common.Card>_R
+                 ->_R <Common.State>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <(Common.Action, Common.State)>_R)) -}
+a188f431c474b20819d5b8186bb260dc
+  playCard1 ::
+    Common.Card
+    -> Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Common.Action, Common.State) #)
+  {- Arity: 3, Strictness: <S(SL),1*U(U,U)><L,U><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: Common.Card)
+                   (w1 :: Common.State)
+                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { Common.Card ww1 ww2 ->
+                 Game.$wplayCard ww1 ww2 w1 w2 }) -}
+afdd39909627799ff20a3d1f3f39e8d7
+  playCard2 :: GHC.Types.IO (Common.Action, Common.State)
+  {- Strictness: x -}
+e87c866ba0e7ad4025e6fe0a6c465c25
+  playCurrentPlayer :: Common.State -> (Common.Action, Common.Card)
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>m,
+     Unfolding: InlineRule (1, True, True)
+                (\ (gs :: Common.State) -> Game.playCurrentPlayer1) -}
+1aaeb2e2980a2c1382f842fc755e972f
+  playCurrentPlayer1 :: (Common.Action, Common.Card)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Common.TakeFromDeck, Common.whiteDummy)) -}
+9e357eec432aec9db846f82e96d7e887
+  playLoop ::
+    Common.State -> Common.Attack -> GHC.Types.IO Common.State
+  {- Arity: 3, Strictness: <B,1*U(A,A,U,A,A)><B,1*U><B,1*U>b,
+     Unfolding: InlineRule (0, True, True)
+                Game.attackAndPlay2
+                  `cast`
+                (<Common.State>_R
+                 ->_R <Common.Attack>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+227fa0217afaa8ed51e346b51d73079a
+  playLoopNext ::
+    Common.State -> Common.Action -> GHC.Types.IO Common.State
+  {- Arity: 3, Strictness: <B,1*U(A,A,U,A,A)><B,1*U><B,1*U>b,
+     Unfolding: InlineRule (0, True, True)
+                Game.playLoopNext1
+                  `cast`
+                (<Common.State>_R
+                 ->_R <Common.Action>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+50e754adec9e2af12a1271870a94d80b
+  playLoopNext1 ::
+    Common.State
+    -> Common.Action
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, Strictness: <B,1*U(A,A,U,A,A)><B,1*U><B,1*U>b,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: Common.State)
+                   (w1 :: Common.Action)
+                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                 Game.$wplayLoopNext ww3 w1 w2 }) -}
+9077e86f2e5f0f26eb615bcebca85cfb
+  playOneCard ::
+    Common.State -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.playOneCard1
+                  `cast`
+                (<Common.State>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <(Common.Action, Common.State)>_R)) -}
+13c71c2d91c755c4a1f5d65073360923
+  playOneCard1 ::
+    Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Common.Action, Common.State) #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (gs :: Common.State)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# s, (Common.EndTurn, gs) #)) -}
+f279dc65057dc3b18bcef8a05f2732c1
+  playPlayer ::
+    Common.State
+    -> Common.Attack -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.playPlayer1
+                  `cast`
+                (<Common.State>_R
+                 ->_R <Common.Attack>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <(Common.Action, Common.State)>_R)) -}
+36cf3ba80cf0e1ed0f62e9d9893f1b17
+  playPlayer1 ::
+    Common.State
+    -> Common.Attack
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Common.Action, Common.State) #)
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,U>,
+     Unfolding: (\ (gs :: Common.State)
+                   (under_attack :: Common.Attack)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case under_attack of wild {
+                   Common.NoAttack
+                   -> case Game.playPlayer3 of wild1 {
+                        GHC.Types.False
+                        -> case Game.playPlayer2
+                           ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                     (Common.Action, Common.State) #)
+                           of {}
+                        GHC.Types.True -> (# eta, (Common.EndTurn, gs) #) }
+                   Common.Skip -> (# eta, (Common.EndTurn, gs) #)
+                   Common.Draw2 -> (# eta, (Common.EndTurn, gs) #)
+                   Common.Draw4 -> (# eta, (Common.EndTurn, gs) #) }) -}
+bc648d8a155ae3c863aace66103ad893
+  playPlayer2 :: GHC.Types.IO (Common.Action, Common.State)
+  {- Strictness: x -}
+6af5dd0fb4c3c942c738b9d4e94614c0
+  playPlayer3 :: GHC.Types.Bool
+  {- Unfolding: (GHC.List.elem
+                   @ Common.Action
+                   Common.$fEqAction
+                   Common.EndTurn
+                   Game.playPlayer4) -}
+8f796e1531b945372a39caab59d1b0f8
+  playPlayer4 :: [Common.Action]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Common.Action
+                   Common.EndTurn
+                   Game.playPlayer5) -}
+3a7eecda4e0c1a001e292b261a8fd7f4
+  playPlayer5 :: [Common.Action]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Common.Action
+                   Common.AttackReverse
+                   Game.playPlayer6) -}
+7473f44a4b1fc40320ba42ce9472fa46
+  playPlayer6 :: [Common.Action]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Common.Action
+                   Common.AttackSkip
+                   Game.playPlayer7) -}
+9870758b4120664985eccede2aa5bc0e
+  playPlayer7 :: [Common.Action]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Common.Action
+                   Common.AttackDraw2
+                   Game.playPlayer8) -}
+1ae17c12f56d742574875559ddc9f8af
+  playPlayer8 :: [Common.Action]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Common.Action
+                   Common.AttackWildDraw4
+                   (GHC.Types.[] @ Common.Action)) -}
+6f7129f64a7e82d07778bca664830ca2
+  playTurn ::
+    Common.State -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.playOneCard1
+                  `cast`
+                (<Common.State>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <(Common.Action, Common.State)>_R)) -}
+f846e5b73fdf7f3c59af32fadfc550f9
+  playerHasWon :: Common.State -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (gs :: Common.State) -> GHC.Types.False) -}
+8a3a8c1aa6b760dfea22d9b933b06a04
+  playerIsOut :: Common.State -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (gs :: Common.State) -> GHC.Types.False) -}
+08d0dd2f5f3125a656940b22096aceb5
+  reloadDeck :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                (GHC.Base.returnIO1 @ Common.State)
+                  `cast`
+                (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+d6b29c2763fb8096fdde87c49dd9c2f3
+  restartGame :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, Strictness: <B,1*U(1*U,A,A,A,A)><B,1*U>b,
+     Unfolding: InlineRule (0, True, True)
+                Game.restartGame1
+                  `cast`
+                (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+b82889e101bf08530217357a7b713672
+  restartGame1 ::
+    Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 2, Strictness: <B,1*U(1*U,A,A,A,A)><B,1*U>b,
      Inline: INLINE[0],
      Unfolding: InlineRule (2, True, False)
                 (\ (w :: Common.State)
                    (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case w of ww { Common.State ww1 ww2 ww3 ->
-                 Game.$wsetupGame ww1 ww2 w1 }) -}
-e0c30b7e9cd50ef0bc2a009287d7ec00
-  setupGame2 :: Common.D_Stack
+                 case w of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                 Game.$wrestartGame ww1 w1 }) -}
+7d4f146d6d62139d64045929412446ba
+  reverseAndPlay :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, Strictness: <B,1*U(A,A,U,A,A)><B,1*U>b,
+     Unfolding: InlineRule (0, True, True)
+                Game.pickNextAndPlay1
+                  `cast`
+                (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+0adec21c42769b87bb4b35d3a78b9319
+  reversePlayers :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                (GHC.Base.returnIO1 @ Common.State)
+                  `cast`
+                (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+3f64b4c379870769400938dc21591d4b
+  setupGame :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                (GHC.Base.returnIO1 @ Common.State)
+                  `cast`
+                (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+e3e0732c9b71a81ab2a8555fa51bfe32
+  startGame :: Common.State -> GHC.Types.IO Common.State
+  {- Arity: 2, Strictness: <B,1*U(A,A,U,A,A)><B,1*U>b,
+     Unfolding: InlineRule (0, True, True)
+                Game.pickNextAndPlay1
+                  `cast`
+                (<Common.State>_R ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+a795f303268b5d52e9051ef0518833fb
+  takeAction ::
+    Common.Action
+    -> Common.Card
+    -> Common.State
+    -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 4, Strictness: <S,1*U><L,U(U,U)><L,U(U,U,U,U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.takeAction1
+                  `cast`
+                (<Common.Action>_R
+                 ->_R <Common.Card>_R
+                 ->_R <Common.State>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <(Common.Action, Common.State)>_R)) -}
+6f1a2006a23438a51eaaa6d09b1ef916
+  takeAction1 ::
+    Common.Action
+    -> Common.Card
+    -> Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Common.Action, Common.State) #)
+  {- Arity: 4, Strictness: <S,1*U><L,U(U,U)><L,U(U,U,U,U,U)><S,U>,
+     Unfolding: (\ (action :: Common.Action)
+                   (card :: Common.Card)
+                   (gs :: Common.State)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case action of wild {
+                   DEFAULT
+                   -> let {
+                        $j :: GHC.Prim.Void#
+                              -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                    (Common.Action, Common.State) #)
+                          {- Arity: 1, Strictness: <L,A> -}
+                        = \ (w :: GHC.Prim.Void#)[OneShot] ->
+                          let {
+                            $j1 :: GHC.Prim.Void#
+                                   -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                         (Common.Action, Common.State) #)
+                              {- Arity: 1, Strictness: <L,A> -}
+                            = \ (w1 :: GHC.Prim.Void#)[OneShot] ->
+                              case wild of wild1 {
+                                Common.UseCard -> Game.playCard1 card gs eta
+                                Common.EndTurn
+                                -> case Game.takeAction2
+                                   ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                             (Common.Action, Common.State) #)
+                                   of {}
+                                Common.AttackReverse
+                                -> case Game.takeAction2
+                                   ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                             (Common.Action, Common.State) #)
+                                   of {}
+                                Common.AttackSkip
+                                -> case Game.takeAction2
+                                   ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                             (Common.Action, Common.State) #)
+                                   of {}
+                                Common.AttackDraw2
+                                -> case Game.takeAction2
+                                   ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                             (Common.Action, Common.State) #)
+                                   of {}
+                                Common.AttackWildDraw4
+                                -> case Game.takeAction2
+                                   ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                             (Common.Action, Common.State) #)
+                                   of {} }
+                          } in
+                          case wild of wild1 {
+                            Common.UseCard
+                            -> case Game.cardCanPlay card gs of wild2 {
+                                 GHC.Types.False
+                                 -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                    case card of ww6 { Common.Card ww7 ww8 ->
+                                    case Game.$wlvl1 ww4 ww7 ww8
+                                    ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                              (Common.Action, Common.State) #)
+                                    of {} } }
+                                 GHC.Types.True -> $j1 GHC.Prim.void# }
+                            Common.EndTurn -> $j1 GHC.Prim.void#
+                            Common.AttackReverse -> $j1 GHC.Prim.void#
+                            Common.AttackSkip -> $j1 GHC.Prim.void#
+                            Common.AttackDraw2 -> $j1 GHC.Prim.void#
+                            Common.AttackWildDraw4 -> $j1 GHC.Prim.void# }
+                      } in
+                      case wild of wild1 {
+                        Common.UseCard
+                        -> case Game.cardInHand card (Common.cur_player gs) of wild2 {
+                             GHC.Types.False
+                             -> case gs of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                                case card of ww6 { Common.Card ww7 ww8 ->
+                                case Game.$wlvl ww5 ww7 ww8
+                                ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                          (Common.Action, Common.State) #)
+                                of {} } }
+                             GHC.Types.True -> $j GHC.Prim.void# }
+                        Common.EndTurn -> $j GHC.Prim.void#
+                        Common.AttackReverse -> $j GHC.Prim.void#
+                        Common.AttackSkip -> $j GHC.Prim.void#
+                        Common.AttackDraw2 -> $j GHC.Prim.void#
+                        Common.AttackWildDraw4 -> $j GHC.Prim.void# }
+                   Common.TakeFromDeck -> (# eta, (Common.EndTurn, gs) #) }) -}
+a736a137b233c78dcbf5025d64979314
+  takeAction2 :: GHC.Types.IO (Common.Action, Common.State)
   {- Strictness: x -}
+54ee36c3b2fb73539b46f021ef6946cb
+  takeFromDeck ::
+    Common.State -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.playOneCard1
+                  `cast`
+                (<Common.State>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <(Common.Action, Common.State)>_R)) -}
+229db095e5634d71b5383a6404e29baa
+  takeFromHand ::
+    Common.Card -> Common.State -> GHC.Types.IO Common.State
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.takeFromHand1
+                  `cast`
+                (<Common.Card>_R
+                 ->_R <Common.State>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+e581580c6f9a4673c12832deb3f0c909
+  takeFromHand1 ::
+    Common.Card
+    -> Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ (card :: Common.Card)
+                   (gs :: Common.State)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# s, gs #)) -}
+2613dbe432072a07049a5a5e34d0156b
+  takeFromHandWithAction ::
+    Common.Card
+    -> Common.Action
+    -> Common.State
+    -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 4, HasNoCafRefs, Strictness: <L,A><L,U><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.takeFromHandWithAction1
+                  `cast`
+                (<Common.Card>_R
+                 ->_R <Common.Action>_R
+                 ->_R <Common.State>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <(Common.Action, Common.State)>_R)) -}
+0b5f0fd539ebe7ab93daa3cd3557578c
+  takeFromHandWithAction1 ::
+    Common.Card
+    -> Common.Action
+    -> Common.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Common.Action, Common.State) #)
+  {- Arity: 4, HasNoCafRefs, Strictness: <L,A><L,U><L,U><S,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ (card :: Common.Card)
+                   (next_action :: Common.Action)
+                   (gs :: Common.State)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# eta, (next_action, gs) #)) -}
+02ba4737d5c7f156e6fa324aafa08ab5
+  takeNextAction ::
+    Common.Action
+    -> Common.State
+    -> Common.Attack
+    -> GHC.Types.IO (Common.Action, Common.State)
+  {- Arity: 4, Strictness: <L,U><L,U><L,A><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.takeNextAction1
+                  `cast`
+                (<Common.Action>_R
+                 ->_R <Common.State>_R
+                 ->_R <Common.Attack>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <(Common.Action, Common.State)>_R)) -}
+bd1d6a89662b4844bc92a4b962a6041b
+  takeNextAction1 ::
+    Common.Action
+    -> Common.State
+    -> Common.Attack
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Common.Action, Common.State) #)
+  {- Arity: 4, Strictness: <L,U><L,U><L,A><S,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ (next_action :: Common.Action)
+                   (gs :: Common.State)
+                   (under_attack :: Common.Attack)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.List.elem
+                        @ Common.Action
+                        Common.$fEqAction
+                        next_action
+                        Game.playPlayer4 of wild {
+                   GHC.Types.False
+                   -> case Game.playPlayer2
+                      ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                (Common.Action, Common.State) #)
+                      of {}
+                   GHC.Types.True -> (# eta, (next_action, gs) #) }) -}
+73b7fbef00150172ef11c83cfe524b33
+  topDCard :: Common.State -> Common.Card
+  {- Arity: 1, Strictness: <S(LLLSL),1*U(A,A,A,1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: Common.State) ->
+                 case w of ww { Common.State ww1 ww2 ww3 ww4 ww5 ->
+                 Game.$wtopDCard ww4 }) -}
+ab2e8db67a55e8eae8e09522398247c4
+  updateCurHand ::
+    Common.State -> Common.Hand -> GHC.Types.IO Common.State
+  {- Arity: 3, Strictness: <L,U(1*U,U,U,U,U)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.updateCurHand1
+                  `cast`
+                (<Common.State>_R
+                 ->_R <Common.Hand>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+ae44ff3fe1927718ea4829e283ac3dc1
+  updateCurHand1 ::
+    Common.State
+    -> Common.Hand
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, Strictness: <L,U(1*U,U,U,U,U)><L,U><S,U>,
+     Unfolding: (\ (gs :: Common.State)
+                   (h :: Common.Hand)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 let {
+                   cp :: Common.Player
+                   = case gs of wild { Common.State ds1 ds2 ds3 ds4 ds5 -> ds5 }
+                 } in
+                 Game.updateCurHand3
+                   gs
+                   cp
+                   (case cp of wild {
+                      Common.HPlayer ds ds1 -> Common.HPlayer ds h
+                      Common.AiPlayer ds ds1 -> Common.AiPlayer ds h
+                      Common.NoPlayer ipv -> Game.updateCurHand2 })
+                   eta) -}
+4489a33426cf4e82ddaaa38ea5713dc0
+  updateCurHand2 :: Common.Player
+  {- Strictness: x -}
+6322d99a3e2eb0955d0a4aeb57ccbc32
+  updateCurHand3 ::
+    Common.State
+    -> Common.Player
+    -> Common.Player
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*U,U,U,U,U)><L,U><L,U><S,U>,
+     Unfolding: (\ (gs :: Common.State)
+                   (p :: Common.Player)
+                   (new_p :: Common.Player)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# eta,
+                    case gs of wild { Common.State ds ds1 ds2 ds3 ds4 ->
+                    Common.State
+                      (GHC.Base.map
+                         @ Common.Player
+                         @ Common.Player
+                         (\ (p' :: Common.Player) ->
+                          case Common.$fEqPlayer_$c== p' p of wild1 {
+                            GHC.Types.False -> p' GHC.Types.True -> new_p })
+                         ds)
+                      ds1
+                      ds2
+                      ds3
+                      (case Common.$fEqPlayer_$c== ds4 p of wild1 {
+                         GHC.Types.False -> ds4 GHC.Types.True -> new_p }) } #)) -}
+a2b025317cd6ce2f7eea4e0d022243e5
+  updateCurPlayer ::
+    Common.State -> Common.Player -> GHC.Types.IO Common.State
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(U,U,U,U,A)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.updateCurPlayer1
+                  `cast`
+                (<Common.State>_R
+                 ->_R <Common.Player>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+ff108b7ddaa2995be87aa558a1914f1b
+  updateCurPlayer1 ::
+    Common.State
+    -> Common.Player
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(U,U,U,U,A)><L,U><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (gs :: Common.State)
+                   (player :: Common.Player)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# eta,
+                    case gs of wild { Common.State ds ds1 ds2 ds3 ds4 ->
+                    Common.State ds ds1 ds2 ds3 player } #)) -}
+7a22e49b14672965b81a5fc748f668f6
+  updateDeck ::
+    Common.State -> Common.Deck -> GHC.Types.IO Common.State
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(U,U,A,U,U)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.updateDeck1
+                  `cast`
+                (<Common.State>_R
+                 ->_R <Common.Deck>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+b8099eb26ca03e6382ef4456116ec553
+  updateDeck1 ::
+    Common.State
+    -> Common.Deck
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(U,U,A,U,U)><L,U><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (gs :: Common.State)
+                   (deck' :: Common.Deck)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# eta,
+                    case gs of wild { Common.State ds ds1 ds2 ds3 ds4 ->
+                    Common.State ds ds1 deck' ds3 ds4 } #)) -}
+f42f1b51e5e0e1ad3d02d1e595cf2bbc
+  updateDiscardS ::
+    Common.State -> Common.Deck -> GHC.Types.IO Common.State
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(U,U,U,A,U)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.updateDiscardS1
+                  `cast`
+                (<Common.State>_R
+                 ->_R <Common.Deck>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+7836f98174ec7b6ab5d2d958449000c1
+  updateDiscardS1 ::
+    Common.State
+    -> Common.Deck
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.State #)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(U,U,U,A,U)><L,U><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (gs :: Common.State)
+                   (d_stack' :: Common.Deck)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# eta,
+                    case gs of wild { Common.State ds ds1 ds2 ds3 ds4 ->
+                    Common.State ds ds1 ds2 d_stack' ds4 } #)) -}
+4744d900449c336d646575e0d0029848
+  updateHand ::
+    Common.Player -> Common.Hand -> GHC.Types.IO Common.Player
+  {- Arity: 3, Strictness: <L,1*U><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.updateHand1
+                  `cast`
+                (<Common.Player>_R
+                 ->_R <Common.Hand>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.Player>_R)) -}
+680b7a92c30c50c20b7c9c0740b7c804
+  updateHand1 ::
+    Common.Player
+    -> Common.Hand
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Common.Player #)
+  {- Arity: 3, Strictness: <L,1*U><L,U><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (player :: Common.Player)
+                   (h :: Common.Hand)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# eta,
+                    case player of wild {
+                      Common.HPlayer ds ds1 -> Common.HPlayer ds h
+                      Common.AiPlayer ds ds1 -> Common.AiPlayer ds h
+                      Common.NoPlayer ipv -> Game.updateCurHand2 } #)) -}
+a30f10ed307ea3846ad1d9cb90c3394c
+  updatePlayer ::
+    Common.State
+    -> Common.Player -> Common.Player -> GHC.Types.IO Common.State
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*U,U,U,U,U)><L,U><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Game.updateCurHand3
+                  `cast`
+                (<Common.State>_R
+                 ->_R <Common.Player>_R
+                 ->_R <Common.Player>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Common.State>_R)) -}
+539fa43e6861aff764e985d96074a343
+  useSimpleStrategy ::
+    Common.State
+    -> Common.Card -> Common.Hand -> (Common.Action, Common.Card)
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,A><L,A>m,
+     Unfolding: InlineRule (3, True, True)
+                (\ (gs :: Common.State)
+                   (dcard :: Common.Card)
+                   (hand :: Common.Hand) ->
+                 Game.playCurrentPlayer1) -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:
