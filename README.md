@@ -39,6 +39,11 @@ cd uno
 hake
 ```
 
+## References
+
+UNO rules:
+[http://www.wikihow.com/Play-UNO](http://www.wikihow.com/Play-UNO)
+
 ## Copyright and License
 
 All important references, copyright ownership belongs to those who
